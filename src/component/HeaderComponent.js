@@ -63,7 +63,7 @@ const Nav = styled.nav`
 `;
 
 const NavItem = styled.a`
-  color: ${({ isScrolled }) => isScrolled ? '#333' : '#333'};
+  color: ${({ isScrolled }) => isScrolled ? '#333' : '#fff'};
   text-decoration: none;
   font-family: 'Cormorant Garamond', serif;
   font-size: 16px;
@@ -100,39 +100,10 @@ const BookNowButton = styled.a`
   }
 `;
 
-const LanguageSelector = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-left: 20px;
-  cursor: pointer;
-  color: ${({ isScrolled }) => isScrolled ? '#333' : '#fff'};
 
-  svg {
-    margin-right: 5px;
-  }
-`;
 
-const LanguageOptions = styled.div`
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: white;
-  border: 1px solid #eaeaea;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  display: ${({ isOpen }) => isOpen ? 'block' : 'none'};
-`;
 
-const LanguageOption = styled.div`
-  padding: 10px 20px;
-  color: #333;
-  transition: background-color 0.3s ease;
 
-  &:hover {
-    background-color: #f5f5f5;
-  }
-`;
 
 const MobileMenuToggle = styled.button`
   display: none;
@@ -140,7 +111,7 @@ const MobileMenuToggle = styled.button`
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: ${({ isScrolled }) => isScrolled ? '#333' : '#333'};
+  color: ${({ isScrolled }) => isScrolled ? '#333' : '#fff'};
 
   @media (max-width: 1024px) {
     display: block;
@@ -209,32 +180,6 @@ const CloseButton = styled.button`
   &:hover {
     color: #bf9b30;
     transform: rotate(90deg);
-  }
-`;
-
-const MobileBookNowButton = styled(BookNowButton)`
-  display: block;
-  text-align: center;
-  margin: 20px auto;
-  width: 80%;
-  position: relative;
-  overflow: hidden;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.3) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    transform: rotate(45deg);
-    animation: ${shimmer} 2s infinite;
   }
 `;
 
@@ -332,7 +277,6 @@ const HeaderComponent = () => {
             <NavItem href="/wellness" isScrolled={isScrolled}>Wellness</NavItem>
             <NavItem href="/contact" isScrolled={isScrolled}>Contact</NavItem>
           </Nav>
-          <BookNowButton href="/booking">Book Now</BookNowButton>
 
           <MobileMenuToggle isScrolled={isScrolled} onClick={toggleMobileMenu}>
             ☰

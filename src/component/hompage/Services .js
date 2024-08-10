@@ -1,211 +1,149 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { Utensils, Sun, Dumbbell, Droplet, Coffee } from 'lucide-react';
+import { Utensils, Bath, Waves, Dumbbell, Wifi, Car } from 'lucide-react';
 
-import bufImage from '../../assets/servics/buf.jpg';
-import fitnessImage from '../../assets/servics/fitness.jpg';
-import poolImage from '../../assets/servics/pool.jpg';
-import restaurantImage from '../../assets/servics/restaurant.jpg';
-import spaImage from '../../assets/servics/spa.jpg';
-
-const ServicesSection = styled.section`
-  text-align: center;
+const ServiceSection = styled.section`
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-  background-color: #f8f8f8;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
 `;
 
-const SectionTitle = styled.h2`
-  color: #FF6B35;
-  font-size: 20px;
+const Title = styled.h2`
+  text-align: center;
+  font-size: 2em;
   margin-bottom: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-`;
-
-const SectionSubtitle = styled.h3`
-  font-size: 28px;
-  margin-bottom: 40px;
   color: #333;
-  font-weight: 300;
-`;
 
-const ServiceCard = styled.div`
-  position: relative;
-  height: 300px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  @media (max-width: 768px) {
+    font-size: 1.8em;
+  }
 
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  @media (max-width: 480px) {
+    font-size: 1.5em;
   }
 `;
 
-const ServiceImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+const Subtitle = styled.h3`
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #333;
 
-  ${ServiceCard}:hover & {
-    transform: scale(1.05);
+  @media (max-width: 768px) {
+    font-size: 1.3em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.1em;
   }
 `;
 
-const ServiceContent = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+const Description = styled.p`
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
+  font-size: 0.9em;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 768px) {
+    font-size: 0.85em;
+    max-width: 90%;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8em;
+    max-width: 100%;
+  }
+`;
+
+const ServicesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
+const ServiceItem = styled.div`
+  background-color: #fff;
   padding: 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-  color: white;
-  transition: background 0.3s ease;
-
-  ${ServiceCard}:hover & {
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 100%);
-  }
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
 `;
 
-const ServiceIcon = styled.div`
-  width: 50px;
-  height: 50px;
-  background-color: #FF6B35;
-  border-radius: 50%;
+const IconWrapper = styled.div`
+  background-color: #e0e0e0;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease;
+  margin: 0 auto 15px;
 
-  ${ServiceCard}:hover & {
-    transform: scale(1.1);
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
   }
 `;
 
 const ServiceTitle = styled.h4`
-  font-size: 18px;
+  font-size: 1.2em;
   margin-bottom: 10px;
-  font-weight: 600;
-`;
+  color: #333;
 
-const ViewMoreButton = styled.button`
-  background-color: transparent;
-  color: white;
-  border: 2px solid white;
-  padding: 8px 16px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-
-  ${ServiceCard}:hover & {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  &:hover {
-    background-color: #FF6B35;
-    border-color: #FF6B35;
+  @media (max-width: 768px) {
+    font-size: 1.1em;
   }
 `;
 
-const StyledSlider = styled(Slider)`
-  .slick-slide > div {
-    margin: 0 15px;
-  }
-  .slick-list {
-    margin: 0 -15px;
-  }
-  
-  .slick-dots li button:before {
-    font-size: 12px;
-    color: #FF6B35;
+const ServiceDescription = styled.p`
+  font-size: 0.8em;
+  color: #666;
+
+  @media (max-width: 768px) {
+    font-size: 0.75em;
   }
 `;
 
-const OurServices = () => {
-  const [activeSlide, setActiveSlide] = useState(0);
+const services = [
+  { title: "Restaurant", icon: Utensils,  },
+  { title: "Spa Center", icon: Bath, },
+  { title: "Swimming Pool", icon: Waves},
+  { title: "Fitness Center", icon: Dumbbell, },
+  { title: "High Speed Wifi", icon: Wifi, },
+  { title: "Car Parking", icon: Car, },
+];
 
-  const services = [
-    { title: 'Restaurant', image: restaurantImage, icon: Utensils },
-    { title: 'Spa Center', image: spaImage, icon: Sun },
-    { title: 'Fitness Center', image: fitnessImage, icon: Dumbbell },
-    { title: 'Health Club & Pool', image: poolImage, icon: Droplet },
-    { title: 'Buf', image: bufImage, icon: Coffee },
-  ];
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 900,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    pauseOnHover: true,
-    swipe: true,
-    beforeChange: (current, next) => setActiveSlide(next),
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-        }
-      }
-    ]
-  };
-
+const HotelServices = () => {
   return (
-    <ServicesSection>
-      <SectionTitle>Our Services</SectionTitle>
-      <SectionSubtitle>Sailing Hotel provides all services you need</SectionSubtitle>
-      <StyledSlider {...settings}>
+    <ServiceSection>
+      <Title>Services</Title>
+      <Subtitle>For Vacation.</Subtitle>
+      <Description>Continually productize compelling quality for packed in business consulting elated Setting up to website and creating pages.</Description>
+      <ServicesGrid>
         {services.map((service, index) => (
-          <ServiceCard key={index}>
-            <ServiceImage src={service.image} alt={service.title} />
-            <ServiceContent>
-              <ServiceIcon>
-                <service.icon size={24} color="white" />
-              </ServiceIcon>
-              <ServiceTitle>{service.title}</ServiceTitle>
-              <ViewMoreButton>View More</ViewMoreButton>
-            </ServiceContent>
-          </ServiceCard>
+          <ServiceItem key={index}>
+            <IconWrapper>
+              <service.icon size={30} color="#333" />
+            </IconWrapper>
+            <ServiceTitle>{service.title}</ServiceTitle>
+          </ServiceItem>
         ))}
-      </StyledSlider>
-    </ServicesSection>
+      </ServicesGrid>
+    </ServiceSection>
   );
 };
 
-export default OurServices;
+export default HotelServices;

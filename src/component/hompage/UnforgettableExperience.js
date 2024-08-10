@@ -116,16 +116,13 @@ const UnforgettableExperience = () => {
     { name: 'Golf', price: '$280/Person', image: golfImage },
     { name: 'Snowsports', price: '$280/Person', image: snowsportsImage },
     { name: 'Climbing', price: '$280/Person', image: climbingImage },
-    { name: 'Bike Rides', price: '$280/Person', image: bikeImage },
-    { name: 'Golf', price: '$280/Person', image: golfImage },
-    { name: 'Snowsports', price: '$280/Person', image: snowsportsImage },
-    { name: 'Climbing', price: '$280/Person', image: climbingImage },
+   { name: 'Snowsports', price: '$280/Person', image: snowsportsImage },
   ];
 
   return (
     <Section>
       <SectionTitle>THERE'S SO MUCH TO DISCOVER</SectionTitle>
-      <MainTitle>Unforgettable Experience</MainTitle>
+      <MainTitle>Activities</MainTitle>
       <ActivityGrid>
         {activities.map((activity, index) => (
           <ActivityCard key={index}>

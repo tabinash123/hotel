@@ -1,7 +1,7 @@
 import React from 'react'
 import RoomsSection from '../component/hompage/RoomsSection'
 import Services from '../component/hompage/Services '
-// import Event from './../component/hompage/Event';
+import TestimonialComponent from './../component/hompage/TestimonialComponent';
 import UnforgettableExperience from './../component/hompage/UnforgettableExperience';
 import PhotoGallery from '../component/hompage/PhotoGallery';
 // import VideoComponent from '../component/hompage/VideoComponent.js';
@@ -16,9 +16,9 @@ const Hompage = () => {
       <IntroductionSection />
       <RoomsSection />
       <Services />
-      {/* <Event /> */}
-      {/* <VideoComponent /> */}
       <UnforgettableExperience />
+      <TestimonialComponent />
+      {/* <VideoComponent /> */}
       <PhotoGallery />
     </div>
   )

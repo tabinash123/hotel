@@ -141,17 +141,16 @@ const RoomCardComponent = ({ room }) => (
   <RoomCard>
     <RoomImage src={room.image} alt={room.name} />
     <RoomInfo>
+      <RoomName>{room.name}</RoomName>
+      <PriceRow>
+        <RoomPrice>${room.price}</RoomPrice>
+        <PerNight>Per Night</PerNight>
+      </PriceRow>
       <StarRating>
         {[...Array(5)].map((_, index) => (
           <StyledStar key={index} size={14} />
         ))}
       </StarRating>
-      <RoomName>{room.name}</RoomName>
-      <RoomStatus>Available Room</RoomStatus>
-      <PriceRow>
-        <RoomPrice>${room.price}</RoomPrice>
-        <PerNight>Per Night</PerNight>
-      </PriceRow>
     </RoomInfo>
   </RoomCard>
 );
@@ -168,10 +167,10 @@ const RoomsSection = () => {
 
   return (
     <Section>
-      <Title>Orbitza Hotel Best Rooms & Suites.</Title>
+      <Title>Rooms & Suites.</Title>
       <Subtitle>
         Continually productize compelling quality for packed in business consulting elated
-        Setting up to website and creating pages.
+       
       </Subtitle>
       <RoomGrid>
         {rooms.map((room) => (
