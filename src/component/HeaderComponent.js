@@ -289,9 +289,9 @@ const HeaderComponent = () => {
           <X size={24} />
         </CloseButton>
         <MobileNavItem href="/">Home <ChevronRight size={20} /></MobileNavItem>
-        <MobileNavItem href="/rooms">Rooms & Suites <ChevronRight size={20} /></MobileNavItem>
+        <MobileNavItem href="/room">Rooms & Suites <ChevronRight size={20} /></MobileNavItem>
         <MobileNavItem href="/dining">Dining <ChevronRight size={20} /></MobileNavItem>
-        <MobileNavItem href="/experiences">Experiences <ChevronRight size={20} /></MobileNavItem>
+        <MobileNavItem href="/about">About-Us <ChevronRight size={20} /></MobileNavItem>
         <MobileNavItem href="/wellness">Wellness <ChevronRight size={20} /></MobileNavItem>
         <MobileNavItem href="/contact">Contact <ChevronRight size={20} /></MobileNavItem>
         <Divider />
