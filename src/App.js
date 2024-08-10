@@ -1,20 +1,25 @@
-import React from 'react'
-// import Hompage from './pages/Hompage'
-import FooterComponent from './component/FooterComponent'
-import HeaderComponent from './component/HeaderComponent'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import FooterComponent from './component/FooterComponent';
+import HeaderComponent from './component/HeaderComponent';
+import Homepage from './pages/Hompage';
 import About from './pages/About';
 import Room from './pages/Room';
 
 const App = () => {
   return (
-    <div>
-      <HeaderComponent />
-      {/* <Hompage /> */}
-      {/* <Room /> */}
-      <About />
-      <FooterComponent />
-    </div>
-  )
-}
+    <Router>
+      <div>
+        <HeaderComponent />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/room" element={<Room />} />
+        </Routes>
+        <FooterComponent />
+      </div>
+    </Router>
+  );
+};
 
-export default App
+export default App;

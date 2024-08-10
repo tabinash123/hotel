@@ -271,9 +271,9 @@ const HeaderComponent = () => {
         <NavGroup>
           <Nav>
             <NavItem href="/" isScrolled={isScrolled}>Home</NavItem>
-            <NavItem href="/rooms" isScrolled={isScrolled}>Rooms & Suites</NavItem>
+            <NavItem href="/room" isScrolled={isScrolled}>Rooms & Suites</NavItem>
             <NavItem href="/dining" isScrolled={isScrolled}>Dining</NavItem>
-            <NavItem href="/experiences" isScrolled={isScrolled}>Experiences</NavItem>
+            <NavItem href="/about" isScrolled={isScrolled}>About-us</NavItem>
             <NavItem href="/wellness" isScrolled={isScrolled}>Wellness</NavItem>
             <NavItem href="/contact" isScrolled={isScrolled}>Contact</NavItem>
           </Nav>
