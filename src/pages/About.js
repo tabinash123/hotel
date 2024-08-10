@@ -8,7 +8,7 @@ import TestimonialCarousel from './../component/hompage/TestimonialComponent';
 
 const About = () => {
   return (
-    <div>
+    <div> 
       <Hero />
       <HotelInfoComponent />
       <HotelFeaturesComponent />

@@ -11,14 +11,13 @@ import HeroComponent from '../component/hompage/HeroComponent.js';
 
 const Hompage = () => {
   return (
-    <div>
+    <div> 
       <HeroComponent />
       <IntroductionSection />
       <RoomsSection />
       <Services />
       <UnforgettableExperience />
       <TestimonialComponent />
-      {/* <VideoComponent /> */}
       <PhotoGallery />
     </div>
   )

@@ -53,7 +53,7 @@ const Subtitle = styled.p`
 
 const FeaturesGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 
   @media (min-width: 768px) {

@@ -272,9 +272,10 @@ const HeaderComponent = () => {
           <Nav>
             <NavItem href="/" isScrolled={isScrolled}>Home</NavItem>
             <NavItem href="/room" isScrolled={isScrolled}>Rooms & Suites</NavItem>
-            <NavItem href="/dining" isScrolled={isScrolled}>Dining</NavItem>
+            <NavItem href="/gallary" isScrolled={isScrolled}>Gallary</NavItem>
             <NavItem href="/about" isScrolled={isScrolled}>About-us</NavItem>
-            <NavItem href="/wellness" isScrolled={isScrolled}>Wellness</NavItem>
+            <NavItem href="/tour" isScrolled={isScrolled}>Tour-Pack</NavItem>
+            <NavItem href="/event" isScrolled={isScrolled}>Events</NavItem>
             <NavItem href="/contact" isScrolled={isScrolled}>Contact</NavItem>
           </Nav>
 
@@ -290,9 +291,9 @@ const HeaderComponent = () => {
         </CloseButton>
         <MobileNavItem href="/">Home <ChevronRight size={20} /></MobileNavItem>
         <MobileNavItem href="/room">Rooms & Suites <ChevronRight size={20} /></MobileNavItem>
-        <MobileNavItem href="/dining">Dining <ChevronRight size={20} /></MobileNavItem>
+        <MobileNavItem href="/event">Events <ChevronRight size={20} /></MobileNavItem>
         <MobileNavItem href="/about">About-Us <ChevronRight size={20} /></MobileNavItem>
-        <MobileNavItem href="/wellness">Wellness <ChevronRight size={20} /></MobileNavItem>
+        <MobileNavItem href="/tour">Tour-Packages <ChevronRight size={20} /></MobileNavItem>
         <MobileNavItem href="/contact">Contact <ChevronRight size={20} /></MobileNavItem>
         <Divider />
         <MobileFooter>
