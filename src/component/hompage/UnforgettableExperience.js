@@ -9,6 +9,10 @@ const Section = styled.section`
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
+
+  @media (max-width: 768px) {
+    padding: 30px 15px;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -17,18 +21,44 @@ const SectionTitle = styled.h2`
   color: #888;
   text-transform: uppercase;
   margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const MainTitle = styled.h1`
   font-size: 48px;
   text-align: center;
   margin-bottom: 40px;
+
+  @media (max-width: 1024px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
 `;
 
 const ActivityGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ActivityCard = styled.div`
@@ -36,12 +66,21 @@ const ActivityCard = styled.div`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 `;
 
 const ActivityImage = styled.img`
   width: 100%;
   height: 300px;
   object-fit: cover;
+
+  @media (max-width: 768px) {
+    height: 250px;
+  }
 `;
 
 const ActivityInfo = styled.div`
@@ -57,10 +96,18 @@ const ActivityInfo = styled.div`
 const ActivityName = styled.h3`
   font-size: 24px;
   margin-bottom: 5px;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const ActivityPrice = styled.p`
   font-size: 18px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const UnforgettableExperience = () => {

@@ -135,28 +135,7 @@ const StyledSlider = styled(Slider)`
   .slick-list {
     margin: 0 -15px;
   }
-  .slick-prev, .slick-next {
-    width: 40px;
-    height: 40px;
-    background-color: #FF6B35;
-    border-radius: 50%;
-    z-index: 1;
-
-    &:before {
-      color: white;
-      font-size: 20px;
-    }
-
-    &:hover {
-      background-color: #e55a2b;
-    }
-  }
-  .slick-prev {
-    left: -30px;
-  }
-  .slick-next {
-    right: -30px;
-  }
+  
   .slick-dots li button:before {
     font-size: 12px;
     color: #FF6B35;
@@ -177,11 +156,11 @@ const OurServices = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 900,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 4000,
     pauseOnHover: true,
     swipe: true,
     beforeChange: (current, next) => setActiveSlide(next),
@@ -189,19 +168,19 @@ const OurServices = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         }
       }
     ]
