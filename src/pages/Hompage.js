@@ -4,9 +4,9 @@ import Services from '../component/hompage/Services '
 import TestimonialComponent from './../component/hompage/TestimonialComponent';
 import UnforgettableExperience from './../component/hompage/UnforgettableExperience';
 import PhotoGallery from '../component/hompage/PhotoGallery';
-// import VideoComponent from '../component/hompage/VideoComponent.js';
 import IntroductionSection from './../component/hompage/IntroductionSection';
 import HeroComponent from '../component/hompage/HeroComponent.js';
+import WhyChooseUs from '../component/hompage/WhyChooseUs;.js';
 
 
 const Hompage = () => {
@@ -18,6 +18,7 @@ const Hompage = () => {
       <Services />
       <UnforgettableExperience />
       <TestimonialComponent />
+      <WhyChooseUs />
       <PhotoGallery />
     </div>
   )

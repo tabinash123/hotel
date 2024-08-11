@@ -1,148 +1,150 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Utensils, Bath, Waves, Dumbbell, Wifi, Car } from 'lucide-react';
+import { 
+  Wifi, 
+  Utensils, 
+  Car, 
+  Dumbbell, 
+  Sun, 
+  GlassWater, 
+  Shirt
+} from 'lucide-react';
 
-const ServiceSection = styled.section`
+const ServicesSection = styled.section`
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  background-color: #f5f5f5;
-  font-family: Arial, sans-serif;
-`;
-
-const Title = styled.h2`
-  text-align: center;
-  font-size: 2em;
-  margin-bottom: 10px;
-  color: #333;
+  margin: 60px auto;
+  padding: 0 20px;
 
   @media (max-width: 768px) {
-    font-size: 1.8em;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 1.5em;
+    margin: 40px auto;
   }
 `;
 
-const Subtitle = styled.h3`
+const SectionTitle = styled.h2`
+  font-size: 36px;
   text-align: center;
-  font-size: 1.5em;
-  margin-bottom: 20px;
-  color: #333;
-
-  @media (max-width: 768px) {
-    font-size: 1.3em;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 1.1em;
-  }
-`;
-
-const Description = styled.p`
-  text-align: center;
-  color: #666;
   margin-bottom: 40px;
-  font-size: 0.9em;
-  max-width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  color: #2C3E50;
+  font-weight: 300;
 
   @media (max-width: 768px) {
-    font-size: 0.85em;
-    max-width: 90%;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 0.8em;
-    max-width: 100%;
+    font-size: 28px;
+    margin-bottom: 30px;
   }
 `;
 
 const ServicesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
 
-  @media (max-width: 992px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 `;
 
 const ServiceItem = styled.div`
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
 `;
 
 const IconWrapper = styled.div`
-  background-color: #e0e0e0;
   width: 60px;
   height: 60px;
-  border-radius: 5px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 0 auto 15px;
-
-  @media (max-width: 768px) {
-    width: 50px;
-    height: 50px;
-  }
+  justify-content: center;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  margin-bottom: 15px;
 `;
 
-const ServiceTitle = styled.h4`
-  font-size: 1.2em;
+const ServiceName = styled.h3`
+  font-size: 18px;
+  color: #2C3E50;
   margin-bottom: 10px;
-  color: #333;
-
-  @media (max-width: 768px) {
-    font-size: 1.1em;
-  }
 `;
 
 const ServiceDescription = styled.p`
-  font-size: 0.8em;
-  color: #666;
-
-  @media (max-width: 768px) {
-    font-size: 0.75em;
-  }
+  font-size: 14px;
+  color: #7f8c8d;
+  line-height: 1.4;
 `;
 
-const services = [
-  { title: "Restaurant", icon: Utensils,  },
-  { title: "Spa Center", icon: Bath, },
-  { title: "Swimming Pool", icon: Waves},
-  { title: "Fitness Center", icon: Dumbbell, },
-  { title: "High Speed Wifi", icon: Wifi, },
-  { title: "Car Parking", icon: Car, },
-];
-
 const HotelServices = () => {
+  const services = [
+    { 
+      icon: <Wifi size={30} />, 
+      name: 'Free Wi-Fi', 
+      description: 'Stay connected with high-speed internet throughout the property' 
+    },
+    { 
+      icon: <Utensils size={30} />, 
+      name: 'Fine Dining', 
+      description: 'Enjoy exquisite cuisine at our on-site restaurants' 
+    },
+    { 
+      icon: <Car size={30} />, 
+      name: 'Valet Parking', 
+      description: 'Convenient and secure parking service for your vehicle' 
+    },
+    { 
+      icon: <Dumbbell size={30} />, 
+      name: 'Fitness Center', 
+      description: 'State-of-the-art gym equipment for your workout needs' 
+    },
+    { 
+      name: 'Swimming Pool', 
+      description: 'Relax and unwind in our luxurious swimming pool' 
+    },
+    { 
+      name: 'Spa & Wellness', 
+      description: 'Indulge in rejuvenating treatments at our spa' 
+    },
+    { 
+      icon: <GlassWater size={30} />, 
+      name: 'Bar & Lounge', 
+      description: 'Enjoy a wide selection of drinks in a cozy atmosphere' 
+    },
+    { 
+      icon: <Shirt size={30} />, 
+      name: 'Laundry Service', 
+      description: 'Professional cleaning and pressing services available' 
+    }
+  ];
+
   return (
-    <ServiceSection>
-      <Title>Services</Title>
-      <Subtitle>For Vacation.</Subtitle>
-      <Description>Continually productize compelling quality for packed in business consulting elated Setting up to website and creating pages.</Description>
+    <ServicesSection>
+      <SectionTitle>Our Services</SectionTitle>
       <ServicesGrid>
         {services.map((service, index) => (
           <ServiceItem key={index}>
             <IconWrapper>
-              <service.icon size={30} color="#333" />
+              {service.icon}
             </IconWrapper>
-            <ServiceTitle>{service.title}</ServiceTitle>
+            <ServiceName>{service.name}</ServiceName>
+            <ServiceDescription>{service.description}</ServiceDescription>
           </ServiceItem>
         ))}
       </ServicesGrid>
-    </ServiceSection>
+    </ServicesSection>
   );
 };
 

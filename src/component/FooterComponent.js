@@ -2,20 +2,26 @@ import React from 'react';
 import styled from 'styled-components';
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Award, Star } from 'lucide-react';
 
+const breakpoints = {
+  mobile: '480px',
+  tablet: '768px',
+  desktop: '1024px',
+};
+
 const FooterWrapper = styled.footer`
-  background-color: #0c2340;
-  color: #e8e6e3;
+  background-color: #2c1a05;
+  color: #f4e0a1;
   padding: 3rem 1rem 2rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   position: relative;
   overflow: hidden;
 
-  @media (min-width: 768px) {
-    padding: 4rem 2rem 2rem;
+  @media (min-width: ${breakpoints.tablet}) {
+    padding: 4rem 2rem 3rem;
   }
 
-  @media (min-width: 1024px) {
-    padding: 5rem 3rem 3rem;
+  @media (min-width: ${breakpoints.desktop}) {
+    padding: 5rem 3rem 4rem;
   }
 
   &::before {
@@ -25,7 +31,7 @@ const FooterWrapper = styled.footer`
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpath d='M0 0h400v400H0z' fill='none'/%3E%3Cpath d='M200 50l150 260H50z' fill='%23e81c4f' opacity='0.1'/%3E%3Ccircle cx='300' cy='100' r='20' fill='%23ffc300' opacity='0.1'/%3E%3Cpath d='M100 200c0-11 9-20 20-20s20 9 20 20-9 20-20 20-20-9-20-20z' fill='%2354b435' opacity='0.1'/%3E%3Cpath d='M250 300c0-8.3 6.7-15 15-15s15 6.7 15 15-6.7 15-15 15-15-6.7-15-15z' fill='%23ff5733' opacity='0.1'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpath d='M0 0h400v400H0z' fill='none'/%3E%3Cpath d='M200 50l150 260H50z' fill='%23d4af37' opacity='0.05'/%3E%3Ccircle cx='300' cy='100' r='20' fill='%23b38736' opacity='0.07'/%3E%3Cpath d='M100 200c0-11 9-20 20-20s20 9 20 20-9 20-20 20-20-9-20-20z' fill='%236b5644' opacity='0.05'/%3E%3Cpath d='M250 300c0-8.3 6.7-15 15-15s15 6.7 15 15-6.7 15-15 15-15-6.7-15-15z' fill='%23e0c68a' opacity='0.07'/%3E%3C/svg%3E");
     background-repeat: repeat;
     opacity: 0.1;
     z-index: 0;
@@ -41,12 +47,14 @@ const FooterContent = styled.div`
   position: relative;
   z-index: 1;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${breakpoints.tablet}) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: ${breakpoints.desktop}) {
     grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
   }
 `;
 
@@ -58,13 +66,19 @@ const FooterSection = styled.div`
 const FooterTitle = styled.h3`
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  color: #ffc300;
+  color: #d4af37;
   font-weight: 600;
   position: relative;
   padding-bottom: 0.5rem;
+  letter-spacing: 1px;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${breakpoints.tablet}) {
     font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    font-size: 1.75rem;
     margin-bottom: 1.5rem;
   }
 
@@ -73,9 +87,9 @@ const FooterTitle = styled.h3`
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 50px;
+    width: 60px;
     height: 2px;
-    background-color: #ffc300;
+    background: linear-gradient(to right, #d4af37, transparent);
   }
 `;
 
@@ -90,28 +104,34 @@ const FooterListItem = styled.li`
   display: flex;
   align-items: center;
   
-  @media (min-width: 768px) {
+  @media (min-width: ${breakpoints.tablet}) {
     margin-bottom: 1rem;
   }
 
   svg {
     margin-right: 0.75rem;
-    color: #ffc300;
+    color: #b38736;
   }
 `;
 
 const FooterLink = styled.a`
-  color: #e8e6e3;
+  color: #f4e0a1;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
   font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
   
-  @media (min-width: 768px) {
+  @media (min-width: ${breakpoints.tablet}) {
     font-size: 1rem;
   }
 
+  @media (min-width: ${breakpoints.desktop}) {
+    font-size: 1.1rem;
+  }
+
   &:hover {
-    color: #ffc300;
+    color: #d4af37;
+    transform: translateX(5px);
   }
 `;
 
@@ -119,14 +139,40 @@ const SocialIcons = styled.div`
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
 `;
 
 const SocialIcon = styled.a`
-  color: #e8e6e3;
-  transition: color 0.3s ease;
+  color: #f4e0a1;
+  transition: color 0.3s ease, transform 0.3s ease;
   
   &:hover {
-    color: #ffc300;
+    color: #d4af37;
+    transform: translateY(-3px);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+
+    @media (min-width: ${breakpoints.tablet}) {
+      width: 22px;
+      height: 22px;
+    }
+
+    @media (min-width: ${breakpoints.desktop}) {
+      width: 24px;
+      height: 24px;
+    }
   }
 `;
 
@@ -134,16 +180,23 @@ const Copyright = styled.div`
   text-align: center;
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 195, 0, 0.3);
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
   font-size: 0.8rem;
-  color: #a0a0a0;
+  color: #b38736;
   position: relative;
   z-index: 1;
+  font-family: 'Poppins', sans-serif;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${breakpoints.tablet}) {
     margin-top: 3rem;
     padding-top: 2rem;
     font-size: 0.9rem;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    font-size: 1rem;
   }
 `;
 
@@ -156,25 +209,49 @@ const AwardsSection = styled.div`
   position: relative;
   z-index: 1;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${breakpoints.tablet}) {
     flex-direction: row;
     justify-content: center;
     gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    gap: 3rem;
+    margin-top: 4rem;
   }
 `;
 
 const AwardItem = styled.div`
   display: flex;
   align-items: center;
-  font-size: 0.8rem;
-  color: #ffc300;
+  font-size: 0.9rem;
+  color: #d4af37;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 1px;
 
-  @media (min-width: 768px) {
-    font-size: 0.9rem;
+  @media (min-width: ${breakpoints.tablet}) {
+    font-size: 1rem;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    font-size: 1.1rem;
   }
 
   svg {
     margin-right: 0.5rem;
+    width: 20px;
+    height: 20px;
+
+    @media (min-width: ${breakpoints.tablet}) {
+      width: 22px;
+      height: 22px;
+    }
+
+    @media (min-width: ${breakpoints.desktop}) {
+      width: 24px;
+      height: 24px;
+    }
   }
 `;
 
@@ -183,48 +260,56 @@ const NewsletterForm = styled.form`
   flex-direction: column;
   margin-top: 1rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${breakpoints.tablet}) {
     flex-direction: row;
+    margin-top: 1.25rem;
   }
 `;
 
 const NewsletterInput = styled.input`
   padding: 0.75rem 1rem;
-  border: 1px solid #ffc300;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #e8e6e3;
-  font-family: 'Playfair Display', serif;
+  border: 1px solid #b38736;
+  background-color: rgba(244, 224, 161, 0.1);
+  color: #f4e0a1;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${breakpoints.tablet}) {
     margin-bottom: 0;
+    margin-right: 0.5rem;
     font-size: 1rem;
   }
 
   &:focus {
     outline: none;
-    border-color: #e8e6e3;
+    border-color: #d4af37;
+  }
+
+  &::placeholder {
+    color: rgba(244, 224, 161, 0.6);
   }
 `;
 
 const NewsletterButton = styled.button`
   padding: 0.75rem 1.5rem;
-  background-color: #ffc300;
-  color: #0c2340;
+  background: linear-gradient(45deg, #b38736, #d4af37);
+  color: #2c1a05;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-family: 'Playfair Display', serif;
-  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
   font-weight: 600;
+  letter-spacing: 1px;
 
-  @media (min-width: 768px) {
-    font-size: 1rem;
+  @media (min-width: ${breakpoints.tablet}) {
+    font-size: 1.1rem;
   }
 
   &:hover {
-    background-color: #e8e6e3;
+    background: linear-gradient(45deg, #d4af37, #e0c68a);
+    transform: translateY(-2px);
   }
 `;
 
@@ -236,29 +321,28 @@ const FooterComponent = () => {
           <FooterTitle>Himalayan Haven</FooterTitle>
           <FooterList>
             <FooterListItem>
-              <MapPin size={18} />
+              <MapPin />
               Lakeside, Pokhara, Nepal
             </FooterListItem>
             <FooterListItem>
-              <Phone size={18} />
+              <Phone />
               <FooterLink href="tel:+97761234567">+977 61 234 567</FooterLink>
             </FooterListItem>
             <FooterListItem>
-              <Mail size={18} />
+              <Mail />
               <FooterLink href="mailto:info@himalayanhaven.com">info@himalayanhaven.com</FooterLink>
             </FooterListItem>
           </FooterList>
           <SocialIcons>
             <SocialIcon href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <Facebook size={20} />
+              <Facebook />
             </SocialIcon>
             <SocialIcon href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <Instagram size={20} />
+              <Instagram />
             </SocialIcon>
             <SocialIcon href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <Twitter size={20} />
+              <Twitter />
             </SocialIcon>
-       
           </SocialIcons>
         </FooterSection>
         
@@ -295,11 +379,11 @@ const FooterComponent = () => {
       
       <AwardsSection>
         <AwardItem>
-          <Award size={18} />
+          <Award />
           World Luxury Hotel Awards 2023
         </AwardItem>
         <AwardItem>
-          <Star size={18} />
+          <Star />
           5-Star Deluxe Rating
         </AwardItem>
       </AwardsSection>

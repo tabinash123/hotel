@@ -16,35 +16,68 @@ const fadeIn = keyframes`
 const SectionContainer = styled.section`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 30px 15px;
   background-color: #faf7f2;
   font-family: 'Poppins', Arial, sans-serif;
+
+  @media (min-width: 768px) {
+    padding: 40px 20px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 60px 30px;
+  }
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 14px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #333;
   margin-bottom: 10px;
   text-align: center;
   animation: ${fadeIn} 0.6s ease-out;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const MainTitle = styled.h1`
-  font-size: 48px;
+  font-size: 32px;
   color: #333;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   text-align: center;
   font-weight: 600;
   animation: ${fadeIn} 0.6s ease-out 0.2s both;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 48px;
+  }
 `;
 
 const TeamGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  padding: 20px 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 10px 0;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 15px 0;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 20px 0;
+  }
 `;
 
 const TeamMember = styled.div`
@@ -64,9 +97,17 @@ const TeamMember = styled.div`
 
 const ImageContainer = styled.div`
   width: 100%;
-  height: 300px;
+  height: 200px;
   overflow: hidden;
   position: relative;
+
+  @media (min-width: 768px) {
+    height: 250px;
+  }
+
+  @media (min-width: 1024px) {
+    height: 300px;
+  }
 `;
 
 const MemberImage = styled.img`
@@ -82,26 +123,43 @@ const MemberImage = styled.img`
 `;
 
 const MemberInfo = styled.div`
-  padding: 20px;
+  padding: 15px;
+
+  @media (min-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 const MemberName = styled.h3`
-  font-size: 20px;
+  font-size: 18px;
   color: #333;
   margin-bottom: 5px;
   font-weight: 600;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const MemberRole = styled.p`
-  font-size: 14px;
+  font-size: 12px;
   color: #666;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
 `;
 
 const SocialLinks = styled.div`
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    gap: 15px;
+  }
 `;
 
 const SocialIcon = styled.a`
@@ -135,17 +193,7 @@ const TeamSection = () => {
             <MemberInfo>
               <MemberName>{member.name}</MemberName>
               <MemberRole>{member.role}</MemberRole>
-              <SocialLinks>
-                <SocialIcon href="#" aria-label="Facebook">
-                  <Facebook size={18} />
-                </SocialIcon>
-                <SocialIcon href="#" aria-label="Twitter">
-                  <Twitter size={18} />
-                </SocialIcon>
-                <SocialIcon href="#" aria-label="Instagram">
-                  <Instagram size={18} />
-                </SocialIcon>
-              </SocialLinks>
+              
             </MemberInfo>
           </TeamMember>
         ))}

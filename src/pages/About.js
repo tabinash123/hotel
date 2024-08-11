@@ -5,15 +5,17 @@ import HotelFeaturesComponent from '../component/about/HotelFeaturesComponent'
 import TeamSection from '../component/about/TeamSection'
 import RoomFacilities from '../component/about/RoomFacilities'
 import TestimonialCarousel from './../component/hompage/TestimonialComponent';
+import MissionVisionSection from './../component/about/MissionVision';
 
 const About = () => {
   return (
     <div> 
       <Hero />
       <HotelInfoComponent />
+      <MissionVisionSection />
       <HotelFeaturesComponent />
-      <TeamSection />
       <RoomFacilities />
+      <TeamSection />
       <TestimonialCarousel />
     </div>
   )

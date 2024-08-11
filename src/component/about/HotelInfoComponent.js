@@ -161,16 +161,21 @@ const HotelInfoComponent = () => {
       <ContentContainer>
         <WelcomeText>Welcome To Orbitza</WelcomeText>
         <Title>Our Hotel Has Been Present For Over 20 Years.</Title>
-        <Description>
-          Continually productize compelling quality for packed in business consulting elated
-          productize compelling quality for all packed in with all growth from quality elated
-          Setting up to website and creating pages.
-        </Description>
-        <Description>
-          Continually productize compelling quality for packed in business consulting elated
-          productize compelling quality for all packed in with all growth from quality elated
-          Setting up to website and creating pages.
-        </Description>
+      <Description>
+  Experience the tranquility of nature at our hotel, located in the heart of Sauraha, Chitwan. 
+  Our accommodations offer a perfect blend of comfort and elegance, ensuring a relaxing stay amidst the lush greenery.
+  Whether you're here to explore the Chitwan National Park or simply unwind, our hotel provides the ideal setting.
+</Description>
+<Description>
+  Enjoy local and international cuisine at our on-site restaurant, with ingredients sourced from the surrounding region.
+  Our friendly staff is dedicated to making your stay memorable, offering personalized service tailored to your needs.
+  Relax by the pool, take a guided tour, or simply soak in the natural beauty that surrounds you.
+</Description>
+<Description>
+  Our hotel is just a short distance from the Chitwan National Park, where you can embark on jungle safaris, bird watching, 
+  and elephant rides. Discover the rich culture and wildlife of Nepal, all while enjoying the comfort and hospitality of our hotel.
+</Description>
+
         <StatsContainer>
           <StatItem>
             <StatIcon><Bed size={24} /></StatIcon>

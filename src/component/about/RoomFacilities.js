@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import { Tv, Briefcase, Wifi, Lock, Building2 } from 'lucide-react';
-import hotel1 from '../../assets/hotel/hotel1.jpg';
+import img1 from "../../assets/rooms/delux.jpg";
+import img2 from "../../assets/rooms/family.jpg";
+import img3 from "../../assets/rooms/single.jpg";
 
 const Container = styled.div`
   display: flex;
@@ -117,17 +119,39 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
-const RoomImage = styled.img`
+
+const ImageContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 200px 200px;
+  gap: 10px;
+  margin-top: 20px;
+
+  @media (min-width: 768px) {
+    grid-template-rows: 300px 300px;
+    margin-top: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    flex: 1;
+    grid-template-rows: 250px 250px;
+    height: 500px;
+    margin-top: 0;
+    order: -1; // Move back to the left on desktop
+  }
+`;
+
+const LargeImage = styled.img`
+  grid-row: span 2;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
+`;
 
-  ${props => props.animated && css`
-    animation: ${fadeIn} 1s ease-in;
-  `}
+const SmallImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 const ToggleButton = styled.button`
@@ -173,8 +197,11 @@ const RoomFacilities = () => {
         </FacilitiesGrid>
       </LeftSection>
       <RightSection>
-        <RoomImage src={hotel1} alt="Luxurious hotel room"  />
-      
+        <ImageContainer>
+        <LargeImage src={img1} alt="Hotel room 1" />
+        <SmallImage src={img2} alt="Hotel room 2" />
+        <SmallImage src={img3} alt="Hotel room 3" />
+      </ImageContainer>
       </RightSection>
     </Container>
   );

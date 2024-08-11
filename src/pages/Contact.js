@@ -65,11 +65,13 @@ const ContactSection = styled.div`
   margin-bottom: 80px;
 
   @media (max-width: 1024px) {
-    flex-direction: column;
+    // flex-direction: column;
     gap: 30px;
   }
 
   @media (max-width: 768px) {
+      flex-direction: column;
+
     gap: 20px;
   }
 `;

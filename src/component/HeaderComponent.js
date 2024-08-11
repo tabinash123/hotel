@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes, css } from 'styled-components';
-import { ChevronDown, Globe, X, Phone, Mail, MapPin, Facebook, Instagram, Twitter, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Menu, X, Phone, Mail } from 'lucide-react';
+import logo from '../assets/logo.jpg';
 
-const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
-`;
+import '@fontsource/poppins';
+import '@fontsource/cormorant-garamond';
 
-const slideIn = keyframes`
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-`;
+const breakpoints = {
+  mobile: '576px',
+  tablet: '768px',
+  desktop: '1024px',
+};
 
 const shimmer = keyframes`
   0% { background-position: -1000px 0; }
@@ -18,14 +19,20 @@ const shimmer = keyframes`
 `;
 
 const HeaderWrapper = styled.header`
+  background: linear-gradient(135deg, #2c1a05 0%, #462b0b 50%, #5e3a0f 100%);
+  border-bottom: 3px solid #d4af37;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: background-color 0.3s ease;
-  background-color: ${({ isScrolled }) => isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent'};
-  box-shadow: ${({ isScrolled }) => isScrolled ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none'};
+  transition: all 0.3s ease;
+  min-height: 120px;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+
+  @media (max-width: ${breakpoints.mobile}) {
+    min-height: 80px;
+  }
 `;
 
 const HeaderContent = styled.div`
@@ -36,211 +43,189 @@ const HeaderContent = styled.div`
   max-width: 1400px;
   margin: 0 auto;
 
-  @media (max-width: 1024px) {
+  @media (max-width: ${breakpoints.tablet}) {
     padding: 15px 20px;
   }
 `;
 
-const Logo = styled.img`
-  height: 50px;
-  
-  @media (max-width: 768px) {
-    height: 40px;
+const LogoWrapper = styled.div`
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #e9c46a, #f4a261);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.7;
   }
 `;
 
-const NavGroup = styled.div`
-  display: flex;
-  align-items: center;
+const Logo = styled.img`
+  height: 100px;
+  width: auto;
+  border-radius: 50%;
+  border: 2px solid #e9c46a;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 60px;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
-  
-  @media (max-width: 1024px) {
+  gap: 30px;
+
+  @media (max-width: ${breakpoints.tablet}) {
     display: none;
   }
 `;
 
-const NavItem = styled.a`
-  color: ${({ isScrolled }) => isScrolled ? '#333' : '#fff'};
+const NavItem = styled(Link)`
+  color: #f4e0a1;
   text-decoration: none;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  margin: 0 15px;
-  transition: color 0.3s ease;
-  
-  &:hover {
-    color: #bf9b30;
-  }
-`;
-
-const BookNowButton = styled.a`
-  background-color: #bf9b30;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
-  margin-left: 20px;
-  
-  &:hover {
-    background-color: #a3842b;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(163, 132, 43, 0.3);
+  position: relative;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #d4af37, #f4e0a1);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
   }
-
-  @media (max-width: 768px) {
-    padding: 8px 15px;
-    font-size: 12px;
-  }
-`;
-
-
-
-
-
-
-const MobileMenuToggle = styled.button`
-  display: none;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: ${({ isScrolled }) => isScrolled ? '#333' : '#fff'};
-
-  @media (max-width: 1024px) {
-    display: block;
-  }
-`;
-
-const MobileMenuOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: ${({ isOpen }) => isOpen ? 'block' : 'none'};
-  animation: ${fadeIn} 0.3s ease-in-out;
-  z-index: 1000;
-`;
-
-const MobileMenu = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 70%;
-  max-width: 400px;
-  background-color: #fff;
-  padding: 40px;
-  transform: ${({ isOpen }) => isOpen ? 'translateX(0)' : 'translateX(100%)'};
-  transition: transform 0.3s ease-in-out;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  animation: ${({ isOpen }) => isOpen && css`${slideIn} 0.3s ease-in-out`};
-  z-index: 1001;
-`;
-
-const MobileNavItem = styled(NavItem)`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 15px 0;
-  padding: 10px 0;
-  color: #333;
-  font-size: 20px;
-  border-bottom: 1px solid #eaeaea;
-  transition: all 0.3s ease;
 
   &:hover {
-    color: #bf9b30;
-    transform: translateX(10px);
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    &::after {
+      transform: scaleX(1);
+    }
   }
-`;
-
-const CloseButton = styled.button`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #333;
-  transition: all 0.3s ease;
-
-  &:hover {
-    color: #bf9b30;
-    transform: rotate(90deg);
-  }
-`;
-
-const MobileFooter = styled.div`
-  margin-top: auto;
-  text-align: center;
 `;
 
 const ContactInfo = styled.div`
-  margin-bottom: 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #f4e0a1;
+  font-family: 'Poppins', sans-serif;
 
-  svg {
-    margin-right: 10px;
-    vertical-align: middle;
+  @media (max-width: ${breakpoints.tablet}) {
+    display: none;
   }
 `;
 
 const ContactItem = styled.div`
   display: flex;
   align-items: center;
-  margin: 10px 0;
-  transition: all 0.3s ease;
+  gap: 10px;
+  margin: 5px 0;
+  font-size: 14px;
+  transition: color 0.3s ease;
 
   &:hover {
-    color: #bf9b30;
-    transform: translateX(5px);
+    color: #ffffff;
   }
 `;
 
-const SocialIcons = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-`;
-
-const SocialIcon = styled.a`
-  color: #333;
+const BookNowButton = styled.a`
+  background: linear-gradient(45deg, #d4af37, #f4e0a1);
+  color: #2c1a05;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 5px;
   transition: all 0.3s ease;
+  margin-left: 20px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #d4af37, #f4e0a1, #d4af37);
+    z-index: -1;
+    filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
   &:hover {
-    color: #bf9b30;
-    transform: scale(1.2);
+    transform: translateY(-2px);
+    color: #1a0f00;
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: none;
   }
 `;
 
-const Divider = styled.hr`
+const MobileMenuToggle = styled.button`
+  display: none;
+  background: none;
   border: none;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #bf9b30, transparent);
-  margin: 20px 0;
+  cursor: pointer;
+  color: #f4e0a1;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+  }
+`;
+
+const MobileMenu = styled.div`
+  position: fixed;
+  top: 0;
+  right: ${({ isOpen }) => isOpen ? '0' : '-100%'};
+  bottom: 0;
+  width: 300px;
+  background: linear-gradient(135deg, #2c1a05 0%, #462b0b 50%, #5e3a0f 100%);
+  transition: right 0.3s ease-in-out;
+  z-index: 1001;
+  border-left: 3px solid #d4af37;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+`;
+
+const MobileNavItem = styled(NavItem)`
+  font-size: 20px;
+  margin: 15px 0;
+  text-align: right;
 `;
 
 const HeaderComponent = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLanguageSelectorOpen, setIsLanguageSelectorOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState('EN');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -255,59 +240,39 @@ const HeaderComponent = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const toggleLanguageSelector = () => {
-    setIsLanguageSelectorOpen(!isLanguageSelectorOpen);
-  };
-
-  const changeLanguage = (lang) => {
-    setCurrentLanguage(lang);
-    setIsLanguageSelectorOpen(false);
-  };
-
   return (
-    <HeaderWrapper isScrolled={isScrolled}>
+    <HeaderWrapper>
       <HeaderContent>
-        <Logo src="/path-to-your-logo.png" alt="Hotel Logo" />
-        <NavGroup>
-          <Nav>
-            <NavItem href="/" isScrolled={isScrolled}>Home</NavItem>
-            <NavItem href="/room" isScrolled={isScrolled}>Rooms & Suites</NavItem>
-            <NavItem href="/gallary" isScrolled={isScrolled}>Gallary</NavItem>
-            <NavItem href="/about" isScrolled={isScrolled}>About-us</NavItem>
-            <NavItem href="/tour" isScrolled={isScrolled}>Tour-Pack</NavItem>
-            <NavItem href="/event" isScrolled={isScrolled}>Events</NavItem>
-            <NavItem href="/contact" isScrolled={isScrolled}>Contact</NavItem>
-          </Nav>
-
-          <MobileMenuToggle isScrolled={isScrolled} onClick={toggleMobileMenu}>
-            ☰
-          </MobileMenuToggle>
-        </NavGroup>
+        <LogoWrapper>
+          <Logo src={logo} alt="Himalayan Haven Hotel" />
+        </LogoWrapper>
+        <Nav>
+          <NavItem to="/" isScrolled={isScrolled}>Home</NavItem>
+            <NavItem to="/room" isScrolled={isScrolled}>Rooms & Suites</NavItem>
+            <NavItem to="/gallary" isScrolled={isScrolled}>Gallary</NavItem>
+            <NavItem to="/about" isScrolled={isScrolled}>About-us</NavItem>
+            <NavItem to="/tour" isScrolled={isScrolled}>Tour-Pack</NavItem>
+            <NavItem to="/event" isScrolled={isScrolled}>event</NavItem>
+            <NavItem to="/contact" isScrolled={isScrolled}>Contact</NavItem>
+        </Nav>
+        <ContactInfo>
+          <ContactItem><Phone size={16} /> +977 1234 5678</ContactItem>
+          <ContactItem><Mail size={16} /> info@himalayanhaven.com</ContactItem>
+        </ContactInfo>
+        <BookNowButton to="/book">Book Now</BookNowButton>
+        <MobileMenuToggle onClick={toggleMobileMenu}>
+          <Menu size={24} />
+        </MobileMenuToggle>
       </HeaderContent>
-      <MobileMenuOverlay isOpen={isMobileMenuOpen} onClick={toggleMobileMenu} />
       <MobileMenu isOpen={isMobileMenuOpen}>
-        <CloseButton onClick={toggleMobileMenu}>
-          <X size={24} />
-        </CloseButton>
-        <MobileNavItem href="/">Home <ChevronRight size={20} /></MobileNavItem>
-        <MobileNavItem href="/room">Rooms & Suites <ChevronRight size={20} /></MobileNavItem>
-        <MobileNavItem href="/event">Events <ChevronRight size={20} /></MobileNavItem>
-        <MobileNavItem href="/about">About-Us <ChevronRight size={20} /></MobileNavItem>
-        <MobileNavItem href="/tour">Tour-Packages <ChevronRight size={20} /></MobileNavItem>
-        <MobileNavItem href="/contact">Contact <ChevronRight size={20} /></MobileNavItem>
-        <Divider />
-        <MobileFooter>
-          <ContactInfo>
-            <ContactItem><Phone size={16} /> +977 1234 5678</ContactItem>
-            <ContactItem><Mail size={16} /> info@himalayanhaven.com</ContactItem>
-            <ContactItem><MapPin size={16} /> Lakeside, Pokhara, Nepal</ContactItem>
-          </ContactInfo>
-          <SocialIcons>
-            <SocialIcon href="#"><Facebook size={24} /></SocialIcon>
-            <SocialIcon href="#"><Instagram size={24} /></SocialIcon>
-            <SocialIcon href="#"><Twitter size={24} /></SocialIcon>
-          </SocialIcons>
-        </MobileFooter>
+        <X size={24} color="#f4e0a1" onClick={toggleMobileMenu} style={{ alignSelf: 'flex-end', cursor: 'pointer' }} />
+        <MobileNavItem to="/" onClick={toggleMobileMenu}>Home</MobileNavItem>
+        <MobileNavItem to="/room" onClick={toggleMobileMenu}>Rooms & Suites</MobileNavItem>
+        <MobileNavItem to="/tour" onClick={toggleMobileMenu}>Tour-Pack</MobileNavItem>
+        <MobileNavItem to="/about" onClick={toggleMobileMenu}>About</MobileNavItem>
+        <MobileNavItem to="/contact" onClick={toggleMobileMenu}>Contact</MobileNavItem>
+        <MobileNavItem to="/event" onClick={toggleMobileMenu}>Event</MobileNavItem>
+        
       </MobileMenu>
     </HeaderWrapper>
   );
