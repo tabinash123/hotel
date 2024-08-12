@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Calendar, Clock, Users, Map } from 'lucide-react';
 
-// Import images
 import img1 from "../../assets/gallary/1.jpg";
 import img2 from "../../assets/gallary/2.jpg";
 import img3 from "../../assets/gallary/3.jpg";
@@ -10,331 +9,198 @@ import img4 from "../../assets/gallary/4.jpg";
 import img5 from "../../assets/gallary/5.jpg";
 import img6 from "../../assets/gallary/6.jpg";
 
-// Animations
 const fadeIn = keyframes`
   from { opacity: 0; }
   to { opacity: 1; }
 `;
 
-// Styled Components
 const Section = styled.section`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
-  background-color: #f8f8f8;
+  padding: 4rem 2rem;
+  background-color: #f5f5f5;
+`;
 
-  @media (max-width: 1024px) {
-    padding: 50px 15px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 40px 10px;
-  }
+const IntroSection = styled.div`
+  text-align: left;
+  margin-bottom: 3rem;
 `;
 
 const Subtitle = styled.p`
-  font-size: 16px;
-  color: #C1A267;
-  text-align: center;
+  font-size: 1rem;
+  color: #8B4513;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   font-weight: 600;
   letter-spacing: 2px;
-
-  @media (max-width: 768px) {
-    font-size: 14px;
-  }
 `;
 
 const Title = styled.h2`
-  font-size: 36px;
-  text-align: center;
-  margin-bottom: 40px;
+  font-size: 2.5rem;
   color: #2C3E50;
-  font-weight: 300;
-  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+`;
+
+const Description = styled.p`
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media (max-width: 1024px) {
-    font-size: 32px;
-    margin-bottom: 35px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 28px;
-    margin-bottom: 30px;
-  }
-`;
-
-const PackageCategories = styled.nav`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-
-  @media (max-width: 768px) {
-    margin-bottom: 30px;
-  }
-`;
-
-const CategoryButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 18px;
-  padding: 10px 20px;
-  cursor: pointer;
-  color: ${props => props.active ? '#C1A267' : '#2C3E50'};
-  border-bottom: ${props => props.active ? '2px solid #C1A267' : 'none'};
-  font-weight: ${props => props.active ? '600' : '400'};
-  transition: all 0.3s ease;
-
-  &:hover {
-    color: #C1A267;
-  }
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-    padding: 8px 16px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 14px;
-    padding: 6px 12px;
-  }
+  margin-bottom: 2rem;
 `;
 
 const PackageGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 2rem;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr;
   }
 `;
 
 const PackageCard = styled.div`
   background: white;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   animation: ${fadeIn} 0.5s ease-out;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-  }
-
-  @media (max-width: 768px) {
-    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
 `;
 
 const PackageImage = styled.img`
   width: 100%;
-  height: 250px;
+  height: 200px;
   object-fit: cover;
   transition: transform 0.3s ease;
 
   ${PackageCard}:hover & {
     transform: scale(1.05);
   }
-
-  @media (max-width: 1024px) {
-    height: 220px;
-  }
-
-  @media (max-width: 768px) {
-    height: 180px;
-  }
 `;
 
 const PackageInfo = styled.div`
-  padding: 25px;
-
-  @media (max-width: 1024px) {
-    padding: 20px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 15px;
-  }
+  padding: 1.5rem;
 `;
 
 const PackagePrice = styled.div`
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 1rem;
+  left: 1rem;
   background: rgba(255, 255, 255, 0.9);
-  padding: 10px 15px;
-  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1rem;
   color: #2C3E50;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-    padding: 8px 12px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 14px;
-    padding: 6px 10px;
-    top: 10px;
-    left: 10px;
-  }
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 `;
 
 const PackageName = styled.h3`
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
   color: #2C3E50;
   font-weight: 600;
-
-  @media (max-width: 1024px) {
-    font-size: 22px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
 `;
 
 const PackageDescription = styled.p`
-  font-size: 16px;
-  color: #7f8c8d;
-  margin-bottom: 20px;
-  line-height: 1.6;
-
-  @media (max-width: 1024px) {
-    font-size: 15px;
-    margin-bottom: 15px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.4;
 `;
 
 const PackageFeatures = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   border-top: 1px solid #ecf0f1;
-  padding-top: 20px;
-
-  @media (max-width: 1024px) {
-    padding-top: 15px;
-  }
-
-  @media (max-width: 768px) {
-    padding-top: 10px;
-    flex-wrap: wrap;
-  }
+  padding-top: 1rem;
 `;
 
 const Feature = styled.span`
   display: flex;
   align-items: center;
-  font-size: 14px;
-  color: #7f8c8d;
-
-  @media (max-width: 1024px) {
-    font-size: 13px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 12px;
-    width: 50%;
-    margin-bottom: 5px;
-  }
+  font-size: 0.9rem;
+  color: #555;
+  width: 50%;
+  margin-bottom: 0.5rem;
 `;
 
 const TourPackagesSection = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
-
   const tourPackages = [
     {
       name: 'Jeep Safari Adventure',
       image: img1,
       price: '$60',
-      description: 'Explore Chitwan National Park on an exciting jeep safari, spotting diverse wildlife including rhinos and tigers.',
-      features: ['4 Hours', 'Morning/Afternoon', 'Max 8 People', 'Easy'],
-      category: 'Wildlife'
+      description: 'Embark on an exhilarating jeep safari through Chitwan National Park, encountering diverse wildlife in their natural habitat.',
+      features: ['4 Hours', 'Morning', 'Max 8', 'Easy'],
     },
     {
       name: 'Canoe Ride & Jungle Walk',
       image: img2,
       price: '$40',
-      description: 'Enjoy a serene canoe ride on the Rapti River, followed by a guided jungle walk to observe flora and fauna.',
-      features: ['3 Hours', 'Morning', 'Max 10 People', 'Moderate'],
-      category: 'Nature'
+      description: 'Glide along the serene waters of the Rapti River, followed by an immersive guided walk through the lush jungle.',
+      features: ['3 Hours', 'Morning', 'Max 10', 'Moderate'],
     },
     {
       name: 'Elephant Bathing Experience',
       image: img3,
       price: '$25',
-      description: 'Interact with gentle giants and assist in their bathing routine in the Rapti River.',
-      features: ['1 Hour', 'Morning', 'Max 6 People', 'Easy'],
-      category: 'Wildlife'
+      description: 'Participate in the joyful tradition of bathing elephants in the Rapti River, creating unforgettable memories.',
+      features: ['1 Hour', 'Morning', 'Max 6', 'Easy'],
     },
     {
-      name: 'Tharu Village Tour',
+      name: 'Tharu Village Cultural Tour',
       image: img4,
       price: '$30',
-      description: 'Immerse yourself in the rich culture of the indigenous Tharu people, visit their traditional homes, and witness cultural performances.',
-      features: ['3 Hours', 'Evening', 'Max 12 People', 'Easy'],
-      category: 'Cultural'
+      description: 'Immerse yourself in the rich traditions of the indigenous Tharu people, exploring their unique culture and lifestyle.',
+      features: ['3 Hours', 'Evening', 'Max 12', 'Easy'],
     },
     {
-      name: 'Bird Watching Tour',
+      name: 'Bird Watching Expedition',
       image: img5,
       price: '$35',
-      description: 'Join expert guides on a bird watching expedition, observing various species in their natural habitat.',
-      features: ['4 Hours', 'Early Morning', 'Max 8 People', 'Easy'],
-      category: 'Nature'
+      description: 'Join expert ornithologists on a fascinating journey to spot and identify the diverse avian species of Chitwan.',
+      features: ['4 Hours', 'Morning', 'Max 8', 'Easy'],
     },
     {
       name: 'Sunset River Safari',
       image: img6,
       price: '$50',
-      description: 'Cruise down the Rapti River on a boat safari, enjoying the sunset while spotting crocodiles and diverse birdlife.',
-      features: ['2 Hours', 'Evening', 'Max 10 People', 'Easy'],
-      category: 'Wildlife'
+      description: 'Cruise down the Rapti River at dusk, witnessing the magical transformation of the landscape as day turns to night.',
+      features: ['2 Hours', 'Evening', 'Max 10', 'Easy'],
     },
   ];
 
-  const filteredPackages = activeCategory === 'All' 
-    ? tourPackages 
-    : tourPackages.filter(pkg => pkg.category === activeCategory);
-
   return (
     <Section>
-      <Subtitle>EXPLORE SAURAHA</Subtitle>
-      <Title>Discover the Natural Wonders of Chitwan with Our Curated Tour Packages</Title>
-      <PackageCategories>
-        {['All', 'Wildlife', 'Nature', 'Cultural'].map(category => (
-          <CategoryButton
-            key={category}
-            active={activeCategory === category}
-            onClick={() => setActiveCategory(category)}
-          >
-            {category}
-          </CategoryButton>
-        ))}
-      </PackageCategories>
+      <IntroSection>
+        <Subtitle>EXPLORE SAURAHA</Subtitle>
+        <Title>Discover Chitwan's Natural Wonders</Title>
+        <Description>
+          Immerse yourself in the breathtaking beauty of Chitwan National Park through our carefully curated tour packages. 
+          From thrilling wildlife encounters to serene cultural experiences, each adventure promises to create lasting memories 
+          and showcase the exceptional biodiversity and rich heritage of this UNESCO World Heritage site.
+        </Description>
+      </IntroSection>
       <PackageGrid>
-        {filteredPackages.map((pkg, index) => (
+        {tourPackages.map((pkg, index) => (
           <PackageCard key={index}>
             <div style={{ position: 'relative', overflow: 'hidden' }}>
               <PackageImage src={pkg.image} alt={pkg.name} />
@@ -345,19 +211,19 @@ const TourPackagesSection = () => {
               <PackageDescription>{pkg.description}</PackageDescription>
               <PackageFeatures>
                 <Feature>
-                  <Clock size={16} style={{marginRight: '8px', color: '#C1A267'}} />
+                  <Clock size={16} style={{marginRight: '8px', color: '#8B4513'}} />
                   {pkg.features[0]}
                 </Feature>
                 <Feature>
-                  <Calendar size={16} style={{marginRight: '8px', color: '#C1A267'}} />
+                  <Calendar size={16} style={{marginRight: '8px', color: '#8B4513'}} />
                   {pkg.features[1]}
                 </Feature>
                 <Feature>
-                  <Users size={16} style={{marginRight: '8px', color: '#C1A267'}} />
+                  <Users size={16} style={{marginRight: '8px', color: '#8B4513'}} />
                   {pkg.features[2]}
                 </Feature>
                 <Feature>
-                  <Map size={16} style={{marginRight: '8px', color: '#C1A267'}} />
+                  <Map size={16} style={{marginRight: '8px', color: '#8B4513'}} />
                   {pkg.features[3]}
                 </Feature>
               </PackageFeatures>

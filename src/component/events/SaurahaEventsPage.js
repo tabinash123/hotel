@@ -2,78 +2,68 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Calendar, Clock, MapPin, Users, ChevronRight } from 'lucide-react';
 
-// Import images as specified
 import eventImg1 from "../../assets/gallary/1.jpg";
 import eventImg2 from "../../assets/gallary/2.jpg";
 import eventImg3 from "../../assets/gallary/3.jpg";
 import eventImg4 from "../../assets/gallary/4.jpg";
 import eventImg5 from "../../assets/gallary/5.jpg";
 
-// Animations
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 `;
 
-// Styled Components
 const PageContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 20px;
-  background-color: #f8f9fa;
+  padding: 4rem 2rem;
+  background-color: #f5f5f5;
   font-family: 'Arial', sans-serif;
 
-  @media (max-width: 1024px) {
-    padding: 60px 15px;
-  }
-
   @media (max-width: 768px) {
-    padding: 40px 10px;
+    padding: 3rem 1rem;
   }
 `;
 
 const PageTitle = styled.h1`
-  font-size: 48px;
+  font-size: 2.5rem;
   text-align: center;
   color: #2C3E50;
-  margin-bottom: 60px;
-  font-weight: 700;
-  letter-spacing: -1px;
-
-  @media (max-width: 1024px) {
-    font-size: 42px;
-    margin-bottom: 50px;
-  }
+  margin-bottom: 2rem;
+  font-weight: 600;
 
   @media (max-width: 768px) {
-    font-size: 36px;
-    margin-bottom: 40px;
+    font-size: 2rem;
   }
 `;
 
+const Subtitle = styled.p`
+  font-size: 1.1rem;
+  text-align: center;
+  color: #555;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 const FeaturedEventSection = styled.section`
-  margin-bottom: 80px;
+  margin-bottom: 4rem;
   background: white;
-  border-radius: 20px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   animation: ${fadeIn} 0.6s ease-out;
 
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    margin-bottom: 60px;
-  }
-
   @media (max-width: 768px) {
-    margin-bottom: 40px;
-    border-radius: 15px;
+    flex-direction: column;
   }
 `;
 
 const FeaturedEventImage = styled.div`
   width: 50%;
-  height: 500px;
+  height: 400px;
   background-image: url(${props => props.src});
   background-size: cover;
   background-position: center;
@@ -89,150 +79,100 @@ const FeaturedEventImage = styled.div`
     background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
   }
 
-  @media (max-width: 1024px) {
-    width: 100%;
-    height: 400px;
-  }
-
   @media (max-width: 768px) {
+    width: 100%;
     height: 250px;
   }
 `;
 
 const FeaturedEventInfo = styled.div`
   width: 50%;
-  padding: 60px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  @media (max-width: 1024px) {
-    width: 100%;
-    padding: 40px;
-  }
-
   @media (max-width: 768px) {
-    padding: 30px 20px;
+    width: 100%;
   }
 `;
 
 const FeaturedEventTitle = styled.h2`
-  font-size: 36px;
+  font-size: 1.8rem;
   color: #2C3E50;
-  margin-bottom: 20px;
-  font-weight: 700;
-
-  @media (max-width: 1024px) {
-    font-size: 32px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 28px;
-    margin-bottom: 15px;
-  }
+  margin-bottom: 1rem;
+  font-weight: 600;
 `;
 
 const FeaturedEventDescription = styled.p`
-  font-size: 18px;
-  color: #7f8c8d;
-  margin-bottom: 30px;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
   line-height: 1.6;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-    margin-bottom: 25px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 15px;
-    margin-bottom: 20px;
-  }
 `;
 
 const FeaturedEventDetails = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 30px;
-
-  @media (max-width: 768px) {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 1.5rem;
 `;
 
 const EventDetail = styled.span`
   display: flex;
   align-items: center;
-  font-size: 16px;
-  color: #7f8c8d;
-  margin-right: 20px;
-  margin-bottom: 10px;
-
-  @media (max-width: 768px) {
-    font-size: 14px;
-    margin-right: 15px;
-  }
+  font-size: 0.9rem;
+  color: #555;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
 `;
 
 const Button = styled.button`
-  background-color: #C1A267;
+  background-color: #8B4513;
   color: white;
   border: none;
-  padding: 15px 30px;
-  font-size: 18px;
-  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
   align-self: flex-start;
 
   &:hover {
-    background-color: #A88A4F;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(168, 138, 79, 0.4);
-  }
-
-  @media (max-width: 768px) {
-    padding: 12px 25px;
-    font-size: 16px;
+    background-color: #6B3611;
   }
 `;
 
 const EventGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 2rem;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
   }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 25px;
   }
 `;
 
 const EventCard = styled.div`
   background: white;
-  border-radius: 20px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   animation: ${fadeIn} 0.6s ease-out;
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  }
-
-  @media (max-width: 768px) {
-    border-radius: 15px;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
 `;
 
 const EventImage = styled.div`
   width: 100%;
-  height: 250px;
+  height: 200px;
   background-image: url(${props => props.src});
   background-size: cover;
   background-position: center;
@@ -247,78 +187,45 @@ const EventImage = styled.div`
     bottom: 0;
     background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
   }
-
-  @media (max-width: 768px) {
-    height: 200px;
-  }
 `;
 
 const EventInfo = styled.div`
-  padding: 30px;
-
-  @media (max-width: 768px) {
-    padding: 20px;
-  }
+  padding: 1.5rem;
 `;
 
 const EventTitle = styled.h3`
-  font-size: 24px;
+  font-size: 1.3rem;
   color: #2C3E50;
-  margin-bottom: 15px;
+  margin-bottom: 0.75rem;
   font-weight: 600;
-
-  @media (max-width: 768px) {
-    font-size: 22px;
-    margin-bottom: 12px;
-  }
 `;
 
 const EventDescription = styled.p`
-  font-size: 16px;
-  color: #7f8c8d;
-  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
   line-height: 1.6;
-
-  @media (max-width: 768px) {
-    font-size: 15px;
-    margin-bottom: 15px;
-  }
 `;
 
 const EventCardDetails = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 20px;
-
-  @media (max-width: 768px) {
-    margin-bottom: 15px;
-  }
+  margin-bottom: 1rem;
 `;
 
 const CardEventDetail = styled(EventDetail)`
-  font-size: 14px;
-  margin-right: 15px;
-
-  @media (max-width: 768px) {
-    font-size: 13px;
-    margin-right: 12px;
-  }
+  font-size: 0.8rem;
+  margin-right: 0.75rem;
 `;
 
 const ViewMoreButton = styled(Button)`
-  font-size: 16px;
-  padding: 12px 24px;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  @media (max-width: 768px) {
-    font-size: 15px;
-    padding: 10px 20px;
-  }
 `;
 
-// Sample event data
 const events = [
   {
     id: 1,
@@ -379,7 +286,11 @@ const SaurahaEventsPage = () => {
 
   return (
     <PageContainer>
-      <PageTitle>Discover Sauraha's Exciting Events</PageTitle>
+      <PageTitle>Discover Sauraha's Enchanting Events</PageTitle>
+      <Subtitle>
+        Immerse yourself in the rich culture and natural wonders of Sauraha through our carefully curated events. 
+        From vibrant festivals to intimate nature experiences, each event promises unforgettable memories.
+      </Subtitle>
 
       {featuredEvent && (
         <FeaturedEventSection>
@@ -389,19 +300,19 @@ const SaurahaEventsPage = () => {
             <FeaturedEventDescription>{featuredEvent.description}</FeaturedEventDescription>
             <FeaturedEventDetails>
               <EventDetail>
-                <Calendar size={18} style={{marginRight: '10px', color: '#C1A267'}} />
+                <Calendar size={16} style={{marginRight: '8px', color: '#8B4513'}} />
                 {new Date(featuredEvent.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
               </EventDetail>
               <EventDetail>
-                <Clock size={18} style={{marginRight: '10px', color: '#C1A267'}} />
+                <Clock size={16} style={{marginRight: '8px', color: '#8B4513'}} />
                 {featuredEvent.time}
               </EventDetail>
               <EventDetail>
-                <MapPin size={18} style={{marginRight: '10px', color: '#C1A267'}} />
+                <MapPin size={16} style={{marginRight: '8px', color: '#8B4513'}} />
                 {featuredEvent.location}
               </EventDetail>
               <EventDetail>
-                <Users size={18} style={{marginRight: '10px', color: '#C1A267'}} />
+                <Users size={16} style={{marginRight: '8px', color: '#8B4513'}} />
                 {featuredEvent.attendees} attendees
               </EventDetail>
             </FeaturedEventDetails>
@@ -419,19 +330,19 @@ const SaurahaEventsPage = () => {
               <EventDescription>{event.description}</EventDescription>
               <EventCardDetails>
                 <CardEventDetail>
-                  <Calendar size={16} style={{marginRight: '8px', color: '#C1A267'}} />
+                  <Calendar size={14} style={{marginRight: '6px', color: '#8B4513'}} />
                   {new Date(event.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </CardEventDetail>
                 <CardEventDetail>
-                  <Clock size={16} style={{marginRight: '8px', color: '#C1A267'}} />
+                  <Clock size={14} style={{marginRight: '6px', color: '#8B4513'}} />
                   {event.time}
                 </CardEventDetail>
                 <CardEventDetail>
-                  <MapPin size={16} style={{marginRight: '8px', color: '#C1A267'}} />
+                  <MapPin size={14} style={{marginRight: '6px', color: '#8B4513'}} />
                   {event.location}
                 </CardEventDetail>
               </EventCardDetails>
-              <ViewMoreButton>View Details <ChevronRight size={16} style={{marginLeft: '8px'}} /></ViewMoreButton>
+              <ViewMoreButton>View Details <ChevronRight size={14} style={{marginLeft: '6px'}} /></ViewMoreButton>
             </EventInfo>
           </EventCard>
         ))}

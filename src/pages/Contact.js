@@ -2,243 +2,150 @@ import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Phone, Mail, MapPin, Clock, Globe, DollarSign } from 'lucide-react';
 
-// Animations
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 `;
 
-// Styled Components
 const PageContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 20px;
+  padding: 4rem 2rem;
   font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa;
+  background-color: #f5f5f5;
   position: relative;
 
-  @media (max-width: 1024px) {
-    padding: 80px 15px;
-  }
-
   @media (max-width: 768px) {
-    padding: 60px 10px;
+    padding: 3rem 1rem;
   }
 `;
 
 const PageTitle = styled.h1`
-  font-size: 48px;
+  font-size: 2.5rem;
   text-align: center;
   color: #2C3E50;
-  margin-bottom: 20px;
-  font-weight: 700;
-
-  @media (max-width: 1024px) {
-    font-size: 42px;
-  }
+  margin-bottom: 1rem;
+  font-weight: 600;
 
   @media (max-width: 768px) {
-    font-size: 36px;
+    font-size: 2rem;
   }
 `;
 
 const Subtitle = styled.p`
-  font-size: 18px;
+  font-size: 1.1rem;
   text-align: center;
-  color: #7f8c8d;
-  margin-bottom: 60px;
-
-  @media (max-width: 1024px) {
-    font-size: 17px;
-    margin-bottom: 50px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 16px;
-    margin-bottom: 40px;
-  }
+  color: #555;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const ContactSection = styled.div`
   display: flex;
-  gap: 40px;
-  margin-bottom: 80px;
-
-  @media (max-width: 1024px) {
-    // flex-direction: column;
-    gap: 30px;
-  }
+  gap: 2rem;
+  margin-bottom: 4rem;
 
   @media (max-width: 768px) {
-      flex-direction: column;
-
-    gap: 20px;
+    flex-direction: column;
   }
 `;
 
 const ContactInfo = styled.div`
   flex: 1;
   background: white;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   animation: ${fadeIn} 0.6s ease-out;
-
-  @media (max-width: 1024px) {
-    padding: 35px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 30px;
-  }
 `;
 
 const ContactForm = styled.form`
   flex: 1;
   background: white;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   animation: ${fadeIn} 0.6s ease-out;
-
-  @media (max-width: 1024px) {
-    padding: 35px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 30px;
-  }
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 28px;
+  font-size: 1.5rem;
   color: #2C3E50;
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
   font-weight: 600;
-
-  @media (max-width: 1024px) {
-    font-size: 26px;
-    margin-bottom: 25px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
 `;
 
 const ContactDetail = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 25px;
-  font-size: 18px;
-  color: #7f8c8d;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #555;
 
   svg {
-    margin-right: 15px;
-    color: #C1A267;
-  }
-
-  @media (max-width: 1024px) {
-    font-size: 17px;
-    margin-bottom: 20px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 16px;
-    margin-bottom: 15px;
+    margin-right: 1rem;
+    color: #8B4513;
   }
 `;
 
 const InputGroup = styled.div`
-  margin-bottom: 25px;
-
-  @media (max-width: 768px) {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 1.5rem;
 `;
 
 const Input = styled.input`
   width: 100%;
-  padding: 12px 15px;
+  padding: 0.75rem 1rem;
   border: 2px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 4px;
+  font-size: 1rem;
 
   &:focus {
     outline: none;
-    border-color: #C1A267;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 14px;
-    padding: 10px 12px;
+    border-color: #8B4513;
   }
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
-  padding: 12px 15px;
+  padding: 0.75rem 1rem;
   border: 2px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 4px;
+  font-size: 1rem;
   min-height: 150px;
 
   &:focus {
     outline: none;
-    border-color: #C1A267;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 14px;
-    padding: 10px 12px;
-    min-height: 120px;
+    border-color: #8B4513;
   }
 `;
 
 const SubmitButton = styled.button`
-  background-color: #C1A267;
+  background-color: #8B4513;
   color: white;
   border: none;
-  padding: 12px 25px;
-  font-size: 18px;
-  border-radius: 5px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #A88A4F;
-  }
-
-  @media (max-width: 1024px) {
-    font-size: 17px;
-    padding: 11px 22px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 16px;
-    padding: 10px 20px;
+    background-color: #6B3611;
   }
 `;
 
 const MapSection = styled.div`
-  margin-bottom: 80px;
-
-  @media (max-width: 1024px) {
-    margin-bottom: 60px;
-  }
-
-  @media (max-width: 768px) {
-    margin-bottom: 40px;
-  }
+  margin-bottom: 4rem;
 `;
 
 const Map = styled.iframe`
   width: 100%;
   height: 400px;
   border: none;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
     height: 300px;
@@ -246,15 +153,31 @@ const Map = styled.iframe`
 `;
 
 const InfoBox = styled.div`
-  background: #f0f0f0;
-  border-left: 4px solid #C1A267;
-  padding: 20px;
-  margin-top: 30px;
-  border-radius: 5px;
+  background: white;
+  border-left: 4px solid #8B4513;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
 
-  @media (max-width: 768px) {
-    padding: 15px;
-    margin-top: 20px;
+const InfoList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    margin-bottom: 0.75rem;
+    color: #555;
+    font-size: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+
+    &:before {
+      content: '•';
+      color: #8B4513;
+      position: absolute;
+      left: 0;
+    }
   }
 `;
 
@@ -279,38 +202,38 @@ const Contact = () => {
   return (
     <PageContainer>
       <PageTitle>Contact Us</PageTitle>
-      <Subtitle>We're here to help you plan your perfect Sauraha adventure</Subtitle>
+      <Subtitle>Experience the warmth of our hospitality. We're here to assist you in planning your perfect Sauraha adventure and ensuring your stay is nothing short of extraordinary.</Subtitle>
 
       <ContactSection>
         <ContactInfo>
-          <SectionTitle>Contact Information</SectionTitle>
+          <SectionTitle>How to Reach Us</SectionTitle>
           <ContactDetail>
-            <Phone size={24} />
-            +977 1234567890 (International: +977 1234567890)
+            <Phone size={20} />
+            +977 1234567890 (Int'l: +977 1234567890)
           </ContactDetail>
           <ContactDetail>
-            <Mail size={24} />
+            <Mail size={20} />
             info@saurahahotel.com
           </ContactDetail>
           <ContactDetail>
-            <MapPin size={24} />
+            <MapPin size={20} />
             Sauraha, Chitwan National Park, Nepal
           </ContactDetail>
           <ContactDetail>
-            <Clock size={24} />
+            <Clock size={20} />
             Open 24/7 (Nepal Time: GMT+5:45)
           </ContactDetail>
           <ContactDetail>
-            <Globe size={24} />
+            <Globe size={20} />
             www.saurahahotel.com
           </ContactDetail>
           <ContactDetail>
-            <Globe size={24} />
-            We speak: English, Nepali, Hindi
+            <Globe size={20} />
+            Languages: English, Nepali, Hindi
           </ContactDetail>
           <ContactDetail>
-            <DollarSign size={24} />
-            We accept: USD, EUR, NPR
+            <DollarSign size={20} />
+            Currencies accepted: USD, EUR, NPR
           </ContactDetail>
         </ContactInfo>
 
@@ -369,14 +292,14 @@ const Contact = () => {
       </MapSection>
 
       <InfoBox>
-        <SectionTitle>Important Information for International Visitors</SectionTitle>
-        <ul>
-          <li>Visa Information: Most visitors require a visa to enter Nepal. You can obtain a visa on arrival at Tribhuvan International Airport in Kathmandu.</li>
+        <SectionTitle>Essential Information for International Guests</SectionTitle>
+        <InfoList>
+          <li>Visa Requirements: Most visitors need a visa to enter Nepal. Obtain yours on arrival at Tribhuvan International Airport in Kathmandu.</li>
           <li>Currency: The local currency is Nepalese Rupee (NPR). We recommend exchanging money at the airport or official exchange offices.</li>
-          <li>Climate: Sauraha has a subtropical climate. The best time to visit is from October to March when the weather is mild and dry.</li>
-          <li>Transportation: We offer airport pickup services. Please contact us in advance to arrange your transfer.</li>
-          <li>Health: We recommend consulting your doctor about vaccinations and health precautions before traveling to Nepal.</li>
-        </ul>
+          <li>Best Time to Visit: Experience Sauraha at its finest from October to March when the weather is mild and dry.</li>
+          <li>Transportation: We offer personalized airport pickup services. Contact us in advance to arrange your seamless transfer.</li>
+          <li>Health Precautions: We advise consulting your doctor about necessary vaccinations and health precautions before your journey to Nepal.</li>
+        </InfoList>
       </InfoBox>
     </PageContainer>
   );

@@ -19,9 +19,9 @@ const IntroSection = styled.section`
   flex-direction: column;
   padding: 4rem 2rem;
   max-width: 1200px;
-  margin: 4rem auto;
+  margin: 0rem auto;
   gap: 3rem;
-  background-color: #f8f8f8;
+  background-color: #f5f5f5;
   color: #2C3E50;
   position: relative;
   overflow: hidden;
@@ -38,7 +38,7 @@ const IntroSection = styled.section`
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><path d="M0 0h80v80H0z" fill="none"/><path d="M0 80V0l20 20L0 80zm21 0V20l20 20-20 40zm21 0V40l20 20-20 20zm21 0V60l17 17v3H63z" fill="%23C1A267" opacity="0.05"/></svg>') repeat;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><path d="M0 0h80v80H0z" fill="none"/><path d="M0 80V0l20 20L0 80zm21 0V20l20 20-20 40zm21 0V40l20 20-20 20zm21 0V60l17 17v3H63z" fill="%238B4513" opacity="0.05"/></svg>') repeat;
     opacity: 0.05;
     z-index: 0;
   }
@@ -68,14 +68,12 @@ const ContentArea = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 36px;
+  font-size: 2.5rem;
   color: #2C3E50;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
   position: relative;
-  padding-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 300;
+  padding-bottom: 0.5rem;
+  font-weight: 600;
 
   &::after {
     content: '';
@@ -84,134 +82,88 @@ const Title = styled.h2`
     left: 0;
     width: 80px;
     height: 2px;
-    background: linear-gradient(to right, #C1A267, transparent);
+    background: linear-gradient(to right, #8B4513, transparent);
   }
 
   animation: ${fadeIn} 1s ease-out;
 
   @media (min-width: 768px) {
-    font-size: 40px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 44px;
+    font-size: 2.75rem;
   }
 `;
 
 const Subtitle = styled.h3`
-  font-size: 18px;
-  color: #C1A267;
-  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: #8B4513;
+  margin-bottom: 1rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 
   animation: ${slideIn} 1s ease-out 0.3s both;
 
   @media (min-width: 768px) {
-    font-size: 20px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 22px;
-    margin-bottom: 20px;
+    font-size: 1.2rem;
   }
 `;
 
 const Description = styled.p`
-  color: #7f8c8d;
+  color: #555;
   line-height: 1.6;
-  margin-bottom: 15px;
-  font-size: 16px;
-  position: relative;
-  padding-left: 20px;
-
-  &::before {
-    content: '✦';
-    position: absolute;
-    left: 0;
-    color: #C1A267;
-  }
+  margin-bottom: 1rem;
+  font-size: 1rem;
 
   animation: ${slideIn} 1s ease-out 0.6s both;
 
   @media (min-width: 768px) {
-    font-size: 17px;
-    line-height: 1.7;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 18px;
-    line-height: 1.8;
-    margin-bottom: 20px;
+    font-size: 1.1rem;
   }
 `;
 
 const StatsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 30px;
+  gap: 1rem;
+  margin-top: 2rem;
 
   animation: ${fadeIn} 1s ease-out 1s both;
-
-  @media (min-width: 768px) {
-    gap: 20px;
-    margin-top: 40px;
-  }
 `;
 
 const StatItem = styled.div`
   text-align: center;
-  padding: 15px;
-  background-color: rgba(193, 162, 103, 0.1);
-  border: 1px solid rgba(193, 162, 103, 0.3);
+  padding: 1rem;
+  background-color: rgba(139, 69, 19, 0.1);
+  border: 1px solid rgba(139, 69, 19, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(193, 162, 103, 0.2);
-  }
-
-  @media (min-width: 1024px) {
-    padding: 20px;
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
   }
 `;
 
 const StatNumber = styled.div`
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #2C3E50;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
 
   @media (min-width: 768px) {
-    font-size: 28px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 32px;
+    font-size: 1.75rem;
   }
 `;
 
 const StatLabel = styled.div`
-  color: #C1A267;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  color: #8B4513;
+  font-size: 0.9rem;
   font-weight: 600;
 
   @media (min-width: 768px) {
-    font-size: 15px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 16px;
+    font-size: 1rem;
   }
 `;
 
 const ImageWrapper = styled.div`
   position: relative;
-  height: 200px;
+  height: 300px;
 
   &::before {
     content: '';
@@ -220,7 +172,7 @@ const ImageWrapper = styled.div`
     left: 10px;
     right: -10px;
     bottom: -10px;
-    border: 2px solid #C1A267;
+    border: 2px solid #8B4513;
     z-index: 1;
   }
 
@@ -230,16 +182,6 @@ const ImageWrapper = styled.div`
     height: 100%;
     min-height: 400px;
   }
-
-  @media (min-width: 1024px) {
-    min-height: 00px;
-    &::before {
-      top: 20px;
-      left: 20px;
-      right: -20px;
-      bottom: -20px;
-    }
-  }
 `;
 
 const Image = styled.img`
@@ -248,27 +190,24 @@ const Image = styled.img`
   object-fit: cover;
   position: relative;
   z-index: 2;
-  filter: sepia(20%) contrast(110%);
   transition: filter 0.3s ease;
 
   &:hover {
-    filter: sepia(0%) contrast(100%);
+    filter: brightness(1.1);
   }
 `;
-
-
 
 const HotelIntroComponent = () => (
   <IntroSection>
     <Grid>
       <ContentArea>
-        <Title>Himalayan Haven</Title>
+        <Title>Sauraha Serenity</Title>
         <Subtitle>Where luxury meets nature's grandeur</Subtitle>
         <Description>
-          Nestled at the gateway to Chitwan National Park, Himalayan Haven offers an unparalleled blend of opulent comfort and the raw beauty of Nepal's wilderness.
+          Nestled at the gateway to Chitwan National Park, Sauraha Serenity offers an unparalleled blend of opulent comfort and the raw beauty of Nepal's wilderness.
         </Description>
         <Description>
-          Our sanctuary of tranquility invites you to immerse yourself in the majesty of the Himalayas while indulging in world-class amenities and personalized service.
+          Our sanctuary of tranquility invites you to immerse yourself in the majesty of the Chitwan while indulging in world-class amenities and personalized service.
         </Description>
         <StatsGrid>
           <StatItem>
@@ -286,7 +225,7 @@ const HotelIntroComponent = () => (
         </StatsGrid>
       </ContentArea>
       <ImageWrapper>
-        <Image src={hotelExterior} alt="Himalayan Haven exterior" />
+        <Image src={hotelExterior} alt="Sauraha Serenity exterior" />
       </ImageWrapper>
     </Grid>
   </IntroSection>

@@ -1,28 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Award, Star } from 'lucide-react';
+import React, { useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, ChevronUp, Send } from 'lucide-react';
 
-const breakpoints = {
-  mobile: '480px',
-  tablet: '768px',
-  desktop: '1024px',
-};
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
 
-const FooterWrapper = styled.footer`
-  background-color: #2c1a05;
-  color: #f4e0a1;
-  padding: 3rem 1rem 2rem;
-  font-family: 'Cormorant Garamond', serif;
+const FooterSection = styled.footer`
+  background-image: url(https://kcsrestaurantandhome.com/wp-content/uploads/2023/10/kc-property-11-1-1024x683.webp);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 30px 20px;
+  font-family: 'Arial', sans-serif;
   position: relative;
-  overflow: hidden;
-
-  @media (min-width: ${breakpoints.tablet}) {
-    padding: 4rem 2rem 3rem;
-  }
-
-  @media (min-width: ${breakpoints.desktop}) {
-    padding: 5rem 3rem 4rem;
-  }
 
   &::before {
     content: '';
@@ -31,369 +23,235 @@ const FooterWrapper = styled.footer`
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpath d='M0 0h400v400H0z' fill='none'/%3E%3Cpath d='M200 50l150 260H50z' fill='%23d4af37' opacity='0.05'/%3E%3Ccircle cx='300' cy='100' r='20' fill='%23b38736' opacity='0.07'/%3E%3Cpath d='M100 200c0-11 9-20 20-20s20 9 20 20-9 20-20 20-20-9-20-20z' fill='%236b5644' opacity='0.05'/%3E%3Cpath d='M250 300c0-8.3 6.7-15 15-15s15 6.7 15 15-6.7 15-15 15-15-6.7-15-15z' fill='%23e0c68a' opacity='0.07'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    opacity: 0.1;
-    z-index: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
   }
 `;
 
-const FooterContent = styled.div`
+const Content = styled.div`
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  position: relative;
-  z-index: 1;
+  animation: ${fadeIn} 0.5s ease-out;
 
-  @media (min-width: ${breakpoints.tablet}) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-  }
-
-  @media (min-width: ${breakpoints.desktop}) {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 
-const FooterSection = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+const Column = styled.div`
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 20px;
 
-const FooterTitle = styled.h3`
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  color: #d4af37;
-  font-weight: 600;
-  position: relative;
-  padding-bottom: 0.5rem;
-  letter-spacing: 1px;
-
-  @media (min-width: ${breakpoints.tablet}) {
-    font-size: 1.5rem;
-    margin-bottom: 1.25rem;
-  }
-
-  @media (min-width: ${breakpoints.desktop}) {
-    font-size: 1.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(to right, #d4af37, transparent);
+  @media (max-width: 768px) {
+    min-width: 100%;
+    margin-bottom: 15px;
   }
 `;
 
-const FooterList = styled.ul`
+const Title = styled.h3`
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #FFA500;
+`;
+
+const LinkList = styled.ul`
   list-style-type: none;
   padding: 0;
-  margin: 0;
-`;
+  columns: 2;
+  column-gap: 20px;
 
-const FooterListItem = styled.li`
-  margin-bottom: 0.75rem;
-  display: flex;
-  align-items: center;
-  
-  @media (min-width: ${breakpoints.tablet}) {
-    margin-bottom: 1rem;
-  }
-
-  svg {
-    margin-right: 0.75rem;
-    color: #b38736;
+  @media (max-width: 480px) {
+    columns: 1;
   }
 `;
 
-const FooterLink = styled.a`
-  color: #f4e0a1;
+const LinkItem = styled.li`
+  margin-bottom: 5px;
+`;
+
+const Link = styled.a`
+  color: white;
   text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
-  font-size: 0.9rem;
-  font-family: 'Poppins', sans-serif;
-  
-  @media (min-width: ${breakpoints.tablet}) {
-    font-size: 1rem;
-  }
-
-  @media (min-width: ${breakpoints.desktop}) {
-    font-size: 1.1rem;
-  }
+  transition: color 0.3s ease;
+  font-size: 14px;
 
   &:hover {
-    color: #d4af37;
-    transform: translateX(5px);
+    color: #FFA500;
   }
 `;
 
-const SocialIcons = styled.div`
+const ContactInfo = styled.div`
+  margin-bottom: 10px;
+`;
+
+const ContactItem = styled.p`
   display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 14px;
 
-  @media (min-width: ${breakpoints.tablet}) {
-    gap: 1.25rem;
-    margin-top: 1.25rem;
-  }
-
-  @media (min-width: ${breakpoints.desktop}) {
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+  svg {
+    margin-right: 8px;
+    flex-shrink: 0;
   }
 `;
 
-const SocialIcon = styled.a`
-  color: #f4e0a1;
-  transition: color 0.3s ease, transform 0.3s ease;
-  
+const SocialLinks = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+`;
+
+const SocialLink = styled.a`
+  color: white;
+  transition: color 0.3s ease;
+
   &:hover {
-    color: #d4af37;
-    transform: translateY(-3px);
-  }
-
-  svg {
-    width: 20px;
-    height: 20px;
-
-    @media (min-width: ${breakpoints.tablet}) {
-      width: 22px;
-      height: 22px;
-    }
-
-    @media (min-width: ${breakpoints.desktop}) {
-      width: 24px;
-      height: 24px;
-    }
-  }
-`;
-
-const Copyright = styled.div`
-  text-align: center;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(212, 175, 55, 0.3);
-  font-size: 0.8rem;
-  color: #b38736;
-  position: relative;
-  z-index: 1;
-  font-family: 'Poppins', sans-serif;
-
-  @media (min-width: ${breakpoints.tablet}) {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    font-size: 0.9rem;
-  }
-
-  @media (min-width: ${breakpoints.desktop}) {
-    margin-top: 4rem;
-    padding-top: 2.5rem;
-    font-size: 1rem;
-  }
-`;
-
-const AwardsSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 2rem;
-  position: relative;
-  z-index: 1;
-
-  @media (min-width: ${breakpoints.tablet}) {
-    flex-direction: row;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-
-  @media (min-width: ${breakpoints.desktop}) {
-    gap: 3rem;
-    margin-top: 4rem;
-  }
-`;
-
-const AwardItem = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: 0.9rem;
-  color: #d4af37;
-  font-family: 'Cormorant Garamond', serif;
-  letter-spacing: 1px;
-
-  @media (min-width: ${breakpoints.tablet}) {
-    font-size: 1rem;
-  }
-
-  @media (min-width: ${breakpoints.desktop}) {
-    font-size: 1.1rem;
-  }
-
-  svg {
-    margin-right: 0.5rem;
-    width: 20px;
-    height: 20px;
-
-    @media (min-width: ${breakpoints.tablet}) {
-      width: 22px;
-      height: 22px;
-    }
-
-    @media (min-width: ${breakpoints.desktop}) {
-      width: 24px;
-      height: 24px;
-    }
+    color: #FFA500;
   }
 `;
 
 const NewsletterForm = styled.form`
   display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-
-  @media (min-width: ${breakpoints.tablet}) {
-    flex-direction: row;
-    margin-top: 1.25rem;
-  }
+  margin-top: 10px;
 `;
 
 const NewsletterInput = styled.input`
-  padding: 0.75rem 1rem;
-  border: 1px solid #b38736;
-  background-color: rgba(244, 224, 161, 0.1);
-  color: #f4e0a1;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
-  margin-bottom: 0.75rem;
-
-  @media (min-width: ${breakpoints.tablet}) {
-    margin-bottom: 0;
-    margin-right: 0.5rem;
-    font-size: 1rem;
-  }
-
-  &:focus {
-    outline: none;
-    border-color: #d4af37;
-  }
-
-  &::placeholder {
-    color: rgba(244, 224, 161, 0.6);
-  }
+  padding: 8px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  flex-grow: 1;
+  font-size: 14px;
 `;
 
 const NewsletterButton = styled.button`
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(45deg, #b38736, #d4af37);
-  color: #2c1a05;
+  padding: 8px 12px;
+  background-color: #FFA500;
+  color: white;
   border: none;
+  border-radius: 0 4px 4px 0;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-
-  @media (min-width: ${breakpoints.tablet}) {
-    font-size: 1.1rem;
-  }
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background: linear-gradient(45deg, #d4af37, #e0c68a);
-    transform: translateY(-2px);
+    background-color: #FF8C00;
   }
 `;
 
-const FooterComponent = () => {
+const Copyright = styled.p`
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+`;
+
+const ScrollToTop = styled.button`
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #FFA500;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+
+  &:hover {
+    background-color: #FF8C00;
+  }
+`;
+
+const Footer = () => {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Newsletter signup:', email);
+    setEmail('');
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <FooterWrapper>
-      <FooterContent>
-        <FooterSection>
-          <FooterTitle>Himalayan Haven</FooterTitle>
-          <FooterList>
-            <FooterListItem>
-              <MapPin />
-              Lakeside, Pokhara, Nepal
-            </FooterListItem>
-            <FooterListItem>
-              <Phone />
-              <FooterLink href="tel:+97761234567">+977 61 234 567</FooterLink>
-            </FooterListItem>
-            <FooterListItem>
-              <Mail />
-              <FooterLink href="mailto:info@himalayanhaven.com">info@himalayanhaven.com</FooterLink>
-            </FooterListItem>
-          </FooterList>
-          <SocialIcons>
-            <SocialIcon href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <Facebook />
-            </SocialIcon>
-            <SocialIcon href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <Instagram />
-            </SocialIcon>
-            <SocialIcon href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <Twitter />
-            </SocialIcon>
-          </SocialIcons>
-        </FooterSection>
-        
-        <FooterSection>
-          <FooterTitle>Explore</FooterTitle>
-          <FooterList>
-            <FooterListItem><FooterLink href="/accommodations">Accommodations</FooterLink></FooterListItem>
-            <FooterListItem><FooterLink href="/dining">Dining</FooterLink></FooterListItem>
-            <FooterListItem><FooterLink href="/spa">Wellness & Spa</FooterLink></FooterListItem>
-            <FooterListItem><FooterLink href="/experiences">Experiences</FooterLink></FooterListItem>
-            <FooterListItem><FooterLink href="/events">Meetings & Events</FooterLink></FooterListItem>
-          </FooterList>
-        </FooterSection>
-        
-        <FooterSection>
-          <FooterTitle>Discover Nepal</FooterTitle>
-          <FooterList>
-            <FooterListItem><FooterLink href="/trekking">Trekking Adventures</FooterLink></FooterListItem>
-            <FooterListItem><FooterLink href="/wildlife">Wildlife Safaris</FooterLink></FooterListItem>
-            <FooterListItem><FooterLink href="/culture">Cultural Tours</FooterLink></FooterListItem>
-            <FooterListItem><FooterLink href="/meditation">Meditation Retreats</FooterLink></FooterListItem>
-          </FooterList>
-        </FooterSection>
-        
-        <FooterSection>
-          <FooterTitle>Newsletter</FooterTitle>
-          <p>Subscribe to receive exclusive offers and updates.</p>
-          <NewsletterForm>
-            <NewsletterInput type="email" placeholder="Your Email Address" />
-            <NewsletterButton type="submit">Subscribe</NewsletterButton>
+    <FooterSection>
+      <Content>
+        <Column>
+          <Title>Quick Links</Title>
+          <LinkList>
+            <LinkItem><Link href="#">ABOUT</Link></LinkItem>
+            <LinkItem><Link href="#">RESTAURANT</Link></LinkItem>
+            <LinkItem><Link href="#">TOUR PACKAGES</Link></LinkItem>
+            <LinkItem><Link href="#">GALLERY</Link></LinkItem>
+            <LinkItem><Link href="#">CONTACT</Link></LinkItem>
+          </LinkList>
+        </Column>
+        <Column>
+          <Title>Contact Us</Title>
+          <ContactInfo>
+            <ContactItem>
+              <MapPin size={14} />
+              Sauraha, Gaida Chowk, Ratnanagar-6, Chitwan
+            </ContactItem>
+            <ContactItem>
+              <Phone size={14} />
+              056-593195, 056-593197, 056-580309
+            </ContactItem>
+            <ContactItem>
+              <Phone size={14} />
+              977-9855015308, 977-9855015309
+            </ContactItem>
+            <ContactItem>
+              <Mail size={14} />
+              reservationkcshome@gmail.com
+            </ContactItem>
+          </ContactInfo>
+          <SocialLinks>
+            <SocialLink href="#" aria-label="Facebook"><Facebook size={20} /></SocialLink>
+            <SocialLink href="#" aria-label="Instagram"><Instagram size={20} /></SocialLink>
+            <SocialLink href="#" aria-label="LinkedIn"><Linkedin size={20} /></SocialLink>
+          </SocialLinks>
+        </Column>
+        <Column>
+          <Title>Newsletter</Title>
+          <NewsletterForm onSubmit={handleSubmit}>
+            <NewsletterInput 
+              type="email" 
+              placeholder="Your email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <NewsletterButton type="submit">
+              <Send size={14} />
+            </NewsletterButton>
           </NewsletterForm>
-        </FooterSection>
-      </FooterContent>
-      
-      <AwardsSection>
-        <AwardItem>
-          <Award />
-          World Luxury Hotel Awards 2023
-        </AwardItem>
-        <AwardItem>
-          <Star />
-          5-Star Deluxe Rating
-        </AwardItem>
-      </AwardsSection>
-      
+        </Column>
+      </Content>
       <Copyright>
-        © {new Date().getFullYear()} Himalayan Haven. All rights reserved. <br />
-        Luxury redefined in the heart of the Himalayas
+        Copyright © 2023. All rights reserved. KC's Restaurant & Home Pvt. Ltd.
       </Copyright>
-    </FooterWrapper>
+      <ScrollToTop onClick={scrollToTop}>
+        <ChevronUp size={20} />
+      </ScrollToTop>
+    </FooterSection>
   );
 };
 
-export default FooterComponent;
+export default Footer;

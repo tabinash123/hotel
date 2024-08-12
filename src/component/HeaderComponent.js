@@ -41,7 +41,7 @@ const HeaderContent = styled.div`
   align-items: center;
   padding: 20px 40px;
   max-width: 1400px;
-  margin: 0 auto;
+  // margin: 0 auto;
 
   @media (max-width: ${breakpoints.tablet}) {
     padding: 15px 20px;
@@ -65,7 +65,7 @@ const LogoWrapper = styled.div`
 `;
 
 const Logo = styled.img`
-  height: 100px;
+  height: 50px;
   width: auto;
   border-radius: 50%;
   border: 2px solid #e9c46a;
@@ -76,7 +76,7 @@ const Logo = styled.img`
   }
 
   @media (max-width: ${breakpoints.mobile}) {
-    height: 60px;
+    height: 40px;
   }
 `;
 
@@ -93,7 +93,7 @@ const NavItem = styled(Link)`
   color: #f4e0a1;
   text-decoration: none;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -259,7 +259,6 @@ const HeaderComponent = () => {
           <ContactItem><Phone size={16} /> +977 1234 5678</ContactItem>
           <ContactItem><Mail size={16} /> info@himalayanhaven.com</ContactItem>
         </ContactInfo>
-        <BookNowButton to="/book">Book Now</BookNowButton>
         <MobileMenuToggle onClick={toggleMobileMenu}>
           <Menu size={24} />
         </MobileMenuToggle>
