@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Bed, Users, UserCheck } from 'lucide-react';
-import img1 from "../../assets/gallary/1.jpg";
-import img2 from "../../assets/gallary/2.jpg";
-import img3 from "../../assets/gallary/3.jpg";
+import img1 from "../../assets/resort/hotel4.jpg";
+import img2 from "../../assets/resort/reception.jpg";
+import img3 from "../../assets/resort/garden1.jpg";
 
 const Container = styled.div`
   max-width: 1200px;

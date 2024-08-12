@@ -6,6 +6,7 @@ import TeamSection from '../component/about/TeamSection'
 import RoomFacilities from '../component/about/RoomFacilities'
 import TestimonialCarousel from './../component/hompage/TestimonialComponent';
 import MissionVisionSection from './../component/about/MissionVision';
+import Gallery from '../component/about/Gallery'
 
 const About = () => {
   return (
@@ -17,6 +18,7 @@ const About = () => {
       <RoomFacilities />
       <TeamSection />
       <TestimonialCarousel />
+      <Gallery />
     </div>
   )
 }

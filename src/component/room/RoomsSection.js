@@ -204,7 +204,7 @@ const RoomsSection = () => {
     <Section>
       <IntroSection>
         <Subtitle>LUXURY ACCOMMODATIONS</Subtitle>
-        <Title>Unparalleled Comfort and Elegance</Title>
+        <Title>Rooms & Suits</Title>
         <Description>
           Immerse yourself in the pinnacle of luxury with our meticulously designed rooms and suites. 
           Each space is crafted to provide an oasis of comfort, style, and sophistication, 

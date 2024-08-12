@@ -2,12 +2,22 @@ import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { Image as ImageIcon, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-import img1 from "../../assets/gallary/1.jpg";
-import img2 from "../../assets/gallary/2.jpg";
-import img3 from "../../assets/gallary/3.jpg";
-import img4 from "../../assets/gallary/4.jpg";
-import img5 from "../../assets/gallary/5.jpg";
-import img6 from "../../assets/gallary/6.jpg";
+import img1 from "../../assets/wildlife/1.jpg";
+import img2 from "../../assets/wildlife/2.jpg";
+import img3 from "../../assets/wildlife/3.jpg";
+import img4 from "../../assets/wildlife/4.jpg";
+import img5 from "../../assets/wildlife/5.jpg";
+import img6 from "../../assets/wildlife/6.jpg";
+import img7 from "../../assets/wildlife/7.jpg";
+import img8 from "../../assets/wildlife/8.jpg";
+import img9 from "../../assets/wildlife/9.jpg";
+import img10 from "../../assets/wildlife/10.jpg";
+import img11 from "../../assets/wildlife/11.jpg";
+import img12 from "../../assets/wildlife/1.jpg";
+import img13 from "../../assets/wildlife/13.jpg";
+import img14 from "../../assets/wildlife/14.jpg";
+import img15 from "../../assets/wildlife/15.jpg";
+import img16 from "../../assets/wildlife/16.jpg";
 
 const GallerySection = styled.section`
   padding: 4rem 2rem;
@@ -163,7 +173,15 @@ const galleryImages = [
   { src: img3, alt: 'Swimming pool at night' },
   { src: img4, alt: 'Garden gazebo' },
   { src: img5, alt: 'Hotel pathway' },
-  { src: img6, alt: 'Hotel building at night' },
+  { src: img7, alt: 'Hotel building at night' },
+  { src: img8, alt: 'Hotel building at night' },
+  { src: img9, alt: 'Hotel building at night' },
+  { src: img10, alt: 'Hotel building at night' },
+  { src: img11, alt: 'Hotel building at night' },
+  { src: img16, alt: 'Hotel building at night' },
+  { src: img13, alt: 'Hotel building at night' },
+  { src: img14, alt: 'Hotel building at night' },
+  { src: img15, alt: 'Hotel building at night' },
 ];
 
 const Gallery = () => {

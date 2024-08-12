@@ -2,19 +2,17 @@ import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { Image as ImageIcon, X } from 'lucide-react';
 
-import img1 from "../../assets/wildlife/1.jpg";
-import img2 from "../../assets/wildlife/2.jpg";
-import img3 from "../../assets/resort/garden2.jpg";
-import img4 from "../../assets/resort/hotel4.jpg";
+import img1 from "../../assets/resort/garden1.jpg";
+import img2 from "../../assets/resort/garden2.jpg";
+import img3 from "../../assets/resort/garden3.jpg";
+import img4 from "../../assets/resort/garden4.jpg";
 import img5 from "../../assets/resort/reception.jpg";
-import img6 from "../../assets/resort/garden4.jpg";
-import img7 from "../../assets/wildlife/5.jpg";
-import img8 from "../../assets/wildlife/7.jpg";
-import img9 from "../../assets/wildlife/9.jpg";
-import img10 from "../../assets/wildlife/10.jpg";
-import img11 from "../../assets/wildlife/11.jpg";
-import img12 from "../../assets/wildlife/14.jpg";
-import img13 from "../../assets/wildlife/13.jpg";
+import img6 from "../../assets/resort/hotel1.jpg";
+import img7 from "../../assets/resort/hotel2.jpg";
+import img8 from "../../assets/resort/hotel3.jpg";
+import img9 from "../../assets/resort/hotel4.jpg";
+import img10 from "../../assets/resort/hotel5.jpg";
+// import img6 from "../../assets/resort/6.jpg";
 
 const GallerySection = styled.section`
   padding: 1rem;
@@ -138,19 +136,17 @@ const CloseButton = styled.button`
 `;
 
 const galleryImages = [
-  { src: img1, alt: 'Hotel exterior at night' },
-  { src: img2, alt: 'Luxurious bedroom' },
   { src: img3, alt: 'Swimming pool at night' },
+  { src: img8, alt: 'Hotel pathway' },
+  { src: img7, alt: 'Hotel pathway' },
   { src: img4, alt: 'Garden gazebo' },
+  { src: img10, alt: 'Hotel pathway' },
+  { src: img2, alt: 'Luxurious bedroom' },
   { src: img5, alt: 'Hotel pathway' },
-  { src: img6, alt: 'Hotel building at night' },
-  { src: img7, alt: 'Hotel building at night' },
-  { src: img8, alt: 'Hotel building at night' },
-  { src: img9, alt: 'Hotel building at night' },
-  { src: img10, alt: 'Hotel building at night' },
-  { src: img11, alt: 'Hotel building at night' },
-  { src: img12, alt: 'Hotel building at night' },
-  { src: img13, alt: 'Hotel building at night' },
+  { src: img6, alt: 'Hotel pathway' },
+  { src: img1, alt: 'Hotel exterior at night' },
+  { src: img9, alt: 'Hotel pathway' },
+//   { src: img6, alt: 'Hotel building at night' },
 ];
 
 const Gallery = () => {

@@ -4,11 +4,12 @@ import { Calendar, Clock, Users, Map } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Import images
-import img1 from "../../assets/gallary/1.jpg";
-import img2 from "../../assets/gallary/2.jpg";
-import img3 from "../../assets/gallary/3.jpg";
-import img4 from "../../assets/gallary/4.jpg";
 
+import bbq from '../../assets/activities/bbq.jpg';
+import bishajariLake from '../../assets/activities/bishajariLake.jpg';
+import culturalProgram from '../../assets/activities/culturalProgram.jpg';
+import elephantBath from '../../assets/activities/elephantBath.jpg';
+import elephantBreeding from '../../assets/activities/elephantBreeding.jpg';
 const Section = styled.section`
   max-width: 1200px;
   margin: 0 auto;
@@ -227,33 +228,40 @@ const ViewMoreLink = styled(Link)`
 const TourPackagesSection = () => {
   const tourPackages = [
     {
-      name: 'Jeep Safari Adventure',
-      image: img1,
-      price: '$60',
-      description: 'Explore Chitwan National Park on an exciting jeep safari, spotting diverse wildlife including rhinos and tigers.',
-      features: ['4 Hours', 'Morning/Afternoon', 'Max 8 People', 'Easy'],
-    },
-    {
-      name: 'Canoe Ride & Jungle Walk',
-      image: img2,
-      price: '$40',
-      description: 'Enjoy a serene canoe ride on the Rapti River, followed by a guided jungle walk to observe flora and fauna.',
-      features: ['3 Hours', 'Morning', 'Max 10 People', 'Moderate'],
-    },
-    {
-      name: 'Elephant Bathing Experience',
-      image: img3,
-      price: '$25',
-      description: 'Interact with gentle giants and assist in their bathing routine in the Rapti River.',
-      features: ['1 Hour', 'Morning', 'Max 6 People', 'Easy'],
-    },
-    {
-      name: 'Tharu Village Tour',
-      image: img4,
-      price: '$30',
-      description: 'Immerse yourself in the rich culture of the indigenous Tharu people, visit their traditional homes, and witness cultural performances.',
-      features: ['3 Hours', 'Evening', 'Max 12 People', 'Easy'],
-    },
+    name: 'BBQ Night',
+    image: bbq,
+    price: '$70',
+    description: 'Enjoy a cozy BBQ night under the stars with delicious grilled food and great company.',
+    features: ['3 Hours', 'Evening', 'Max 15', 'Easy'],
+  },
+  {
+    name: 'Bishajari Lake Tour',
+    image: bishajariLake,
+    price: '$45',
+    description: 'Explore the serene Bishajari Lake, a Ramsar site, and witness its rich biodiversity.',
+    features: ['5 Hours', 'Morning', 'Max 20', 'Moderate'],
+  },
+  {
+    name: 'Cultural Program',
+    image: culturalProgram,
+    price: '$30',
+    description: 'Immerse yourself in the local culture with a traditional Tharu cultural program.',
+    features: ['2 Hours', 'Evening', 'Max 50', 'Easy'],
+  },
+  {
+    name: 'Elephant Bathing Experience',
+    image: elephantBath,
+    price: '$25',
+    description: 'Participate in the joyful tradition of bathing elephants in the Rapti River, creating unforgettable memories.',
+    features: ['1 Hour', 'Morning', 'Max 6', 'Easy'],
+  },
+  {
+    name: 'Elephant Breeding Center Tour',
+    image: elephantBreeding,
+    price: '$20',
+    description: 'Visit the Elephant Breeding Center to learn about the conservation efforts and see baby elephants.',
+    features: ['2 Hours', 'Morning', 'Max 10', 'Easy'],
+  },
   ];
 
   return (

@@ -22,7 +22,7 @@ const App = () => {
           <Route path="/room" element={<Room />} />
           <Route path="/gallary" element={<Gallary />} />
           <Route path="/tour" element={<TourPack />} />
-          <Route path="/event" element={<Event />} />
+          {/* <Route path="/event" element={<Event />} /> */}
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <FooterComponent />

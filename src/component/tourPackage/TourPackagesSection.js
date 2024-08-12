@@ -2,12 +2,16 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Calendar, Clock, Users, Map } from 'lucide-react';
 
-import img1 from "../../assets/gallary/1.jpg";
-import img2 from "../../assets/gallary/2.jpg";
-import img3 from "../../assets/gallary/3.jpg";
-import img4 from "../../assets/gallary/4.jpg";
-import img5 from "../../assets/gallary/5.jpg";
-import img6 from "../../assets/gallary/6.jpg";
+import bbq from '../../assets/activities/bbq.jpg';
+import bishajariLake from '../../assets/activities/bishajariLake.jpg';
+import culturalProgram from '../../assets/activities/culturalProgram.jpg';
+import elephantBath from '../../assets/activities/elephantBath.jpg';
+import elephantBreeding from '../../assets/activities/elephantBreeding.jpg';
+import elephantRide from '../../assets/activities/elephantRide.jpg';
+import homeStay from '../../assets/activities/homeStay.jpg';
+import jungleSafari from '../../assets/activities/jungleSafari.jpg';
+import towerNightStay from '../../assets/activities/towerNightStay.jpg';
+import trekking from '../../assets/activities/trekkig.jpg';
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -143,56 +147,85 @@ const Feature = styled.span`
 `;
 
 const TourPackagesSection = () => {
-  const tourPackages = [
-    {
-      name: 'Jeep Safari Adventure',
-      image: img1,
-      price: '$60',
-      description: 'Embark on an exhilarating jeep safari through Chitwan National Park, encountering diverse wildlife in their natural habitat.',
-      features: ['4 Hours', 'Morning', 'Max 8', 'Easy'],
-    },
-    {
-      name: 'Canoe Ride & Jungle Walk',
-      image: img2,
-      price: '$40',
-      description: 'Glide along the serene waters of the Rapti River, followed by an immersive guided walk through the lush jungle.',
-      features: ['3 Hours', 'Morning', 'Max 10', 'Moderate'],
-    },
-    {
-      name: 'Elephant Bathing Experience',
-      image: img3,
-      price: '$25',
-      description: 'Participate in the joyful tradition of bathing elephants in the Rapti River, creating unforgettable memories.',
-      features: ['1 Hour', 'Morning', 'Max 6', 'Easy'],
-    },
-    {
-      name: 'Tharu Village Cultural Tour',
-      image: img4,
-      price: '$30',
-      description: 'Immerse yourself in the rich traditions of the indigenous Tharu people, exploring their unique culture and lifestyle.',
-      features: ['3 Hours', 'Evening', 'Max 12', 'Easy'],
-    },
-    {
-      name: 'Bird Watching Expedition',
-      image: img5,
-      price: '$35',
-      description: 'Join expert ornithologists on a fascinating journey to spot and identify the diverse avian species of Chitwan.',
-      features: ['4 Hours', 'Morning', 'Max 8', 'Easy'],
-    },
-    {
-      name: 'Sunset River Safari',
-      image: img6,
-      price: '$50',
-      description: 'Cruise down the Rapti River at dusk, witnessing the magical transformation of the landscape as day turns to night.',
-      features: ['2 Hours', 'Evening', 'Max 10', 'Easy'],
-    },
-  ];
+const tourPackages = [
+  {
+    name: 'Jeep Safari Adventure',
+    image: jungleSafari,
+    price: '$60',
+    description: 'Embark on an exhilarating jeep safari through Chitwan National Park, encountering diverse wildlife in their natural habitat.',
+    features: ['4 Hours', 'Morning', 'Max 8', 'Easy'],
+  },
+  {
+    name: 'Canoe Ride & Jungle Walk',
+    image: bishajariLake,
+    price: '$40',
+    description: 'Glide along the serene waters of the Rapti River, followed by an immersive guided walk through the lush jungle.',
+    features: ['3 Hours', 'Morning', 'Max 10', 'Moderate'],
+  },
+  {
+    name: 'Elephant Bathing Experience',
+    image: elephantBath,
+    price: '$25',
+    description: 'Participate in the joyful tradition of bathing elephants in the Rapti River, creating unforgettable memories.',
+    features: ['1 Hour', 'Morning', 'Max 6', 'Easy'],
+  },
+  {
+    name: 'Tharu Village Cultural Tour',
+    image: culturalProgram,
+    price: '$30',
+    description: 'Immerse yourself in the rich traditions of the indigenous Tharu people, exploring their unique culture and lifestyle.',
+    features: ['3 Hours', 'Evening', 'Max 12', 'Easy'],
+  },
+  {
+    name: 'Bird Watching Expedition',
+    image: trekking, // assuming this is the correct image for bird watching
+    price: '$35',
+    description: 'Join expert ornithologists on a fascinating journey to spot and identify the diverse avian species of Chitwan.',
+    features: ['4 Hours', 'Morning', 'Max 8', 'Easy'],
+  },
+  {
+    name: 'Sunset River Safari',
+    image: towerNightStay,
+    price: '$50',
+    description: 'Cruise down the Rapti River at dusk, witnessing the magical transformation of the landscape as day turns to night.',
+    features: ['2 Hours', 'Evening', 'Max 10', 'Easy'],
+  },
+  {
+    name: 'BBQ Night',
+    image: bbq,
+    price: '$70',
+    description: 'Enjoy a cozy BBQ night under the stars with delicious grilled food and great company.',
+    features: ['3 Hours', 'Evening', 'Max 15', 'Easy'],
+  },
+  {
+    name: 'Elephant Breeding Center Tour',
+    image: elephantBreeding,
+    price: '$20',
+    description: 'Visit the Elephant Breeding Center to learn about the conservation efforts and see baby elephants.',
+    features: ['2 Hours', 'Morning', 'Max 10', 'Easy'],
+  },
+  {
+    name: 'Elephant Ride Adventure',
+    image: elephantRide,
+    price: '$50',
+    description: 'Experience the thrill of riding on the back of an elephant through the jungle.',
+    features: ['2 Hours', 'Morning', 'Max 4', 'Moderate'],
+  },
+  {
+    name: 'Homestay Experience',
+    image: homeStay,
+    price: '$90',
+    description: 'Stay with a local family and experience the culture and traditions of the region.',
+    features: ['Overnight', 'All Day', 'Max 2', 'Moderate'],
+  },
+];
+
 
   return (
     <Section>
       <IntroSection>
         <Subtitle>EXPLORE SAURAHA</Subtitle>
-        <Title>Discover Chitwan's Natural Wonders</Title>
+        <Title>Our Tour-Packages</Title>
         <Description>
           Immerse yourself in the breathtaking beauty of Chitwan National Park through our carefully curated tour packages. 
           From thrilling wildlife encounters to serene cultural experiences, each adventure promises to create lasting memories 

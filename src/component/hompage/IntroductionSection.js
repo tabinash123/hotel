@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Sparkles, Lotus, Mountains } from 'lucide-react';
 
-import hotelExterior from '../../assets/hotel/hotel1.jpg';
+import hotelExterior from '../../assets/resort/hotel1.jpg';
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -143,7 +143,7 @@ const StatLabel = styled.div`
 
 const ImageWrapper = styled.div`
   position: relative;
-  height: 300px;
+  height: 200px;
 
   &::before {
     content: '';
@@ -160,7 +160,7 @@ const ImageWrapper = styled.div`
 
   @media (min-width: 768px) {
     height: 100%;
-    min-height: 400px;
+    min-height: 200px;
   }
 `;
 

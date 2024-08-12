@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import ima from '../../assets/wildlife/13.jpg'
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -9,7 +10,7 @@ const fadeIn = keyframes`
 const HeroSection = styled.section`
   position: relative;
   height: 90vh;
-  background-image: url(https://kcsrestaurantandhome.com/wp-content/uploads/2023/10/kc-property-11-1-1024x683.webp);
+  background-image: url(${ima});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -25,7 +26,7 @@ const HeroSection = styled.section`
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
   }
 
