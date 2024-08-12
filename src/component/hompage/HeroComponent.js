@@ -27,9 +27,9 @@ const Overlay = styled.div`
   height: 100%;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0.4) 60%,
-    rgba(0, 0, 0, 0.2) 100%
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.1) 100%
   );
 `;
 
@@ -55,9 +55,9 @@ const SubHeader = styled(motion.h2)`
   font-family: 'Cormorant Garamond', serif;
   font-size: 2rem;
   font-weight: 400;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 1024px) {
@@ -66,43 +66,41 @@ const SubHeader = styled(motion.h2)`
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
-    letter-spacing: 4px;
+    // letter-spacing: 3px;
   }
 `;
 
 const Title = styled(motion.h1)`
   font-family: 'Playfair Display', serif;
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 700;
-  line-height: 1.1;
+  // line-height: 1.1;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(45deg, #ffffff, #c9a73b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
 
   @media (max-width: 1024px) {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
   @media (max-width: 768px) {
-    font-size: 3.5rem;
+    font-size: 2rem;
   }
 `;
 
 const Description = styled(motion.p)`
   font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   max-width: 600px;
   margin-bottom: 30px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 1024px) {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
 
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 `;
 
@@ -224,7 +222,7 @@ const HeroComponent = () => {
           Experience world-class hospitality amidst Nepal's stunning wilderness.
         </Description>
         <CTAButton
-          href="#book-now"
+          href="/room"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}

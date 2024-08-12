@@ -24,8 +24,8 @@ const Section = styled.section`
 `;
 
 const Subtitle = styled.p`
-  font-size: 16px;
-  color: #C1A267;
+  font-size: 1rem;
+  color: #8B4513;
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -38,11 +38,12 @@ const Subtitle = styled.p`
 `;
 
 const Title = styled.h2`
-  font-size: 36px;
+  font-size: 2.5rem;
+  color: #2C3E50;  
   text-align: center;
   margin-bottom: 40px;
-  color: #2C3E50;
-  font-weight: 300;
+  color: #003366;
+  font-weight: 500;
   line-height: 1.4;
   max-width: 800px;
   margin-left: auto;

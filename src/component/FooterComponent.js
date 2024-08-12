@@ -15,6 +15,8 @@ const FooterSection = styled.footer`
   padding: 30px 20px;
   font-family: 'Arial', sans-serif;
   position: relative;
+    border-top: 3px solid #d4af37;
+
 
   &::before {
     content: '';

@@ -6,7 +6,6 @@ import UnforgettableExperience from './../component/hompage/UnforgettableExperie
 import PhotoGallery from '../component/hompage/PhotoGallery';
 import IntroductionSection from './../component/hompage/IntroductionSection';
 import HeroComponent from '../component/hompage/HeroComponent.js';
-import WhyChooseUs from '../component/hompage/WhyChooseUs;.js';
 
 
 const Hompage = () => {
@@ -18,7 +17,6 @@ const Hompage = () => {
       <Services />
       <UnforgettableExperience />
       <TestimonialComponent />
-      <WhyChooseUs />
       <PhotoGallery />
     </div>
   )

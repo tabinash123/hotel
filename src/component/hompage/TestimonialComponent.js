@@ -23,7 +23,7 @@ const TestimonialSection = styled.section`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
   }
 `;
 
@@ -78,7 +78,7 @@ const Content = styled.div`
 const Subtitle = styled.h3`
   font-size: 1rem;
   color: #ffffff;
-  margin-bottom: 0.5rem;
+  // margin-bottom: 0.5rem;
   font-weight: normal;
 
   @media (min-width: 768px) {
@@ -93,8 +93,8 @@ const Subtitle = styled.h3`
 const Title = styled.h2`
   font-size: 2.5rem;
   color: #ffffff;
-  margin-bottom: 1rem;
-  font-weight: 300;
+  // margin-bottom: 1rem;
+  font-weight: 600;
 
   @media (min-width: 768px) {
     font-size: 3rem;
@@ -112,7 +112,7 @@ const Divider = styled.hr`
 `;
 
 const TestimonialText = styled.p`
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: #ffffff;
   margin-bottom: 2rem;

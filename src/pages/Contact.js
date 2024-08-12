@@ -9,7 +9,7 @@ const fadeIn = keyframes`
 
 const PageContainer = styled.div`
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 50px auto;
   padding: 4rem 2rem;
   font-family: 'Arial', sans-serif;
   background-color: #f5f5f5;

@@ -70,52 +70,32 @@ const ContentArea = styled.div`
 const Title = styled.h2`
   font-size: 2.5rem;
   color: #2C3E50;
-  margin-bottom: 1rem;
-  position: relative;
-  padding-bottom: 0.5rem;
+  // margin-bottom: 1.5rem;
   font-weight: 600;
+  // line-height: 1.3;
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 80px;
-    height: 2px;
-    background: linear-gradient(to right, #8B4513, transparent);
-  }
-
-  animation: ${fadeIn} 1s ease-out;
-
-  @media (min-width: 768px) {
-    font-size: 2.75rem;
+  @media (max-width: 768px) {
+    font-size: 2rem;
   }
 `;
 
-const Subtitle = styled.h3`
-  font-size: 1.1rem;
+
+const Subtitle = styled.p`
+  font-size: 1rem;
   color: #8B4513;
+  text-transform: uppercase;
   margin-bottom: 1rem;
   font-weight: 600;
-
-  animation: ${slideIn} 1s ease-out 0.3s both;
-
-  @media (min-width: 768px) {
-    font-size: 1.2rem;
-  }
+  letter-spacing: 2px;
 `;
+
 
 const Description = styled.p`
+  font-size: 1.1rem;
   color: #555;
   line-height: 1.6;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-
-  animation: ${slideIn} 1s ease-out 0.6s both;
-
-  @media (min-width: 768px) {
-    font-size: 1.1rem;
-  }
+  max-width: 800px;
+  margin-bottom: 2rem;
 `;
 
 const StatsGrid = styled.div`
@@ -131,7 +111,7 @@ const StatItem = styled.div`
   text-align: center;
   padding: 1rem;
   background-color: rgba(139, 69, 19, 0.1);
-  border: 1px solid rgba(139, 69, 19, 0.3);
+  // border: 1px solid rgba(139, 69, 19, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
@@ -142,7 +122,7 @@ const StatItem = styled.div`
 
 const StatNumber = styled.div`
   font-size: 1.5rem;
-  color: #2C3E50;
+  color: #003366;
   font-weight: 600;
   margin-bottom: 0.5rem;
 
@@ -152,7 +132,7 @@ const StatNumber = styled.div`
 `;
 
 const StatLabel = styled.div`
-  color: #8B4513;
+  color: #555;
   font-size: 0.9rem;
   font-weight: 600;
 

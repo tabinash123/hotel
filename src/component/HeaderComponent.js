@@ -20,14 +20,14 @@ const shimmer = keyframes`
 
 const HeaderWrapper = styled.header`
   background: linear-gradient(135deg, #2c1a05 0%, #462b0b 50%, #5e3a0f 100%);
-  border-bottom: 3px solid #d4af37;
+  // border-bottom: 3px solid #d4af37;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   transition: all 0.3s ease;
-  min-height: 120px;
+  // min-height: 120px;
   box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
 
   @media (max-width: ${breakpoints.mobile}) {
@@ -93,7 +93,7 @@ const NavItem = styled(Link)`
   color: #f4e0a1;
   text-decoration: none;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -255,10 +255,7 @@ const HeaderComponent = () => {
             <NavItem to="/event" isScrolled={isScrolled}>event</NavItem>
             <NavItem to="/contact" isScrolled={isScrolled}>Contact</NavItem>
         </Nav>
-        <ContactInfo>
-          <ContactItem><Phone size={16} /> +977 1234 5678</ContactItem>
-          <ContactItem><Mail size={16} /> info@himalayanhaven.com</ContactItem>
-        </ContactInfo>
+  
         <MobileMenuToggle onClick={toggleMobileMenu}>
           <Menu size={24} />
         </MobileMenuToggle>

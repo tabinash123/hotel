@@ -55,9 +55,9 @@ const ServiceCard = styled.div`
   border-radius: 8px;
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  animation: ${fadeIn} 0.6s ease-out;
+  // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  // transition: all 0.3s ease;
+  // animation: ${fadeIn} 0.6s ease-out;
 
   &:hover {
     transform: translateY(-5px);
@@ -66,7 +66,7 @@ const ServiceCard = styled.div`
 `;
 
 const IconWrapper = styled.div`
-  background-color: #8B4513;
+  background-color: #C1A267;
   color: white;
   width: 60px;
   height: 60px;

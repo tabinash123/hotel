@@ -25,10 +25,15 @@ const IntroSection = styled.div`
 `;
 
 const IntroTitle = styled.h2`
-  font-size: 2.5rem;
-  color: #8B4513;
+    font-size: 2.5rem;
+  color: #2C3E50;
   margin-bottom: 1.5rem;
   font-weight: 600;
+  line-height: 1.3;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const IntroDescription = styled.p`
@@ -39,11 +44,15 @@ const IntroDescription = styled.p`
 `;
 
 const GalleryTitle = styled.h3`
-  font-size: 2rem;
-  color: #8B4513;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
+   font-size: 2.5rem;
+  color: #2C3E50;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const GalleryGrid = styled.div`

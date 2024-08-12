@@ -39,11 +39,11 @@ const Subtitle = styled.p`
 `;
 
 const Title = styled.h2`
-  font-size: 36px;
+    font-size: 2.5rem;
+  color: #2C3E50;
   text-align: center;
   margin-bottom: 40px;
-  color: #2C3E50;
-  font-weight: 300;
+  font-weight: 700;
   line-height: 1.4;
   max-width: 800px;
   margin-left: auto;
