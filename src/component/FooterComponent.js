@@ -59,7 +59,7 @@ const Column = styled.div`
 const Title = styled.h3`
   font-size: 18px;
   margin-bottom: 10px;
-  color: #FFA500;
+  color: #A17A0B;
 `;
 
 const LinkList = styled.ul`
@@ -134,7 +134,7 @@ const NewsletterInput = styled.input`
 
 const NewsletterButton = styled.button`
   padding: 8px 12px;
-  background-color: #FFA500;
+  background-color: #B8860B;
   color: white;
   border: none;
   border-radius: 0 4px 4px 0;
@@ -160,7 +160,7 @@ const ScrollToTop = styled.button`
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #FFA500;
+  background-color: #B8860B;
   color: white;
   border: none;
   border-radius: 50%;

@@ -19,7 +19,7 @@ const shimmer = keyframes`
 `;
 
 const HeaderWrapper = styled.header`
-  background: linear-gradient(135deg, #2c1a05 0%, #462b0b 50%, #5e3a0f 100%);
+  background-color: #B8860B;
   // border-bottom: 3px solid #d4af37;
   position: fixed;
   top: 0;
@@ -90,11 +90,11 @@ const Nav = styled.nav`
 `;
 
 const NavItem = styled(Link)`
-  color: #f4e0a1;
+  color: #ffffff;
   text-decoration: none;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;
@@ -121,74 +121,6 @@ const NavItem = styled(Link)`
   }
 `;
 
-const ContactInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  color: #f4e0a1;
-  font-family: 'Poppins', sans-serif;
-
-  @media (max-width: ${breakpoints.tablet}) {
-    display: none;
-  }
-`;
-
-const ContactItem = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 5px 0;
-  font-size: 14px;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #ffffff;
-  }
-`;
-
-const BookNowButton = styled.a`
-  background: linear-gradient(45deg, #d4af37, #f4e0a1);
-  color: #2c1a05;
-  padding: 12px 24px;
-  text-decoration: none;
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-  margin-left: 20px;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #d4af37, #f4e0a1, #d4af37);
-    z-index: -1;
-    filter: blur(5px);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  &:hover {
-    transform: translateY(-2px);
-    color: #1a0f00;
-    &::before {
-      opacity: 1;
-    }
-  }
-
-  @media (max-width: ${breakpoints.tablet}) {
-    display: none;
-  }
-`;
-
 const MobileMenuToggle = styled.button`
   display: none;
   background: none;
@@ -207,7 +139,7 @@ const MobileMenu = styled.div`
   right: ${({ isOpen }) => isOpen ? '0' : '-100%'};
   bottom: 0;
   width: 300px;
-  background: linear-gradient(135deg, #2c1a05 0%, #462b0b 50%, #5e3a0f 100%);
+  background: #B8860B;
   transition: right 0.3s ease-in-out;
   z-index: 1001;
   border-left: 3px solid #d4af37;
@@ -252,7 +184,6 @@ const HeaderComponent = () => {
             <NavItem to="/gallary" isScrolled={isScrolled}>Gallary</NavItem>
             <NavItem to="/about" isScrolled={isScrolled}>About-us</NavItem>
             <NavItem to="/tour" isScrolled={isScrolled}>Tour-Pack</NavItem>
-            <NavItem to="/event" isScrolled={isScrolled}>event</NavItem>
             <NavItem to="/contact" isScrolled={isScrolled}>Contact</NavItem>
         </Nav>
   
@@ -267,7 +198,6 @@ const HeaderComponent = () => {
         <MobileNavItem to="/tour" onClick={toggleMobileMenu}>Tour-Pack</MobileNavItem>
         <MobileNavItem to="/about" onClick={toggleMobileMenu}>About</MobileNavItem>
         <MobileNavItem to="/contact" onClick={toggleMobileMenu}>Contact</MobileNavItem>
-        <MobileNavItem to="/event" onClick={toggleMobileMenu}>Event</MobileNavItem>
         
       </MobileMenu>
     </HeaderWrapper>

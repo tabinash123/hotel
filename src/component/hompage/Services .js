@@ -1,145 +1,113 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
-import { Utensils, Wifi, Dumbbell, Sun, Coffee, Car } from 'lucide-react';
+import styled from 'styled-components';
+import { Utensils, Dumbbell, Flower2, Shirt } from 'lucide-react';
 
-const fadeIn = keyframes`
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-`;
-
-const ServicesSection = styled.section`
+const Section = styled.section`
   max-width: 1200px;
-  margin: 4rem auto;
-  padding: 4rem 2rem;
-  background-color: #f5f5f5;
-  color: #2C3E50;
+  margin: 0 auto;
+  padding: 60px 20px;
+  background-color: #FFFFFF;
 
   @media (max-width: 768px) {
-    padding: 3rem 1rem;
+    padding: 40px 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 30px 10px;
   }
 `;
 
-const SectionTitle = styled.h2`
+const Title = styled.h2`
   font-size: 2.5rem;
-  color: #2C3E50;
+  color: #333;
   text-align: center;
-  margin-bottom: 1rem;
-  font-weight: 600;
+  margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+  }
 `;
 
-const SectionSubtitle = styled.p`
-  font-size: 1.1rem;
-  color: #555;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 3rem;
-  line-height: 1.6;
-`;
-
-const ServicesGrid = styled.div`
+const FacilitiesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 30px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     grid-template-columns: 1fr;
   }
 `;
 
-const ServiceCard = styled.div`
-  background-color: white;
+const FacilityCard = styled.div`
+  background: white;
   border-radius: 8px;
-  padding: 2rem;
-  text-align: center;
-  // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  // transition: all 0.3s ease;
-  // animation: ${fadeIn} 0.6s ease-out;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
 `;
 
 const IconWrapper = styled.div`
-  background-color: #C1A267;
-  color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
+  background-color: #B8860B;
+  border-radius: 8px;
+  padding: 10px;
+  margin-right: 15px;
 `;
 
-const ServiceTitle = styled.h3`
-  font-size: 1.3rem;
-  color: #2C3E50;
-  margin-bottom: 1rem;
-  font-weight: 600;
+const FacilityInfo = styled.div`
+  flex: 1;
 `;
 
-const ServiceDescription = styled.p`
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.6;
+const FacilityName = styled.h3`
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
 `;
 
-const services = [
-  {
-    icon: <Utensils size={24} />,
-    title: "Gourmet Dining",
-    description: "Indulge in exquisite culinary experiences at our world-class restaurants, featuring both local and international cuisines."
-  },
-  {
-    icon: <Wifi size={24} />,
-    title: "High-Speed Wi-Fi",
-    description: "Stay connected with complimentary high-speed Wi-Fi available throughout the hotel premises."
-  },
-  {
-    icon: <Dumbbell size={24} />,
-    title: "Fitness Center",
-    description: "Maintain your fitness routine in our state-of-the-art gym equipped with modern exercise machines and free weights."
-  },
-  {
-    icon: <Sun size={24} />,
-    title: "Luxury Spa",
-    description: "Rejuvenate your body and mind with our range of spa treatments, featuring traditional and modern therapies."
-  },
-  {
-    icon: <Coffee size={24} />,
-    title: "24/7 Room Service",
-    description: "Enjoy the convenience of round-the-clock room service, offering a wide selection of meals and refreshments."
-  },
-  {
-    icon: <Car size={24} />,
-    title: "Concierge Services",
-    description: "Let our expert concierge assist you with travel arrangements, tour bookings, and local recommendations."
-  }
-];
+const FacilityDescription = styled.p`
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+`;
 
-const HotelServicesComponent = () => (
-  <ServicesSection>
-    <SectionTitle>Our Services</SectionTitle>
-    <SectionSubtitle>
-      At Sauraha Serenity, we offer a range of world-class amenities to ensure your stay is nothing short of exceptional.
-      From gourmet dining to personalized concierge services, we cater to your every need.
-    </SectionSubtitle>
-    <ServicesGrid>
-      {services.map((service, index) => (
-        <ServiceCard key={index}>
-          <IconWrapper>{service.icon}</IconWrapper>
-          <ServiceTitle>{service.title}</ServiceTitle>
-          <ServiceDescription>{service.description}</ServiceDescription>
-        </ServiceCard>
-      ))}
-    </ServicesGrid>
-  </ServicesSection>
-);
+const FacilitiesSection = () => {
+  const facilities = [
+    { name: 'Restaurant', icon: Utensils, description: 'Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim.' },
+    // { name: 'Swimming Pool', icon: Swim, description: 'Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim.' },
+    { name: 'Fitness Center', icon: Dumbbell, description: 'Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim.' },
+    { name: 'Spa & Massage', icon: Flower2, description: 'Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim.' },
+    // { name: 'Meeting Room', icon: PresentationChart, description: 'Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim.' },
+    { name: 'Laundry Service', icon: Shirt, description: 'Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim.' },
+  ];
 
-export default HotelServicesComponent;
+  return (
+    <Section>
+      <Title>Our Facilities</Title>
+      <FacilitiesGrid>
+        {facilities.map((facility, index) => (
+          <FacilityCard key={index}>
+            <IconWrapper>
+              <facility.icon size={24} color="white" />
+            </IconWrapper>
+            <FacilityInfo>
+              <FacilityName>{facility.name}</FacilityName>
+              <FacilityDescription>{facility.description}</FacilityDescription>
+            </FacilityInfo>
+          </FacilityCard>
+        ))}
+      </FacilitiesGrid>
+    </Section>
+  );
+};
+
+export default FacilitiesSection;

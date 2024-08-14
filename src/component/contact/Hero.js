@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import imag from '../../assets/resort/garden3.jpg'
+
+import ima from '../../assets/resort/garden1.jpg'
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -8,8 +9,8 @@ const fadeIn = keyframes`
 
 const HeroSection = styled.section`
   position: relative;
-  height: 90vh;
-  background-image: url(${imag});
+  height: 70vh;
+  background-image: url(${ima});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -17,6 +18,7 @@ const HeroSection = styled.section`
   align-items: center;
   justify-content: center;
   padding: 20px;
+
   &::before {
     content: '';
     position: absolute;
@@ -93,8 +95,8 @@ const Hero = () => {
   return (
     <HeroSection>
       <Content>
-        <Title>Tour Packages</Title>
-        <Subtitle>Experience luxury and comfort in the heart of nature. Discover the perfect blend of modern amenities and serene surroundings.</Subtitle>
+        <Title>Contact </Title>
+        <Subtitle>Get the contact details</Subtitle>
       </Content>
     </HeroSection>
   );

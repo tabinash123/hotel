@@ -5,8 +5,6 @@ import { Facebook, Twitter, Instagram } from 'lucide-react';
 // Import images
 import img1 from "../../assets/gallary/1.jpg";
 import img2 from "../../assets/gallary/2.jpg";
-import img3 from "../../assets/gallary/3.jpg";
-import img4 from "../../assets/gallary/4.jpg";
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -44,11 +42,11 @@ const SectionTitle = styled.h2`
 `;
 
 const MainTitle = styled.h1`
-  font-size: 32px;
+  font-size: 28px;
   color: #333;
   margin-bottom: 30px;
   text-align: center;
-  font-weight: 600;
+  font-weight: bold;
   animation: ${fadeIn} 0.6s ease-out 0.2s both;
 
   @media (min-width: 768px) {
@@ -63,18 +61,19 @@ const MainTitle = styled.h1`
 
 const TeamGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   padding: 10px 0;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     padding: 15px 0;
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     padding: 20px 0;
   }
@@ -85,14 +84,8 @@ const TeamMember = styled.div`
   background-color: #ffffff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: ${fadeIn} 0.6s ease-out 0.4s both;
 
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-  }
+
 `;
 
 const ImageContainer = styled.div`
@@ -174,10 +167,8 @@ const SocialIcon = styled.a`
 
 const TeamSection = () => {
   const teamMembers = [
-    { name: 'Jeffery Mussman', role: 'Founder & CEO', image: img1 },
+    { name: 'Rishi Tiwari', role: 'Owner & CEO', image: img1 },
     { name: 'Sophia Jenkins', role: 'Founder & CEO', image: img2 },
-    { name: 'Ethan Reynolds', role: 'Founder & CEO', image: img3 },
-    { name: 'Noah Anderson', role: 'Founder & CEO', image: img4 },
   ];
 
   return (
@@ -193,7 +184,6 @@ const TeamSection = () => {
             <MemberInfo>
               <MemberName>{member.name}</MemberName>
               <MemberRole>{member.role}</MemberRole>
-              
             </MemberInfo>
           </TeamMember>
         ))}

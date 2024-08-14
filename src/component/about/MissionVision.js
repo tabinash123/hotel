@@ -81,7 +81,7 @@ const CardTitle = styled.h3`
 
 const IconWrapper = styled.span`
   margin-right: 10px;
-  background-color: #d2b48c;
+  background-color: #A17A0B;
   border-radius: 50%;
   padding: 8px;
   display: inline-flex;

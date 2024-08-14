@@ -30,12 +30,12 @@ const GalleryContainer = styled.div`
 `;
 
 const IntroSection = styled.div`
-  text-align: left;
+  text-align: center;
   margin-bottom: 3rem;
 `;
 
 const IntroTitle = styled.h2`
-    font-size: 2.5rem;
+  font-size: 2.5rem;
   color: #2C3E50;
   margin-bottom: 1.5rem;
   font-weight: 600;
@@ -51,14 +51,16 @@ const IntroDescription = styled.p`
   color: #555;
   line-height: 1.6;
   max-width: 800px;
+  margin: 0 auto;
 `;
 
 const GalleryTitle = styled.h3`
-   font-size: 2.5rem;
+  font-size: 2.5rem;
   color: #2C3E50;
   margin-bottom: 1.5rem;
   font-weight: 600;
   line-height: 1.3;
+  text-align: center;
 
   @media (max-width: 768px) {
     font-size: 2rem;
@@ -218,7 +220,7 @@ const Gallery = () => {
         </IntroSection>
 
         <GalleryTitle>
-          <ImageIcon size={32} color="#8B4513" style={{ marginRight: '0.5rem' }} />
+          <ImageIcon size={32} color="#8B4513" style={{ verticalAlign: 'middle', marginRight: '0.5rem' }} />
           Our Gallery
         </GalleryTitle>
         <GalleryGrid>

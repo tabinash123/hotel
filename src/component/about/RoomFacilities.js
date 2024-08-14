@@ -60,10 +60,10 @@ const Header = styled.h6`
 `;
 
 const Title = styled.h2`
-  font-size: 32px;
+  font-size: 28px;
   color: #333;
   margin-bottom: 20px;
-  font-weight: 300;
+  font-weight: bold;
 
   @media (min-width: 768px) {
     font-size: 42px;
@@ -92,7 +92,7 @@ const FacilityItem = styled.div`
 
 const IconWrapper = styled.div`
   margin-right: 15px;
-  color: #b0976d;
+  color: #A17A0B;
 `;
 
 const FacilityContent = styled.div``;

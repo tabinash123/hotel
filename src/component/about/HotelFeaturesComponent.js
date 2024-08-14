@@ -8,7 +8,7 @@ const Container = styled.div`
   padding: 20px;
   text-align: center;
   background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
+  // font-family: Arial, sans-serif;
 
   @media (min-width: 768px) {
     padding: 30px;
@@ -96,7 +96,7 @@ const FeatureTitle = styled.h3`
 `;
 
 const FeatureIcon = styled.div`
-  color: #d2b48c;
+  color: #A17A0B;
   margin-bottom: 12px;
 
   @media (min-width: 768px) {
@@ -124,7 +124,7 @@ const FeatureDescription = styled.p`
 const HotelFeaturesComponent = () => {
   return (
     <Container>
-      <Title>Orbitza Hotel Your Excellent Choice For Vacation.</Title>
+      <Title>Echo Adventure Resort Excellent Choice For Vacation.</Title>
       <Subtitle>
         Continually productize compelling quality for packed in business consulting elated
         Setting up to website and creating pages.

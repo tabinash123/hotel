@@ -36,7 +36,7 @@ const GalleryContainer = styled.div`
 
 const GalleryTitle = styled.h2`
   font-size: 1.5rem;
-  color: #003366;
+  color: #000000;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;

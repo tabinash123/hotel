@@ -136,7 +136,7 @@ const StatText = styled.p`
 `;
 
 const ExploreButton = styled.button`
-  background-color: #d2b48c;
+  background-color: #A17A0B;
   color: #000;
   border: none;
   padding: 12px 24px;
