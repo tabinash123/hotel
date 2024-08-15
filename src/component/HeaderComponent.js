@@ -180,10 +180,10 @@ const HeaderComponent = () => {
         </LogoWrapper>
         <Nav>
           <NavItem to="/" isScrolled={isScrolled}>Home</NavItem>
-            <NavItem to="/room" isScrolled={isScrolled}>Rooms & Suites</NavItem>
-            <NavItem to="/gallary" isScrolled={isScrolled}>Gallary</NavItem>
             <NavItem to="/about" isScrolled={isScrolled}>About-us</NavItem>
+            <NavItem to="/room" isScrolled={isScrolled}>Rooms & Suites</NavItem>
             <NavItem to="/tour" isScrolled={isScrolled}>Tour-Pack</NavItem>
+            <NavItem to="/gallary" isScrolled={isScrolled}>Gallary</NavItem>
             <NavItem to="/contact" isScrolled={isScrolled}>Contact</NavItem>
         </Nav>
   
@@ -194,9 +194,9 @@ const HeaderComponent = () => {
       <MobileMenu isOpen={isMobileMenuOpen}>
         <X size={24} color="#f4e0a1" onClick={toggleMobileMenu} style={{ alignSelf: 'flex-end', cursor: 'pointer' }} />
         <MobileNavItem to="/" onClick={toggleMobileMenu}>Home</MobileNavItem>
+        <MobileNavItem to="/about" onClick={toggleMobileMenu}>About</MobileNavItem>
         <MobileNavItem to="/room" onClick={toggleMobileMenu}>Rooms & Suites</MobileNavItem>
         <MobileNavItem to="/tour" onClick={toggleMobileMenu}>Tour-Pack</MobileNavItem>
-        <MobileNavItem to="/about" onClick={toggleMobileMenu}>About</MobileNavItem>
         <MobileNavItem to="/contact" onClick={toggleMobileMenu}>Contact</MobileNavItem>
         
       </MobileMenu>
