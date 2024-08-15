@@ -165,8 +165,7 @@ const TourPackagesSection = () => {
       <Title>Our Tour Packages</Title>
       <Description>
         Immerse yourself in the breathtaking beauty of Chitwan National Park through our carefully curated tour packages. 
-        From thrilling wildlife encounters to serene cultural experiences, each adventure promises to create lasting memories 
-        and showcase the exceptional biodiversity and rich heritage of this UNESCO World Heritage site.
+       
       </Description>
       <PackageGrid>
         {tourPackages.map((pkg, index) => (

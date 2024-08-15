@@ -213,9 +213,7 @@ const Gallery = () => {
           <IntroTitle>Explore Our Visual Journey</IntroTitle>
           <IntroDescription>
             Immerse yourself in the beauty and elegance of our hotel through our carefully curated gallery. 
-            From stunning exterior views to luxurious rooms and top-notch amenities, each image 
-            tells a story of comfort, style, and unforgettable experiences. Let our visual narrative 
-            inspire your next stay with us and showcase the exceptional quality we offer at every turn.
+           
           </IntroDescription>
         </IntroSection>
 

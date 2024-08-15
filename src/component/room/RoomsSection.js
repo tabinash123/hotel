@@ -174,9 +174,7 @@ const RoomsSection = () => {
       <Subtitle>LUXURY ACCOMMODATIONS</Subtitle>
       <Title>Rooms & Suites</Title>
       <Description>
-        Immerse yourself in the pinnacle of luxury with our meticulously designed rooms and suites. 
-        Each space is crafted to provide an oasis of comfort, style, and sophistication, 
-        ensuring an unforgettable stay that exceeds your every expectation.
+        Get the rooms in affordable prices.
       </Description>
       <RoomGrid>
         {rooms.map((room, index) => (
