@@ -5,9 +5,15 @@ import myVideo from '../../assets/Wildlife of Nepal.mp4';
 
 const HeroSection = styled.section`
   position: relative;
-  height: 80vh;
+  height: 90vh;
   width: 100%;
   overflow: hidden;
+  
+
+
+  @media (max-width: 768px) {
+  height: 80vh;
+  }
 `;
 
 const VideoBackground = styled.video`

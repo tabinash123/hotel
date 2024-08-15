@@ -10,24 +10,24 @@ const fadeIn = keyframes`
 const IntroSection = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
   gap: 3rem;
-  background-color: #FFFFFF;
+  background-color: #fffff9;
   color: #000000;
   position: relative;
 
   @media (min-width: 1024px) {
     flex-direction: row;
-    padding: 6rem 4rem;
+    padding: 2rem 4rem;
   }
 `;
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
+  // gap: 30px;
   position: relative;
 
   @media (min-width: 768px) {
@@ -141,7 +141,7 @@ const HotelIntroComponent = () => (
     <Grid>
       <ContentArea>
         <Subtitle>Where luxury meets nature's grandeur</Subtitle>
-        <Title>Sauraha Serenity</Title>
+        <Title>Echo Adventre Resort</Title>
         <Description>
           Echo Adventure is a luxury boutique hotel designed in traditional Tharu-style architecture, ideally located at SaurahaGaidaChowk. It is situated on the bank of Rapti River, the boundary of Chitwan National Park.
 

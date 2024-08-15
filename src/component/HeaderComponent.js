@@ -138,7 +138,7 @@ const MobileMenu = styled.div`
   top: 0;
   right: ${({ isOpen }) => isOpen ? '0' : '-100%'};
   bottom: 0;
-  width: 100px;
+  width: 150px;
   background: #B8860B;
   transition: right 0.3s ease-in-out;
   z-index: 1001;

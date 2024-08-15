@@ -12,15 +12,16 @@ import img6 from "../../assets/rooms/2.jpg";
 const Section = styled.section`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 10px 20px;
   background-color: #FFFFFF;
+  margin-bottom: 40px;
 
   @media (max-width: 768px) {
     padding: 40px 15px;
   }
 
   @media (max-width: 480px) {
-    padding: 30px 10px;
+    padding: 10px 10px;
   }
 `;
 
