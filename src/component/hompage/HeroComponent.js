@@ -1,253 +1,208 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import myVideo from '../../assets/Wildlife of Nepal.mp4';
+import { Calendar, Users, Award, Smile, Leaf } from 'lucide-react';
+// Note: You'll need to replace this with the correct path to your image
+import backgroundImage from '../../assets/resort/hotel2.jpg';
 
 const HeroSection = styled.section`
   position: relative;
   height: 90vh;
   width: 100%;
+  background-image: url(${props => props.backgroundImage});
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  // padding: 0 5%;
+  color: white;
   overflow: hidden;
-  
-
-
-  @media (max-width: 768px) {
-  height: 80vh;
-  }
-`;
-
-const VideoBackground = styled.video`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 `;
 
 const Overlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.1) 60%,
-    rgba(0, 0, 0, 0.1) 100%
-  );
-`;
-
-const ContentWrapper = styled.div`
-  position: absolute;
+  right: 0;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 40px 10%;
-  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+`;
+
+const Content = styled.div`
+  position: relative;
   z-index: 2;
-
-  @media (max-width: 1024px) {
-    padding: 30px 7%;
+  max-width: 100%;
+  margin-Left:5%;
+  
+  @media (min-width: 768px) {
+    max-width: 80%;
   }
-
-  @media (max-width: 768px) {
-    padding: 20px 5%;
+  
+  @media (min-width: 1024px) {
+    max-width: 60%;
   }
 `;
 
-const SubHeader = styled(motion.h2)`
-  font-family: 'Cormorant Garamond', serif;
+const Title = styled.h1`
   font-size: 2rem;
-  font-weight: 400;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  // margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 800;
+  margin-bottom: 15px;
+  line-height: 1.2;
 
-  @media (max-width: 1024px) {
-    font-size: 1.8rem;
+  @media (min-width: 768px) {
+    font-size: 3rem;
+    margin-bottom: 20px;
   }
 
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-    // letter-spacing: 3px;
-  }
-`;
-
-const Title = styled(motion.h1)`
-  font-family: 'Playfair Display', serif;
-  font-size: 5rem;
-  font-weight: 700;
-  // line-height: 1.1;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-
-
-  @media (max-width: 1024px) {
+  @media (min-width: 1024px) {
     font-size: 4rem;
   }
+`;
 
-  @media (max-width: 768px) {
-    font-size: 2rem;
+const Highlight = styled.span`
+  color: #B8860B;
+`;
+
+const Subtitle = styled.div`
+width: 80%;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  opacity: 0.9;
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
   }
 `;
 
-const Description = styled(motion.p)`
-  font-family: 'Lato', sans-serif;
-  font-size: 1rem;
-  max-width: 600px;
-  margin-bottom: 30px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-
-  @media (max-width: 1024px) {
-    font-size: 0.9rem;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 0.8rem;
-  }
-`;
-
-const CTAButton = styled(motion.a)`
-  display: inline-block;
-  background-color: #c9a73b;
-  color: #fff;
-  font-family: 'Lato', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-decoration: none;
-  padding: 12px 30px;
-  border: none;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-  &:hover {
-    background-color: #b08f2d;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    padding: 10px 25px;
-  }
-`;
-
-const BookingBar = styled(motion.div)`
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px 0;
+const ButtonGroup = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  
-  @media (max-width: 1024px) {
-    flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 15px;
+    margin-bottom: 35px;
   }
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    padding: 15px 0;
-  }
-`;
-
-const BookingInput = styled.input`
-  margin: 0 10px;
-  padding: 12px;
-  font-family: 'Lato', sans-serif;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  
-  @media (max-width: 1024px) {
-    margin: 5px;
-  }
-
-  @media (max-width: 768px) {
-    width: 90%;
-    margin: 5px 0;
+  @media (min-width: 1024px) {
+    gap: 20px;
+    margin-bottom: 40px;
   }
 `;
 
-const BookNowButton = styled.button`
-  background-color: #c9a73b;
-  color: #fff;
-  font-family: 'Lato', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 12px 25px;
+const Button = styled.button`
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  width: 70%;
+
+  @media (min-width: 768px) {
+    width: auto;
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  background-color: ${props => props.primary ? '#B8860B' : 'transparent'};
+  color: white;
+  border: ${props => props.primary ? 'none' : '2px solid white'};
 
   &:hover {
-    background-color: #b08f2d;
-  }
-  
-  @media (max-width: 768px) {
-    width: 90%;
-    margin-top: 10px;
+    background-color: ${props => props.primary ? '#ff2525' : 'rgba(255, 255, 255, 0.1)'};
+    transform: translateY(-2px);
   }
 `;
 
-const HeroComponent = () => {
+const Stats = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+`;
+
+const StatItem = styled.div`
+  text-align: center;
+`;
+
+const StatValue = styled.div`
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 3px;
+
+  @media (min-width: 768px) {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+`;
+
+const StatLabel = styled.div`
+  font-size: 0.7rem;
+  opacity: 0.8;
+
+  @media (min-width: 768px) {
+    font-size: 0.8rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 0.9rem;
+  }
+`;
+
+const IconWrapper = styled.div`
+  margin-bottom: 5px;
+`;
+
+const Hero = () => {
+  const stats = [
+    { icon: Calendar, value: '10+', label: 'Years of Excellence' },
+    { icon: Users, value: '100+', label: 'Luxurious Rooms' },
+    { icon: Award, value: '4.8', label: 'Guest Rating' },
+    { icon: Smile, value: '24/7', label: 'Customer Service' },
+  ];
+
   return (
-    <HeroSection>
-      <VideoBackground autoPlay loop muted playsInline>
-        <source src={myVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </VideoBackground>
+    <HeroSection backgroundImage={backgroundImage}>
       <Overlay />
-      <ContentWrapper>
-        <SubHeader
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-        >
-          Welcome to Luxury
-        </SubHeader>
-        <Title
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-        >
-          Echo Advanture
-        </Title>
-        <Description
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1 }}
-        >
-          Immerse yourself in unparalleled luxury at the edge of Chitwan National Park. 
-          Experience world-class hospitality amidst Nepal's stunning wilderness.
-        </Description>
-        <CTAButton
-          href="/room"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4 }}
-        >
-          Explore Our Suites
-        </CTAButton>
-        {/* <BookingBar
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.7 }}
-        >
-          <BookingInput type="date" placeholder="Check-in Date" />
-          <BookingInput type="date" placeholder="Check-out Date" />
-          <BookingInput type="number" placeholder="Guests" min="1" max="10" />
-          <BookNowButton>Book Now</BookNowButton>
-        </BookingBar> */}
-      </ContentWrapper>
+      <Content>
+        <Title>Experience Luxury at <Highlight>Echo Adventure Resort</Highlight></Title>
+        <Subtitle>Immerse yourself in Nepali culture and hospitality. Enjoy breathtaking views and world-class amenities in the heart of Kathmandu.</Subtitle>
+        <ButtonGroup>
+          <Button primary>Book Now</Button>
+          <Button>Explore Rooms</Button>
+        </ButtonGroup>
+        <Stats>
+          {stats.map((stat, index) => (
+            <StatItem key={index}>
+              <IconWrapper>
+                <stat.icon size={24} />
+              </IconWrapper>
+              <StatValue>{stat.value}</StatValue>
+              <StatLabel>{stat.label}</StatLabel>
+            </StatItem>
+          ))}
+        </Stats>
+      </Content>
     </HeroSection>
   );
 };
 
-export default HeroComponent;
+export default Hero;

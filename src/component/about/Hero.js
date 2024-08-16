@@ -62,6 +62,7 @@ const Title = styled.h1`
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   animation: ${fadeIn} 1s ease-out;
+  color:#B8860B;
 
   @media (min-width: 768px) {
     font-size: 48px;

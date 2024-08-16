@@ -8,7 +8,8 @@ const fadeIn = keyframes`
 `;
 
 const FooterSection = styled.footer`
-  background-image: url(https://kcsrestaurantandhome.com/wp-content/uploads/2023/10/kc-property-11-1-1024x683.webp);
+
+  background-color: #000000;
   background-size: cover;
   background-position: center;
   color: white;

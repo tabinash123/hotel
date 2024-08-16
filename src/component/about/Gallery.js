@@ -34,7 +34,7 @@ const GalleryContainer = styled.div`
 
 const GalleryTitle = styled.h2`
   font-size: 1.5rem;
-  color: #003366;
+  color: #000000;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -164,7 +164,6 @@ const Gallery = () => {
     <GallerySection>
       <GalleryContainer>
         <GalleryTitle>
-          <ImageIcon size={24} color="#8B4513" style={{ marginRight: '0.5rem' }} />
           Gallery
         </GalleryTitle>
         <GalleryGrid>

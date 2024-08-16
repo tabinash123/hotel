@@ -135,7 +135,7 @@ const Feature = styled.div`
 `;
 
 const IconWrapper = styled.div`
-  color: #8b4513;
+  color: #000000;
   flex-shrink: 0;
 `;
 

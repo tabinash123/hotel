@@ -66,7 +66,7 @@ const ContentContainer = styled.div`
 
 const WelcomeText = styled.p`
   font-size: 14px;
-  color: #333;
+  color: #B8860B;
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -136,8 +136,8 @@ const StatText = styled.p`
 `;
 
 const ExploreButton = styled.button`
-  background-color: #A17A0B;
-  color: #000;
+  background-color: #B8860B;
+  color: #000000;
   border: none;
   padding: 12px 24px;
   font-size: 16px;

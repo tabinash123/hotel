@@ -16,7 +16,7 @@ const About = () => {
       <MissionVisionSection />
       <HotelFeaturesComponent />
       <RoomFacilities />
-      <TeamSection />
+      {/* <TeamSection /> */}
       <TestimonialCarousel />
       <Gallery />
     </div>
