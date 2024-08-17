@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import { Menu, X, ChevronRight } from 'lucide-react';
+import logo from '../assets/logo.jpg'
 
 const slideIn = keyframes`
   from { transform: translateX(-100%); }
@@ -39,28 +40,24 @@ const HeaderContent = styled.div`
   @media (min-width: 1024px) {
     padding: 1.25rem 4rem;
   }
+    a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
 `;
 
-const Logo = styled.a`
-  font-size: 2rem;
-  font-weight: 800;
-  color: #B8860B;
-  text-decoration: none;
+const Logo = styled.img`
+  height: 50px; // Adjust this value as needed
+  width: auto;
   transition: all 0.3s ease;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 1px;
 
-  @media (min-width: 768px) {
-    font-size: 1.8rem;
+  @media (max-width: 768px) {
+    height: 70px; // Adjust as needed
   }
 
-  @media (min-width: 1024px) {
-    font-size: 1.8rem;
-  }
-
-  &:hover {
-    color: #FFD700;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  @media (max-width: 1024px) {
+    height: 80px; // Adjust as needed
   }
 `;
 
@@ -74,12 +71,12 @@ const NavMenu = styled.nav`
 `;
 
 const NavItem = styled.a`
-  color: #333;
+  color: #B8860B;
   text-decoration: none;
   padding: 0.5rem 1.25rem;
   transition: all 0.3s ease;
-  font-weight: 500;
-  font-size: 1.1rem;
+  font-weight: 600;
+  font-size: 1.2rem;
   position: relative;
   font-family: 'Poppins', sans-serif;
 
@@ -202,7 +199,7 @@ const DrawerHeader = styled.div`
 `;
 
 const DrawerLogo = styled(Logo)`
-  font-size: 2rem;
+  height: 40px; // Adjust as needed
 `;
 
 const CloseButton = styled.button`
@@ -262,7 +259,9 @@ const Header = () => {
     <>
       <HeaderContainer isScrolled={isScrolled}>
         <HeaderContent>
-          <Logo href="/">Echo Adventure Resort</Logo>
+         <a href="/">
+    <Logo src={logo} alt="Echo Adventure Resort" />
+  </a>
           <MenuToggle onClick={toggleMenu}>
             <Menu size={24} />
           </MenuToggle>
@@ -278,12 +277,14 @@ const Header = () => {
 
       <DrawerOverlay isOpen={isMenuOpen} onClick={toggleMenu} />
       <Drawer isOpen={isMenuOpen}>
-        <DrawerHeader>
-          <DrawerLogo href="/">Echo Adventure</DrawerLogo>
-          <CloseButton onClick={toggleMenu}>
-            <X size={24} />
-          </CloseButton>
-        </DrawerHeader>
+       <DrawerHeader>
+  <a href="/">
+    <DrawerLogo src={logo} alt="Echo Adventure Resort" />
+  </a>
+  <CloseButton onClick={toggleMenu}>
+    <X size={24} />
+  </CloseButton>
+</DrawerHeader>
         <DrawerNavItem href="/">Home <ChevronRight size={20} /></DrawerNavItem>
         <DrawerNavItem href="/room">Rooms <ChevronRight size={20} /></DrawerNavItem>
         <DrawerNavItem href="/tour">Tour-package <ChevronRight size={20} /></DrawerNavItem>

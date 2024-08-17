@@ -6,15 +6,17 @@ import backgroundImage from '../../assets/resort/hotel2.jpg';
 
 const HeroSection = styled.section`
   position: relative;
-  height: 90vh;
+  height: 80vh;
   width: 100%;
   background-image: url(${props => props.backgroundImage});
   background-size: cover;
   background-position: center;
   display: flex;
-  align-items: center;
+  align-items: end;
+  padding-bottom:30px;
   color: white;
   overflow: hidden;
+  margin-top:90px;
 `;
 
 const Overlay = styled.div`
