@@ -188,6 +188,7 @@ const Button = styled.button`
   }
 `;
 
+
 const Modal = styled.div`
   position: fixed;
   top: 0;
@@ -199,14 +200,14 @@ const Modal = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  padding: 15px;
+  // padding: 15px;
 `;
 
 const ModalContent = styled.div`
   background-color: white;
   border-radius: 20px;
   width: 100%;
-  max-width: 500px;
+  max-width: 400px; // Default for mobile
   max-height: 90vh;
   overflow-y: auto;
   display: flex;
@@ -215,12 +216,21 @@ const ModalContent = styled.div`
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 
   @media (min-width: 768px) {
-    max-width: 600px;
+    max-width: 600px; // Tablet
   }
 
   @media (min-width: 1024px) {
-    max-width: 800px;
+    max-width: 800px; // Desktop
   }
+`;
+
+
+const ModalImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 `;
 
 const ModalHeader = styled.div`
@@ -230,15 +240,12 @@ const ModalHeader = styled.div`
   @media (min-width: 768px) {
     height: 250px;
   }
+
+  @media (min-width: 1024px) {
+    height: 300px;
+  }
 `;
 
-const ModalImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-`;
 
 const ModalHeaderContent = styled.div`
   position: absolute;
@@ -255,6 +262,10 @@ const ModalTitle = styled.h2`
   margin-bottom: 10px;
 
   @media (min-width: 768px) {
+    font-size: 1.8rem;
+  }
+
+  @media (min-width: 1024px) {
     font-size: 2rem;
   }
 `;
@@ -264,6 +275,10 @@ const ModalBody = styled.div`
 
   @media (min-width: 768px) {
     padding: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 40px;
   }
 `;
 
@@ -275,6 +290,10 @@ const ModalDescription = styled.p`
 
   @media (min-width: 768px) {
     font-size: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.1rem;
   }
 `;
 
@@ -306,6 +325,10 @@ const ModalFeature = styled.div`
   @media (min-width: 768px) {
     font-size: 0.9rem;
   }
+
+  @media (min-width: 1024px) {
+    font-size: 1rem;
+  }
 `;
 
 const ModalItinerary = styled.ul`
@@ -321,17 +344,9 @@ const ModalItinerary = styled.ul`
   @media (min-width: 768px) {
     font-size: 1rem;
   }
-`;
 
-const ModalPrice = styled.div`
-  font-size: 1.3rem;
-  color: #e74c3c;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-align: center;
-
-  @media (min-width: 768px) {
-    font-size: 1.5rem;
+  @media (min-width: 1024px) {
+    font-size: 1.1rem;
   }
 `;
 
@@ -362,6 +377,18 @@ const CloseButton = styled.button`
   }
 `;
 
+const ModalPrice = styled.div`
+  font-size: 1.3rem;
+  color: #e74c3c;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;
+
 const BookButton = styled(Button)`
   width: 100%;
   padding: 15px;
@@ -381,7 +408,6 @@ const TourPackagesSection = () => {
       image: jungleSafari,
       description: "Embark on an exhilarating journey through Chitwan National Park. Our expert guides will lead you through lush forests and grasslands, bringing you face-to-face with the park's diverse wildlife, including the majestic Bengal tiger, one-horned rhinoceros, and various species of deer and monkeys.",
       features: { duration: "Full Day", groupSize: "Max 6", type: "Wildlife" },
-      price: "$120 per person",
       itinerary: [
         "Early morning pickup from the resort",
         "Jeep safari through various zones of the national park",
@@ -396,7 +422,6 @@ const TourPackagesSection = () => {
       image: bishajariLake,
       description: "Discover the serene beauty of Bishajari Tal, also known as Twenty Thousand Lakes. This wetland area is a paradise for bird watchers and nature enthusiasts, offering a unique ecosystem teeming with aquatic life and migratory birds.",
       features: { duration: "Half Day", groupSize: "Max 8", type: "Nature" },
-      price: "$80 per person",
       itinerary: [
         "Morning departure to Bishajari Tal",
         "Guided walk around the lake's perimeter",
@@ -411,7 +436,6 @@ const TourPackagesSection = () => {
       image: elephantBath,
       description: "Get up close and personal with Chitwan's gentle giants. Join the mahouts as they take the elephants for their daily bath in the river. Learn about elephant care and conservation while enjoying this unique and interactive experience.",
       features: { duration: "2 Hours", groupSize: "Max 4", type: "Interactive" },
-      price: "$60 per person",
       itinerary: [
         "Brief introduction to elephant behavior and safety guidelines",
         "Walk to the river with the elephants and their mahouts",
@@ -426,7 +450,6 @@ const TourPackagesSection = () => {
       image: culturalProgram,
       description: "Immerse yourself in the vibrant culture of the Tharu people, the indigenous inhabitants of the Terai region. Enjoy traditional dances, music, and cuisine in an authentic village setting, providing insight into the rich heritage of Chitwan.",
       features: { duration: "Evening", groupSize: "Max 15", type: "Cultural" },
-      price: "$90 per person",
       itinerary: [
         "Evening departure to a nearby Tharu village",
         "Welcome ceremony with traditional tikka",
@@ -451,15 +474,11 @@ const TourPackagesSection = () => {
               <PackageName>{pkg.name}</PackageName>
               <PackageDescription>{pkg.description.substring(0, 100)}...</PackageDescription>
               <PackageFeatures>
-                <Feature><Clock size={16} /> {pkg.features.duration}</Feature>
-                <Feature><Users size={16} /> {pkg.features.groupSize}</Feature>
-                <Feature><Compass size={16} /> {pkg.features.type}</Feature>
+                {/* <Feature><Clock size={16} /> {pkg.features.duration}</Feature> */}
+                {/* <Feature><Users size={16} /> {pkg.features.groupSize}</Feature> */}
+                {/* <Feature><Compass size={16} /> {pkg.features.type}</Feature> */}
               </PackageFeatures>
-              <PackagePrice>{pkg.price}</PackagePrice>
-              <ButtonGroup>
-                <Button onClick={() => setSelectedPackage(pkg)}>Details</Button>
-                <Button primary>Book Now</Button>
-              </ButtonGroup>
+              <Button onClick={() => setSelectedPackage(pkg)}>Learn More</Button>
             </PackageInfo>
           </PackageCard>
         ))}
@@ -471,25 +490,25 @@ const TourPackagesSection = () => {
               <ModalImage src={selectedPackage.image} alt={selectedPackage.name} />
               <ModalHeaderContent>
                 <ModalTitle>{selectedPackage.name}</ModalTitle>
-                <Feature><MapPin size={16} /> Chitwan National Park</Feature>
+                {/* <Feature><MapPin size={16} /> Chitwan National Park</Feature> */}
               </ModalHeaderContent>
               <CloseButton onClick={() => setSelectedPackage(null)}>&times;</CloseButton>
             </ModalHeader>
             <ModalBody>
-              <ModalDescription>{selectedPackage.description}</ModalDescription>
+              {/* <ModalDescription>{selectedPackage.description}</ModalDescription> */}
               <ModalFeatures>
-                <ModalFeature>
+                {/* <ModalFeature>
                   <Clock size={24} />
                   {selectedPackage.features.duration}
-                </ModalFeature>
-                <ModalFeature>
+                </ModalFeature> */}
+                {/* <ModalFeature>
                   <Users size={24} />
                   {selectedPackage.features.groupSize}
-                </ModalFeature>
-                <ModalFeature>
+                </ModalFeature> */}
+                {/* <ModalFeature>
                   <Compass size={24} />
                   {selectedPackage.features.type}
-                </ModalFeature>
+                </ModalFeature> */}
               </ModalFeatures>
               <h3>Itinerary:</h3>
               <ModalItinerary>
@@ -497,8 +516,6 @@ const TourPackagesSection = () => {
                   <li key={index}>{item}</li>
                 ))}
               </ModalItinerary>
-              <ModalPrice>{selectedPackage.price}</ModalPrice>
-              <BookButton primary>Book This Tour</BookButton>
             </ModalBody>
           </ModalContent>
         </Modal>
@@ -506,4 +523,5 @@ const TourPackagesSection = () => {
     </Section>
   );
 }
+
 export default TourPackagesSection;

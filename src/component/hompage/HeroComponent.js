@@ -29,7 +29,7 @@ const Overlay = styled.div`
 const Content = styled.div`
   position: relative;
   z-index: 2;
-  max-width: 100%;
+  max-width: 80%;
   margin-Left: 5%;
   
   @media (min-width: 768px) {
@@ -183,10 +183,7 @@ const Hero = () => {
       <Content>
         <Title>Experience Nature at <Highlight>Eco Adventure Resort</Highlight></Title>
         <Subtitle>Immerse yourself in the beauty of Chitwan, Nepal. Enjoy serene surroundings and eco-friendly practices just 1km from the city center.</Subtitle>
-        <ButtonGroup>
-          <Button primary>Book Now</Button>
-          <Button>Explore Rooms</Button>
-        </ButtonGroup>
+       
         <Stats>
           {stats.map((stat, index) => (
             <StatItem key={index}>
