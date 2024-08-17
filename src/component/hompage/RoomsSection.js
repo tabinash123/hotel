@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Wifi, Coffee, Maximize, Users, Mountain, Wind, Tv, Lock } from 'lucide-react';
+import { Wifi, Maximize, Users, Mountain, Droplet } from 'lucide-react';
 
 import img1 from "../../assets/rooms/1.jpg";
 import img2 from "../../assets/rooms/2.jpg";
 import img3 from "../../assets/rooms/3.jpg";
-import img4 from "../../assets/rooms/1.jpg";
+import img4 from "../../assets/rooms/2.jpg";
 import img5 from "../../assets/rooms/5.jpg";
-import img6 from "../../assets/rooms/2.jpg";
+import img6 from "../../assets/rooms/3.jpg";
+
+// ... (keep all the styled components as they are)
 
 const Section = styled.section`
   max-width: 1200px;
@@ -265,64 +267,116 @@ const CloseButton = styled.button`
   color: #2c3e50;
 `;
 
+const BookingSites = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 15px;
+`;
+
+const BookingIcon = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0f3f5;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+`;
+
 const RoomsSection = () => {
   const [selectedRoom, setSelectedRoom] = useState(null);
 
   const rooms = [
     {
-      name: "Jungle View Deluxe",
+      name: "Budget Double Room",
       image: img1,
-      description: "Spacious room with a private balcony overlooking the lush jungle. Perfect for wildlife enthusiasts.",
-      features: { wifi: true, size: "35 m²", capacity: 2, view: "Jungle", ac: true, tv: true, safe: true },
-      price: "$150 per night",
-      amenities: "King-size bed, En-suite bathroom, Private balcony, Mini-bar, Coffee maker"
+      description: "Cozy room with a garden view, perfect for budget-conscious travelers.",
+      features: { wifi: true, size: "25 m²/269 ft²", capacity: 2, view: "Garden" },
+      price: "Contact for price",
+      amenities: "Garden view, Basic amenities"
     },
     {
-      name: "Riverside Suite",
+      name: "Deluxe Double or Twin Room with Garden View",
       image: img2,
-      description: "Luxurious suite with panoramic views of the Rapti River. Ideal for a romantic getaway.",
-      features: { wifi: true, size: "50 m²", capacity: 2, view: "River", ac: true, tv: true, safe: true },
-      price: "$250 per night",
-      amenities: "King-size bed, Jacuzzi tub, Separate living area, Kitchenette, Private terrace"
+      description: "Spacious room offering a beautiful garden view and modern comforts.",
+      features: { wifi: true, size: "Spacious", capacity: 2, view: "Garden", shower: true },
+      price: "Contact for price",
+      amenities: "Garden view, Shower, Deluxe amenities"
     },
     {
-      name: "Family Cottage",
+      name: "Deluxe Double Room with Balcony",
       image: img3,
-      description: "Cozy cottage with multiple rooms, perfect for families or groups of friends.",
-      features: { wifi: true, size: "75 m²", capacity: 4, view: "Garden", ac: true, tv: true, safe: true },
-      price: "$300 per night",
-      amenities: "Two bedrooms, Full kitchen, Dining area, Private garden, BBQ facilities"
+      description: "Luxurious room featuring a private balcony overlooking the garden.",
+      features: { wifi: true, size: "25 m²/269 ft²", capacity: 2, view: "Garden" },
+      price: "Contact for price",
+      amenities: "Private balcony, Garden view, Deluxe amenities"
     },
     {
-      name: "Safari Lodge",
+      name: "Basic Room",
       image: img4,
-      description: "Authentic lodge-style accommodation with rustic charm and modern amenities.",
-      features: { wifi: true, size: "40 m²", capacity: 3, view: "Savanna", ac: true, tv: true, safe: true },
-      price: "$180 per night",
-      amenities: "Queen-size bed, Bunk bed, Outdoor shower, Veranda, Binoculars provided"
+      description: "Simple and comfortable room with a nature view, ideal for solo travelers or couples.",
+      features: { wifi: true, size: "20 m²/215 ft²", capacity: 3, view: "Nature" },
+      price: "Contact for price",
+      amenities: "1 double bed and 1 single bed, Nature view"
     },
     {
-      name: "Elephant View Room",
+      name: "Standard Double or Twin Room with Garden View",
       image: img5,
-      description: "Unique room with views of the elephant bathing area. Experience wildlife up close.",
-      features: { wifi: true, size: "30 m²", capacity: 2, view: "Elephant area", ac: true, tv: true, safe: true },
-      price: "$200 per night",
-      amenities: "Queen-size bed, Floor-to-ceiling windows, Observation deck, Mini-fridge, Tea/coffee making facilities"
+      description: "Comfortable room with a refreshing garden view and essential amenities.",
+      features: { wifi: true, size: "Standard", capacity: 2, view: "Garden", shower: true },
+      price: "Contact for price",
+      amenities: "Garden view, Shower, Standard amenities"
     },
     {
-      name: "Honeymoon Suite",
+      name: "Basic Double or Twin Room, Private Bathroom, Garden View",
       image: img6,
-      description: "Romantic suite with a private jacuzzi and stunning views of the national park.",
-      features: { wifi: true, size: "60 m²", capacity: 2, view: "Park", ac: true, tv: true, safe: true },
-      price: "$350 per night",
-      amenities: "Four-poster king-size bed, Private jacuzzi, Champagne bar, Couples spa treatments, Candlelit dinner service"
+      description: "Cozy room with private facilities and a pleasant garden view.",
+      features: { wifi: true, size: "Standard", capacity: 2, view: "Garden" },
+      price: "Contact for price",
+      amenities: "Garden view, Private bathroom, 2 single beds, Non-smoking"
+    }
+  ];
+
+ const bookingSites = [
+    {
+      name: 'Booking.com',
+      icon: 'placeholder-booking.png', // Replace with actual icon path
+      url: 'https://www.booking.com/hotel/np/eco-adventure-resort-chitawan.html'
+    },
+    {
+      name: 'Agoda',
+      icon: 'placeholder-agoda.png', // Replace with actual icon path
+      url: 'https://www.agoda.com/eco-adventure-resort/hotel/chitwan-np.html?cid=1844104&ds=qeyzocYM42ef5cD8'
+    },
+    {
+      name: 'TripAdvisor',
+      icon: 'placeholder-tripadvisor.png', // Replace with actual icon path
+      url: 'https://www.tripadvisor.com/Hotel_Review-g1367591-d6433921-Reviews-Eco_Adventure_Resort-Sauraha_Chitwan_District_Narayani_Zone_Central_Region.html'
+    },
+    {
+      name: 'Expedia',
+      icon: 'placeholder-expedia.png', // Replace with actual icon path
+      url: 'https://www.expedia.com/Sauraha-Hotels-Eco-Adventure-Resort.h10989661.Hotel-Information'
     }
   ];
 
   return (
     <Section>
       <Title>Our Accommodations</Title>
-      <Subtitle>Experience the perfect blend of comfort and nature in our thoughtfully designed rooms and suites.</Subtitle>
+      <Subtitle>Experience the beauty of nature with our range of comfortable rooms at Eco Adventure Resort.</Subtitle>
       <RoomsGrid>
         {rooms.map((room, index) => (
           <RoomCard key={index}>
@@ -335,12 +389,16 @@ const RoomsSection = () => {
                 <Feature><Maximize size={16} /> {room.features.size}</Feature>
                 <Feature><Users size={16} /> {room.features.capacity} Guests</Feature>
                 <Feature><Mountain size={16} /> {room.features.view} View</Feature>
+                {room.features.shower && <Feature><Droplet size={16} /> Shower</Feature>}
               </RoomFeatures>
               <RoomPrice>{room.price}</RoomPrice>
-              <ButtonGroup>
-                <Button onClick={() => setSelectedRoom(room)}>Quick View</Button>
-                <Button primary>Book Now</Button>
-              </ButtonGroup>
+              <BookingSites>
+                {bookingSites.map((site, index) => (
+                  <BookingIcon key={index} href={site.url} target="_blank" rel="noopener noreferrer" title={site.name}>
+                    <img src={site.icon} alt={site.name} />
+                  </BookingIcon>
+                ))}
+              </BookingSites>
             </RoomInfo>
           </RoomCard>
         ))}
@@ -355,15 +413,19 @@ const RoomsSection = () => {
             <ModalFeatures>
               <ModalFeature><Wifi size={14} /> Wi-Fi</ModalFeature>
               <ModalFeature><Maximize size={14} /> {selectedRoom.features.size}</ModalFeature>
-              <ModalFeature><Users size={14} /> {selectedRoom.features.capacity}</ModalFeature>
-              <ModalFeature><Mountain size={14} /> {selectedRoom.features.view}</ModalFeature>
-              <ModalFeature><Wind size={14} /> AC</ModalFeature>
-              <ModalFeature><Tv size={14} /> TV</ModalFeature>
-              <ModalFeature><Lock size={14} /> Safe</ModalFeature>
+              <ModalFeature><Users size={14} /> {selectedRoom.features.capacity} Guests</ModalFeature>
+              <ModalFeature><Mountain size={14} /> {selectedRoom.features.view} View</ModalFeature>
+              {selectedRoom.features.shower && <ModalFeature><Droplet size={14} /> Shower</ModalFeature>}
             </ModalFeatures>
             <ModalAmenities><strong>Amenities:</strong> {selectedRoom.amenities}</ModalAmenities>
             <RoomPrice>{selectedRoom.price}</RoomPrice>
-            <Button primary style={{width: '100%'}}>Book Now</Button>
+            <BookingSites>
+              {bookingSites.map((site, index) => (
+                <BookingIcon key={index} href={site.url} target="_blank" rel="noopener noreferrer" title={site.name}>
+                  <img src={site.icon} alt={site.name} />
+                </BookingIcon>
+              ))}
+            </BookingSites>
           </ModalContent>
         </Modal>
       )}

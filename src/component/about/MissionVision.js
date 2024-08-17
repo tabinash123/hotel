@@ -197,24 +197,24 @@ const MissionVisionSection = () => {
             Our Mission
           </CardTitle>
           <CardContent>
-            At Orbitza, we are dedicated to providing an unparalleled hospitality experience that seamlessly blends Nepali tradition with modern luxury. Our mission is to:
+            At Eco Adventure Resort, we are dedicated to providing an immersive eco-friendly experience that connects guests with the natural beauty of Chitwan. Our mission is to:
           </CardContent>
           <ValuesList>
             <ValueItem>
               <ValueIcon><Heart size={16} /></ValueIcon>
-              Create unforgettable memories
+              Create unforgettable nature experiences
             </ValueItem>
             <ValueItem>
               <ValueIcon><Leaf size={16} /></ValueIcon>
-              Promote sustainable tourism
+              Promote sustainable tourism practices
             </ValueItem>
             <ValueItem>
               <ValueIcon><Users size={16} /></ValueIcon>
-              Empower local communities
+              Support local communities
             </ValueItem>
             <ValueItem>
               <ValueIcon><Compass size={16} /></ValueIcon>
-              Showcase Nepali culture
+              Showcase Chitwan's natural wonders
             </ValueItem>
           </ValuesList>
         </Card>
@@ -224,30 +224,30 @@ const MissionVisionSection = () => {
             Our Vision
           </CardTitle>
           <CardContent>
-            We envision Orbitza as a beacon of Nepali hospitality, recognized globally for its:
+            We envision Eco Adventure Resort as a leading eco-friendly destination, recognized for its:
           </CardContent>
           <ValuesList>
             <ValueItem>
               <ValueIcon><Star size={16} /></ValueIcon>
-              Uncompromising service excellence
+              Exceptional eco-tourism experiences
             </ValueItem>
             <ValueItem>
               <ValueIcon><Globe size={16} /></ValueIcon>
-              Cultural authenticity
+              Conservation efforts
             </ValueItem>
             <ValueItem>
               <ValueIcon><Zap size={16} /></ValueIcon>
-              Innovative guest experiences
+              Innovative sustainable practices
             </ValueItem>
             <ValueItem>
               <ValueIcon><Heart size={16} /></ValueIcon>
-              Commitment to sustainability
+              Commitment to guest comfort
             </ValueItem>
           </ValuesList>
         </Card>
       </ContentWrapper>
       <Quote>
-        "Embracing our heritage, we create a sanctuary where luxury meets authenticity, and every guest becomes part of our story."
+        "Embracing nature, we create a sanctuary where eco-friendly luxury meets adventure, and every guest becomes part of our conservation story."
       </Quote>
     </SectionContainer>
   );

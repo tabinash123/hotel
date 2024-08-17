@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import styled, { css, keyframes } from 'styled-components';
-import { Tv, Briefcase, Wifi, Lock, Building2 } from 'lucide-react';
+import React from 'react';
+import styled from 'styled-components';
+import { Wifi, Fan, Droplet, Armchair, Utensils, Home } from 'lucide-react';
 import img1 from "../../assets/rooms/delux.jpg";
 import img2 from "../../assets/rooms/family.jpg";
 import img3 from "../../assets/rooms/single.jpg";
@@ -31,8 +31,7 @@ const RightSection = styled.div`
   height: 200px;
   position: relative;
   overflow: hidden;
-    margin: auto 0px;
-
+  margin: auto 0px;
 
   @media (min-width: 576px) {
     height: 250px;
@@ -114,12 +113,6 @@ const FacilityDescription = styled.p`
   line-height: 1.4;
 `;
 
-const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
-`;
-
-
 const ImageContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -137,7 +130,7 @@ const ImageContainer = styled.div`
     grid-template-rows: 250px 250px;
     height: 500px;
     margin-top: 0;
-    order: -1; // Move back to the left on desktop
+    order: -1;
   }
 `;
 
@@ -154,31 +147,19 @@ const SmallImage = styled.img`
   object-fit: cover;
 `;
 
-const ToggleButton = styled.button`
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  padding: 5px 10px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-`;
-
 const RoomFacilities = () => {
-  const facilities = [
-    { icon: Tv, title: 'Cable TV' },
-    { icon: Briefcase, title: 'Work Desk' },
-    { icon: Wifi, title: 'Free Wifi' },
-    { icon: Lock, title: 'Safebox' },
-    { icon: Building2, title: 'Balcony' },
-    { icon: Building2, title: 'City View' },
-  ];
+ const facilities = [
+    { icon: Home, title: 'Balcony/terrace', description: 'Enjoy the beautiful views of Chitwan from your private balcony or terrace.' },
+    { icon: Fan, title: 'Fan', description: 'Stay cool and comfortable with in-room fans.' },
+    { icon: Wifi, title: 'Free Wi-Fi', description: 'Stay connected with complimentary wireless internet access.' },
+    { icon: Armchair, title: 'Seating area', description: 'Relax in a comfortable seating area within your room.' },
+    { icon: Utensils, title: 'Separate dining area', description: 'Enjoy meals in a dedicated dining space in your room.' },
+{ icon: Droplet, title: 'Shower & Toiletries', description: 'Refresh yourself with a shower and complimentary toiletries.' },  ];
 
   return (
     <Container>
       <LeftSection>
-        <Header>ROOMS & SUITES</Header>
+        <Header>ECO-FRIENDLY ACCOMMODATIONS</Header>
         <Title>Room Facilities</Title>
         <FacilitiesGrid>
           {facilities.map((facility, index) => (
@@ -189,7 +170,7 @@ const RoomFacilities = () => {
               <FacilityContent>
                 <FacilityTitle>{facility.title}</FacilityTitle>
                 <FacilityDescription>
-                  Sunt dolor aliquip consectetur laborum incididunt tempor.
+                  {facility.description}
                 </FacilityDescription>
               </FacilityContent>
             </FacilityItem>
@@ -198,10 +179,10 @@ const RoomFacilities = () => {
       </LeftSection>
       <RightSection>
         <ImageContainer>
-        <LargeImage src={img1} alt="Hotel room 1" />
-        <SmallImage src={img2} alt="Hotel room 2" />
-        <SmallImage src={img3} alt="Hotel room 3" />
-      </ImageContainer>
+          <LargeImage src={img1} alt="Eco Adventure Resort room view" />
+          <SmallImage src={img2} alt="Eco Adventure Resort room interior" />
+          <SmallImage src={img3} alt="Eco Adventure Resort balcony" />
+        </ImageContainer>
       </RightSection>
     </Container>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Bed, Users, UserCheck } from 'lucide-react';
+import { Bed, Users, Leaf } from 'lucide-react';
 import img1 from "../../assets/resort/hotel4.jpg";
 import img2 from "../../assets/resort/reception.jpg";
 import img3 from "../../assets/resort/garden1.jpg";
@@ -41,7 +41,7 @@ const ImageContainer = styled.div`
     grid-template-rows: 250px 250px;
     height: 500px;
     margin-top: 0;
-    order: -1; // Move back to the left on desktop
+    order: -1;
   }
 `;
 
@@ -159,52 +159,51 @@ const HotelInfoComponent = () => {
   return (
     <Container>
       <ContentContainer>
-        <WelcomeText>Welcome To Orbitza</WelcomeText>
-        <Title>Our Hotel Has Been Present For Over 20 Years.</Title>
-      <Description>
-  Experience the tranquility of nature at our hotel, located in the heart of Sauraha, Chitwan. 
-  Our accommodations offer a perfect blend of comfort and elegance, ensuring a relaxing stay amidst the lush greenery.
-  Whether you're here to explore the Chitwan National Park or simply unwind, our hotel provides the ideal setting.
-</Description>
-<Description>
-  Enjoy local and international cuisine at our on-site restaurant, with ingredients sourced from the surrounding region.
-  Our friendly staff is dedicated to making your stay memorable, offering personalized service tailored to your needs.
-  Relax by the pool, take a guided tour, or simply soak in the natural beauty that surrounds you.
-</Description>
-<Description>
-  Our hotel is just a short distance from the Chitwan National Park, where you can embark on jungle safaris, bird watching, 
-  and elephant rides. Discover the rich culture and wildlife of Nepal, all while enjoying the comfort and hospitality of our hotel.
-</Description>
+        <WelcomeText>Welcome To Eco Adventure Resort</WelcomeText>
+        <Title>Your Nature Lover's Paradise in Chitwan Since 2013</Title>
+        <Description>
+          Experience the serenity of nature at Eco Adventure Resort, nestled in the heart of Chitwan, Nepal. 
+          Our 1-star resort offers a truly immersive experience for nature enthusiasts and adventure seekers alike, 
+          just 1 kilometer away from the city center.
+        </Description>
+        <Description>
+          Our 10 well-appointed rooms provide comfort and tranquility, ensuring a relaxing stay amidst the stunning surroundings. 
+          Enjoy our eco-friendly practices and warm hospitality as you reconnect with the beauty of the natural world.
+        </Description>
+        <Description>
+          Explore the nearby Chitwan National Park, embark on jungle safaris, or simply unwind in our beautiful garden. 
+          Our resort is perfect for families, with a generous child policy allowing children aged 4-10 to stay free of charge.
+        </Description>
 
         <StatsContainer>
           <StatItem>
             <StatIcon><Bed size={24} /></StatIcon>
             <StatContent>
-              <StatNumber>200+</StatNumber>
-              <StatText>Available Rooms</StatText>
+              <StatNumber>10</StatNumber>
+              <StatText>Well-Appointed Rooms</StatText>
             </StatContent>
           </StatItem>
           <StatItem>
             <StatIcon><Users size={24} /></StatIcon>
             <StatContent>
-              <StatNumber>400+</StatNumber>
-              <StatText>Staff Members</StatText>
+              <StatNumber>1km</StatNumber>
+              <StatText>From City Center</StatText>
             </StatContent>
           </StatItem>
           <StatItem>
-            <StatIcon><UserCheck size={24} /></StatIcon>
+            <StatIcon><Leaf size={24} /></StatIcon>
             <StatContent>
-              <StatNumber>240k</StatNumber>
-              <StatText>Served Clients</StatText>
+              <StatNumber>100%</StatNumber>
+              <StatText>Eco-Friendly</StatText>
             </StatContent>
           </StatItem>
         </StatsContainer>
-        <ExploreButton>Explore Now</ExploreButton>
+        <ExploreButton>Book Your Stay</ExploreButton>
       </ContentContainer>
       <ImageContainer>
-        <LargeImage src={img1} alt="Hotel room 1" />
-        <SmallImage src={img2} alt="Hotel room 2" />
-        <SmallImage src={img3} alt="Hotel room 3" />
+        <LargeImage src={img1} alt="Eco Adventure Resort Room" />
+        <SmallImage src={img2} alt="Resort Reception" />
+        <SmallImage src={img3} alt="Resort Garden" />
       </ImageContainer>
     </Container>
   );

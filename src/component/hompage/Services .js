@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Binoculars, Compass, Utensils, Hotel, PhoneCall } from 'lucide-react';
+import { Leaf, Hotel, Utensils, Wifi, MapPin } from 'lucide-react';
 
 const Section = styled.section`
   max-width: 1200px;
   margin: 0 auto;
   padding: 50px 20px;
-  background-color: #f8f9fa;
+  background-color: #f0f4f0;
   display: flex;
   flex-direction: column;
 
@@ -92,7 +92,7 @@ const Description = styled.p`
 
 const Button = styled.button`
   background-color: #B8860B;
-  color: #000000;
+  color: #ffffff;
   border: none;
   padding: 12px 25px;
   font-size: 1rem;
@@ -112,7 +112,7 @@ const Button = styled.button`
   }
 
   &:hover {
-    background-color: #ff9000;
+    background-color: #45a049;
     transform: translateY(-2px);
   }
 `;
@@ -176,21 +176,21 @@ const FacilityDescription = styled.p`
 
 const FacilitiesSection = () => {
   const facilities = [
-    { name: 'Expert Naturalists', icon: Binoculars, description: 'Our experienced naturalists provide in-depth insights into the park diverse ecosystems and wildlife.' },
-    { name: 'Riverside Accommodations', icon: Hotel, description: 'Luxurious lodges and cottages situated along the picturesque Rapti River for a serene stay.' },
-    { name: 'Cultural Experiences', icon: Compass, description: 'Immerse yourself in local Tharu culture with village visits and traditional dance performances.' },
-    { name: 'Organic Cuisine', icon: Utensils, description: 'Savor delicious organic meals prepared with locally-sourced ingredients and traditional recipes.' },
-    { name: '24/7 Concierge', icon: PhoneCall, description: 'Our dedicated team is available round the clock to ensure your comfort and address any needs.' },
+    { name: 'Eco-Friendly Resort', icon: Leaf, description: 'Sustainable practices and nature conservation' },
+    { name: 'Comfortable Rooms', icon: Hotel, description: '10 well-appointed rooms for a restful stay' },
+    { name: 'Delicious Dining', icon: Utensils, description: 'On-site restaurant with local and international cuisine' },
+    { name: 'Convenient Location', icon: MapPin, description: 'Just 1 km from Chitwan city center' },
+    { name: 'Free Wi-Fi', icon: Wifi, description: 'Stay connected in rooms and public areas' },
   ];
 
   return (
     <Section>
       <LeftColumn>
-        <Title>Why Choose Us?</Title>
+        <Title>Experience Eco Adventure Resort</Title>
         <Description>
-          Nestled at the edge of Chitwan National Park, our resort offers an unparalleled wildlife experience combined with luxury and comfort. We provide expertly guided safaris, eco-friendly accommodations, and immersive cultural experiences. Our commitment to conservation and sustainable tourism ensures that your visit contributes to the preservation of this unique ecosystem.
+          Nestled in the heart of Chitwan, Nepal, Eco Adventure Resort offers a truly immersive experience for nature enthusiasts and adventure seekers. Our 1-star hotel combines comfort with eco-friendly practices, providing a perfect escape into the beauty of the natural world. Enjoy our serene surroundings, explore Chitwan National Park, and create unforgettable memories.
         </Description>
-        <Button>Book Your Adventure Now</Button>
+        <Button>Book Your Stay Now</Button>
       </LeftColumn>
       <RightColumn>
         {facilities.map((facility, index) => (
@@ -200,7 +200,6 @@ const FacilitiesSection = () => {
             </IconWrapper>
             <FacilityInfo>
               <FacilityName>{facility.name}</FacilityName>
-              <FacilityDescription>{facility.description}</FacilityDescription>
             </FacilityInfo>
           </FacilityItem>
         ))}

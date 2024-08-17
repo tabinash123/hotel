@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Phone, Mail, MapPin, Clock, Globe, DollarSign } from 'lucide-react';
 
+// ... (keep all the styled components as they are)
+
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -202,38 +204,38 @@ const Contactpage = () => {
   return (
     <PageContainer>
       <PageTitle>Contact Us</PageTitle>
-      <Subtitle>Experience the warmth of our hospitality. We're here to assist you in planning your perfect Sauraha adventure and ensuring your stay is nothing short of extraordinary.</Subtitle>
+      <Subtitle>Experience the warmth of our eco-friendly hospitality. We're here to assist you in planning your perfect Chitwan adventure and ensuring your stay at Eco Adventure Resort is both comfortable and sustainable.</Subtitle>
 
       <ContactSection>
         <ContactInfo>
           <SectionTitle>How to Reach Us</SectionTitle>
           <ContactDetail>
             <Phone size={20} />
-            +977 1234567890 (Int'l: +977 1234567890)
+            Contact number not provided (please check with the resort)
           </ContactDetail>
           <ContactDetail>
             <Mail size={20} />
-            info@saurahahotel.com
+            Email not provided (please check with the resort)
           </ContactDetail>
           <ContactDetail>
             <MapPin size={20} />
-            Sauraha, Chitwan National Park, Nepal
+            Eco Adventure Resort, Sauraha, Chitwan, Nepal
           </ContactDetail>
           <ContactDetail>
             <Clock size={20} />
-            Open 24/7 (Nepal Time: GMT+5:45)
+            Check-in: 2:00 PM, Check-out: 12:00 PM
           </ContactDetail>
           <ContactDetail>
             <Globe size={20} />
-            www.saurahahotel.com
+            1 km from Sauraha city center
           </ContactDetail>
           <ContactDetail>
             <Globe size={20} />
-            Languages: English, Nepali, Hindi
+            45 minutes drive from the airport
           </ContactDetail>
           <ContactDetail>
             <DollarSign size={20} />
-            Currencies accepted: USD, EUR, NPR
+            Established in 2013
           </ContactDetail>
         </ContactInfo>
 
@@ -292,13 +294,15 @@ const Contactpage = () => {
       </MapSection>
 
       <InfoBox>
-        <SectionTitle>Essential Information for International Guests</SectionTitle>
+        <SectionTitle>Essential Information for Guests</SectionTitle>
         <InfoList>
-          <li>Visa Requirements: Most visitors need a visa to enter Nepal. Obtain yours on arrival at Tribhuvan International Airport in Kathmandu.</li>
-          <li>Currency: The local currency is Nepalese Rupee (NPR). We recommend exchanging money at the airport or official exchange offices.</li>
-          <li>Best Time to Visit: Experience Sauraha at its finest from October to March when the weather is mild and dry.</li>
-          <li>Transportation: We offer personalized airport pickup services. Contact us in advance to arrange your seamless transfer.</li>
-          <li>Health Precautions: We advise consulting your doctor about necessary vaccinations and health precautions before your journey to Nepal.</li>
+          <li>Eco-Friendly: We are committed to sustainable practices and preserving the natural beauty of Chitwan.</li>
+          <li>Family-Friendly: Children aged 4-10 can stay free of charge.</li>
+          <li>Location: Just 1 km from Sauraha city center, offering easy access to local attractions.</li>
+          <li>Transportation: 45 minutes drive from the airport. Contact us for transfer arrangements.</li>
+          <li>Nearby Attraction: Chitwan National Park is easily accessible from our resort.</li>
+          <li>Amenities: We offer various facilities including a bar, garden area, and eco-friendly rooms.</li>
+          <li>Activities: Enjoy jungle safaris, bird watching, and cultural experiences during your stay.</li>
         </InfoList>
       </InfoBox>
     </PageContainer>

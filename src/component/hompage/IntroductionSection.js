@@ -127,7 +127,7 @@ const Description = styled.p`
 
 const ImageWrapper = styled.div`
   position: relative;
-  height: 300px;
+  height: 400px;
   animation: ${fadeIn} 1s ease-out 0.3s both;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   border-radius: 15px;
@@ -138,8 +138,8 @@ const ImageWrapper = styled.div`
   }
 
   @media (min-width: 1024px) {
-    height: 100%;
-    min-height: 400px;
+    height: 600px;
+    // min-height: 400px;
   }
 `;
 
@@ -149,9 +149,6 @@ const Image = styled.img`
   object-fit: cover;
   transition: transform 0.5s ease;
 
-  &:hover {
-    transform: scale(1.05);
-  }
 `;
 
 const StatsGrid = styled.div`
@@ -226,36 +223,35 @@ const StatLabel = styled.div`
     letter-spacing: 1px;
   }
 `;
-
 const HotelIntroComponent = () => (
   <IntroSection>
     <Grid>
       <ContentArea>
-        <Subtitle>Where luxury meets nature's grandeur</Subtitle>
-        <Title>Echo Adventure Resort</Title>
+        <Subtitle>Immerse Yourself in Nature's Serenity</Subtitle>
+        <Title>Eco Adventure Resort</Title>
         <Description>
-          Echo Adventure is a luxury boutique hotel designed in traditional Tharu-style architecture, ideally located at Sauraha Gaida Chowk. Situated on the bank of Rapti River, it offers a unique experience at the boundary of Chitwan National Park.
+          Nestled in the heart of Chitwan, Nepal, Eco Adventure Resort offers a truly immersive experience for nature enthusiasts and adventure seekers alike. With its serene surroundings and eco-friendly practices, this resort is the perfect choice for those looking to escape the hustle and bustle of city life and reconnect with the beauty of the natural world.
         </Description>
         <Description>
-          Vibrant décor and traditional architecture intermingle with indulgent amenities including complimentary Wi-Fi, concierge services, free bottled water, coffee maker machine, business center, swimming pool, conference hall, and an electric vehicle charging station. Our well-maintained garden provides total peace and tranquility in a secluded setting.
+          Situated just 1 kilometer from the city center, Eco Adventure Resort boasts 10 well-appointed rooms, each designed with comfort and tranquility in mind. The hotel's commitment to sustainability ensures that guests can enjoy their stay while minimizing their impact on the environment. Families are more than welcome, with a generous child policy that allows children between the ages of 4 to 10 to stay free of charge.
         </Description>
         <StatsGrid>
           <StatItem>
-            <StatNumber>50+</StatNumber>
-            <StatLabel>Luxury Suites</StatLabel>
+            <StatNumber>10</StatNumber>
+            <StatLabel>Comfortable Rooms</StatLabel>
           </StatItem>
           <StatItem>
-            <StatNumber>5⋆</StatNumber>
-            <StatLabel>Experience</StatLabel>
+            <StatNumber>2013</StatNumber>
+            <StatLabel>Established</StatLabel>
           </StatItem>
           <StatItem>
-            <StatNumber>100%</StatNumber>
-            <StatLabel>Scenic Views</StatLabel>
+            <StatNumber>45 min</StatNumber>
+            <StatLabel>To Airport</StatLabel>
           </StatItem>
         </StatsGrid>
       </ContentArea>
       <ImageWrapper>
-        <Image src={hotelExterior} alt="Echo Adventure Resort exterior" />
+        <Image src={hotelExterior} alt="Eco Adventure Resort exterior" />
       </ImageWrapper>
     </Grid>
   </IntroSection>

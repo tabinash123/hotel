@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, ChevronUp, Send } from 'lucide-react';
 
+// ... (keep all the styled components as they are)
+
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -197,7 +199,7 @@ const Footer = () => {
       <Content>
         <Column>
           <Title>Quick Links</Title>
-          <LinkList>
+         <LinkList>
             <LinkItem><Link href="#">ABOUT</Link></LinkItem>
             <LinkItem><Link href="#">RESTAURANT</Link></LinkItem>
             <LinkItem><Link href="#">TOUR PACKAGES</Link></LinkItem>
@@ -210,19 +212,19 @@ const Footer = () => {
           <ContactInfo>
             <ContactItem>
               <MapPin size={14} />
-              Sauraha, Gaida Chowk, Ratnanagar-6, Chitwan
+              Eco Adventure Resort, Sauraha, Chitwan, Nepal
             </ContactItem>
             <ContactItem>
               <Phone size={14} />
-              056-593195, 056-593197, 056-580309
-            </ContactItem>
-            <ContactItem>
-              <Phone size={14} />
-              977-9855015308, 977-9855015309
+              Contact number not available (please inquire)
             </ContactItem>
             <ContactItem>
               <Mail size={14} />
-              reservationkcshome@gmail.com
+              Email not available (please inquire)
+            </ContactItem>
+            <ContactItem>
+              <MapPin size={14} />
+              1 km from Sauraha city center
             </ContactItem>
           </ContactInfo>
           <SocialLinks>
@@ -233,6 +235,7 @@ const Footer = () => {
         </Column>
         <Column>
           <Title>Newsletter</Title>
+          <p>Subscribe to stay updated on our eco-friendly initiatives and special offers.</p>
           <NewsletterForm onSubmit={handleSubmit}>
             <NewsletterInput 
               type="email" 
@@ -248,7 +251,7 @@ const Footer = () => {
         </Column>
       </Content>
       <Copyright>
-        Copyright © 2023. All rights reserved. KC's Restaurant & Home Pvt. Ltd.
+        Copyright © {new Date().getFullYear()}. All rights reserved. Eco Adventure Resort.
       </Copyright>
       <ScrollToTop onClick={scrollToTop}>
         <ChevronUp size={20} />

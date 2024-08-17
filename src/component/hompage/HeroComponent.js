@@ -13,7 +13,6 @@ const HeroSection = styled.section`
   background-position: center;
   display: flex;
   align-items: center;
-  // padding: 0 5%;
   color: white;
   overflow: hidden;
 `;
@@ -31,7 +30,7 @@ const Content = styled.div`
   position: relative;
   z-index: 2;
   max-width: 100%;
-  margin-Left:5%;
+  margin-Left: 5%;
   
   @media (min-width: 768px) {
     max-width: 80%;
@@ -63,7 +62,7 @@ const Highlight = styled.span`
 `;
 
 const Subtitle = styled.div`
-width: 80%;
+  width: 80%;
   font-size: 0.9rem;
   margin-bottom: 20px;
   opacity: 0.9;
@@ -118,7 +117,6 @@ const Button = styled.button`
   border: ${props => props.primary ? 'none' : '2px solid white'};
 
   &:hover {
-    background-color: ${props => props.primary ? '#ff2525' : 'rgba(255, 255, 255, 0.1)'};
     transform: translateY(-2px);
   }
 `;
@@ -173,18 +171,18 @@ const IconWrapper = styled.div`
 
 const Hero = () => {
   const stats = [
-    { icon: Calendar, value: '10+', label: 'Years of Excellence' },
-    { icon: Users, value: '100+', label: 'Luxurious Rooms' },
-    { icon: Award, value: '4.8', label: 'Guest Rating' },
-    { icon: Smile, value: '24/7', label: 'Customer Service' },
+    { icon: Calendar, value: '11', label: 'Years of Excellence' },
+    { icon: Users, value: '10', label: 'Well-Appointed Rooms' },
+    { icon: Award, value: '1', label: 'Star Rating' },
+    { icon: Leaf, value: 'Eco', label: 'Friendly Practices' },
   ];
 
   return (
     <HeroSection backgroundImage={backgroundImage}>
       <Overlay />
       <Content>
-        <Title>Experience Luxury at <Highlight>Echo Adventure Resort</Highlight></Title>
-        <Subtitle>Immerse yourself in Nepali culture and hospitality. Enjoy breathtaking views and world-class amenities in the heart of Kathmandu.</Subtitle>
+        <Title>Experience Nature at <Highlight>Eco Adventure Resort</Highlight></Title>
+        <Subtitle>Immerse yourself in the beauty of Chitwan, Nepal. Enjoy serene surroundings and eco-friendly practices just 1km from the city center.</Subtitle>
         <ButtonGroup>
           <Button primary>Book Now</Button>
           <Button>Explore Rooms</Button>
