@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import hotelExterior from '../../assets/resort/hotel1.jpg';
+import hotelExterior from '../../assets/intro.jpg';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }

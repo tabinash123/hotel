@@ -286,11 +286,11 @@ const Contactpage = () => {
 
       <MapSection>
         <SectionTitle>Find Us</SectionTitle>
-        <Map
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.979917565759!2d84.49641021503737!3d27.57614998284041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994ef9b7ece9e11%3A0x9d615cc97213bf1d!2sSauraha%2C%20Nepal!5e0!3m2!1sen!2sus!4v1628712733122!5m2!1sen!2sus"
-          allowFullScreen=""
-          loading="lazy"
-        />
+       <Map
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.0248936876186!2d84.49528987645566!3d27.574569482850277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDM0JzI4LjUiTiA4NMKwMjknNTAuOSJF!5e0!3m2!1sen!2sus!4v1628712733122!5m2!1sen!2sus"
+      allowFullScreen=""
+      loading="lazy"
+    />
       </MapSection>
 
       <InfoBox>
