@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { ChevronLeft, ChevronRight, Calendar, Users } from 'lucide-react';
 
 // Import your images here
@@ -22,7 +22,11 @@ const HeroSection = styled.section`
   height: 90vh;
   width: 100%;
   overflow: hidden;
-  margin-top: 90px;
+  margin-top: 0px;
+
+  @media (max-width: 768px) {
+    height: 70vh;
+  }
 `;
 
 const CarouselContainer = styled.div`
@@ -64,6 +68,18 @@ const Content = styled.div`
   color: white;
   z-index: 2;
   max-width: 600px;
+
+  @media (max-width: 1024px) {
+    bottom: 70px;
+    left: 30px;
+    max-width: 500px;
+  }
+
+  @media (max-width: 768px) {
+    bottom: 50px;
+    left: 20px;
+    max-width: 80%;
+  }
 `;
 
 const Title = styled.h1`
@@ -72,6 +88,14 @@ const Title = styled.h1`
   margin-bottom: 15px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   animation: ${fadeIn} 0.8s ease-out;
+
+  @media (max-width: 1024px) {
+    font-size: 2.8rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+  }
 `;
 
 const Subtitle = styled.div`
@@ -79,6 +103,10 @@ const Subtitle = styled.div`
   margin-bottom: 20px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   animation: ${fadeIn} 0.8s ease-out 0.2s both;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const Button = styled.button`
@@ -97,6 +125,11 @@ const Button = styled.button`
     transform: translateY(-2px);
     background-color: #9A7B0A;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+    font-size: 0.9rem;
   }
 `;
 
@@ -122,6 +155,12 @@ const CarouselButton = styled.button`
   }
 
   ${props => props.left ? 'left: 20px;' : 'right: 20px;'}
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+    ${props => props.left ? 'left: 10px;' : 'right: 10px;'}
+  }
 `;
 
 const Dots = styled.div`
@@ -131,6 +170,10 @@ const Dots = styled.div`
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
+
+  @media (max-width: 768px) {
+    bottom: 10px;
+  }
 `;
 
 const Dot = styled.div`
@@ -144,6 +187,11 @@ const Dot = styled.div`
   &:hover {
     transform: scale(1.2);
   }
+
+  @media (max-width: 768px) {
+    width: 10px;
+    height: 10px;
+  }
 `;
 
 const BookingWidget = styled.div`
@@ -156,12 +204,29 @@ const BookingWidget = styled.div`
   width: 300px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   animation: ${slideUp} 0.8s ease-out;
+
+  @media (max-width: 1024px) {
+    top: 70px;
+    right: 30px;
+    width: 250px;
+  }
+
+  @media (max-width: 768px) {
+    position: static;
+    width: 90%;
+    margin: 20px auto;
+    animation: none;
+  }
 `;
 
 const BookingTitle = styled.h3`
   font-size: 1.2rem;
   color: #333;
   margin-bottom: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const BookingForm = styled.form`
@@ -189,6 +254,10 @@ const Input = styled.input`
   outline: none;
   font-size: 1rem;
   flex-grow: 1;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Hero = () => {
@@ -236,7 +305,7 @@ const Hero = () => {
       <CarouselContainer>
         {images.map((img, index) => (
           <CarouselSlide key={index} image={img} active={index === currentSlide}>
-            {/* <Overlay /> */}
+            <Overlay />
           </CarouselSlide>
         ))}
         <Content>
@@ -263,7 +332,7 @@ const Hero = () => {
           ))}
         </Dots>
       </CarouselContainer>
-      {/* <BookingWidget>
+      <BookingWidget>
         <BookingTitle>Book Your Stay</BookingTitle>
         <BookingForm>
           <FormGroup>
@@ -280,7 +349,7 @@ const Hero = () => {
           </FormGroup>
           <Button>Check Availability</Button>
         </BookingForm>
-      </BookingWidget> */}
+      </BookingWidget>
     </HeroSection>
   );
 };

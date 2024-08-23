@@ -4,21 +4,46 @@ import styled from 'styled-components';
 const FeaturesContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   max-width: 1200px;
   margin: 20px auto;
   padding: 10px;
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
+
+  @media (max-width: 1024px) {
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+  display: none;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const FeatureItem = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 15px;
+  padding: 15px;
+  width: calc(20% - 20px);
+  box-sizing: border-box;
+
+  @media (max-width: 1024px) {
+    width: calc(33.33% - 20px);
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
 `;
 
 const IconWrapper = styled.div`
   margin-right: 10px;
+  flex-shrink: 0;
 `;
 
 const TextWrapper = styled.div`
@@ -31,17 +56,32 @@ const FeatureTitle = styled.h3`
   font-weight: bold;
   margin: 0;
   color: #333;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    text-align: center;
+  }
 `;
 
 const FeatureDescription = styled.p`
   font-size: 12px;
   color: #666;
-  margin: 0;
+  margin: 5px 0 0;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    text-align: center;
+  }
 `;
 
 const Icon = styled.svg`
   width: 24px;
   height: 24px;
+
+  @media (max-width: 768px) {
+    width: 28px;
+    height: 28px;
+  }
 `;
 
 const HotelFeatures = () => {
@@ -71,7 +111,7 @@ const HotelFeatures = () => {
         </Icon>
       ),
       title: "Support 24/7",
-      description: "quality 24/7 Support"
+      description: "Quality 24/7 Support"
     },
     {
       icon: (
@@ -80,7 +120,7 @@ const HotelFeatures = () => {
         </Icon>
       ),
       title: "100% Money Back",
-      description: "Cutomers Money Back"
+      description: "Customers Money Back"
     },
     {
       icon: (
@@ -89,7 +129,7 @@ const HotelFeatures = () => {
         </Icon>
       ),
       title: "Quality Products",
-      description: "We Insure Product Qua"
+      description: "We Ensure Product Quality"
     },
   ];
 

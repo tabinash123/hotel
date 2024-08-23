@@ -1,316 +1,207 @@
-import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { Menu, Close, Search, Phone, Language, CalendarToday, Instagram, Facebook, Twitter } from '@mui/icons-material';
-import logo from '../assets/logo.jpg'
-
-const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
-`;
-
-const slideDown = keyframes`
-  from { transform: translateY(-100%); }
-  to { transform: translateY(0); }
-`;
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Phone, Email, LocationOn, Language, Search, ExpandMore, Menu, Close } from '@mui/icons-material';
 
 const HeaderContainer = styled.header`
-  background-color: ${props => props.isScrolled ? 'rgba(14, 64, 28, 0.95)' : 'rgba(14, 64, 28, 0.7)'};
-  backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: 0.5rem 5%;
-  display: flex;
-  flex-direction: column;
-  animation: ${slideDown} 0.5s ease-out;
+  font-family: 'Arial', sans-serif;
 `;
 
 const TopBar = styled.div`
+  background-color: #C8A27A;
+  color: #333;
+  padding: 10px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(244, 240, 229, 0.2);
+
+  @media (max-width: 768px) {
+  display: none;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const ContactInfo = styled.div`
   display: flex;
-  gap: 1rem;
-  align-items: center;
-  color: #F4F0E5;
-  font-size: 0.9rem;
+  gap: 20px;
+
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
   @media (max-width: 768px) {
-    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
   }
 `;
 
-const SocialIcons = styled.div`
+const InfoItem = styled.div`
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
 `;
 
-const SocialIcon = styled.a`
-  color: #F4F0E5;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #FFD700;
-  }
+const LanguageSelector = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 `;
 
 const MainBar = styled.div`
+  background-color: #1E293B;
+  color: white;
+  padding: 15px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
-`;
 
-const Logo = styled.img`
-  height: 60px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
   }
 `;
 
-const NavMenu = styled.nav`
+const Logo = styled.div`
+  font-size: 24px;
+  font-weight: bold;
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  gap: 10px;
+`;
+
+const LogoIcon = styled.div`
+  width: 30px;
+  height: 30px;
+  background-color: white;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  gap: 20px;
+  align-items: center;
 
   @media (max-width: 1024px) {
-    display: none;
+    order: 3;
+    width: 100%;
+    margin-top: 15px;
+    display: ${props => props.isOpen ? 'flex' : 'none'};
+    flex-direction: column;
+    align-items: flex-start;
   }
 `;
 
 const NavItem = styled.a`
-  color: #F4F0E5;
+  color: white;
   text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  position: relative;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #FFD700;
-    transition: width 0.3s ease;
-  }
-
-  &:hover {
-    color: #FFD700;
-    &:after {
-      width: 100%;
-    }
-  }
-`;
-
-const IconGroup = styled.div`
   display: flex;
-  gap: 1rem;
   align-items: center;
+  
+  &:hover {
+    color: #C8A27A;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 10px 0;
+  }
 `;
 
-const IconButton = styled.button`
-  background: none;
-  border: none;
-  color: #F4F0E5;
+const SearchIconWrapper = styled.div`
+  background-color: #C8A27A;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
 
+  @media (max-width: 1024px) {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+`;
+
+const BookNowButton = styled.button`
+  background-color: #C8A27A;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  
   &:hover {
-    color: #FFD700;
-    transform: translateY(-2px);
+    background-color: #B8925A;
   }
 
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: #FFD700;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+  @media (max-width: 1024px) {
+    margin-left: 20px;
   }
 
-  &:hover:after {
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin-top: 15px;
     width: 100%;
   }
 `;
 
-const MobileMenuButton = styled(IconButton)`
+const MobileMenuIcon = styled.div`
   display: none;
+  cursor: pointer;
 
   @media (max-width: 1024px) {
     display: block;
   }
 `;
 
-const MobileMenu = styled.div`
-  position: fixed;
-  top: 0;
-  right: ${props => props.isOpen ? '0' : '-100%'};
-  width: 80%;
-  height: 100vh;
-  background-color: rgba(14, 64, 28, 0.98);
-  transition: right 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  z-index: 1001;
-  overflow-y: auto;
-  animation: ${props => props.isOpen ? fadeIn : 'none'} 0.3s ease-out;
-`;
-
-const MobileNavItem = styled(NavItem)`
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-out forwards;
-  animation-delay: ${props => props.index * 0.1}s;
-`;
-
-const CloseButton = styled(IconButton)`
-  align-self: flex-end;
-  margin-bottom: 2rem;
-`;
-
-const BookNowButton = styled.button`
-  background-color: #FFD700;
-  color: #0E401C;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-
-  &:hover {
-    background-color: #F4F0E5;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-`;
-
-const SearchOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(14, 64, 28, 0.98);
-  display: ${props => props.isOpen ? 'flex' : 'none'};
-  justify-content: center;
-  align-items: center;
-  z-index: 1002;
-  animation: ${fadeIn} 0.3s ease-out;
-`;
-
-const SearchInput = styled.input`
-  width: 80%;
-  max-width: 600px;
-  padding: 1rem;
-  font-size: 1.2rem;
-  background-color: rgba(244, 240, 229, 0.1);
-  border: 2px solid #F4F0E5;
-  border-radius: 50px;
-  color: #F4F0E5;
-  outline: none;
-
-  &::placeholder {
-    color: rgba(244, 240, 229, 0.7);
-  }
-`;
-
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [language, setLanguage] = useState('English');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
-    <HeaderContainer isScrolled={isScrolled}>
+    <HeaderContainer>
       <TopBar>
         <ContactInfo>
-          <Phone fontSize="small" />
-          <span>+977 123 456 789</span>
-          <Language fontSize="small" />
-          <span>EN | NP</span>
+          <InfoItem>
+            <Phone fontSize="small" />
+            +800-123-4567 6587
+          </InfoItem>
+          <InfoItem>
+            <Email fontSize="small" />
+            info@gmail.com
+          </InfoItem>
+          <InfoItem>
+            <LocationOn fontSize="small" />
+            Beverley, New York 224 USA
+          </InfoItem>
         </ContactInfo>
-        <SocialIcons>
-          <SocialIcon href="#"><Instagram fontSize="small" /></SocialIcon>
-          <SocialIcon href="#"><Facebook fontSize="small" /></SocialIcon>
-          <SocialIcon href="#"><Twitter fontSize="small" /></SocialIcon>
-        </SocialIcons>
+        <LanguageSelector>
+          <Language fontSize="small" />
+          {language}
+          <ExpandMore fontSize="small" />
+        </LanguageSelector>
       </TopBar>
       <MainBar>
-        <Logo src={logo} alt="Chitwan Eco Resort" />
-        <NavMenu>
-          <NavItem href="#accommodations">Accommodations</NavItem>
-          <NavItem href="#experiences">Experiences</NavItem>
-          <NavItem href="#dining">Dining</NavItem>
-          <NavItem href="#sustainability">Sustainability</NavItem>
-          <NavItem href="#contact">Contact</NavItem>
-        </NavMenu>
-        <IconGroup>
-          <IconButton onClick={() => setIsSearchOpen(true)}>
-            <Search />
-          </IconButton>
-          <BookNowButton>
-            <CalendarToday fontSize="small" />
-            Book Now
-          </BookNowButton>
-          <MobileMenuButton onClick={() => setIsMobileMenuOpen(true)}>
-            <Menu />
-          </MobileMenuButton>
-        </IconGroup>
+        <Logo>
+          <LogoIcon />
+          Orbitza
+        </Logo>
+        <MobileMenuIcon onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <Close /> : <Menu />}
+        </MobileMenuIcon>
+        <Nav isOpen={isMobileMenuOpen}>
+          <NavItem href="/">Home </NavItem>
+          <NavItem href="about">About</NavItem>
+          <NavItem href="room">Room </NavItem>
+          <NavItem href="pages">Page </NavItem>
+          <NavItem href="blogs">Blog </NavItem>
+          <NavItem href="contact">Contact</NavItem>
+        
+        </Nav>
+       
       </MainBar>
-      <MobileMenu isOpen={isMobileMenuOpen}>
-        <CloseButton onClick={() => setIsMobileMenuOpen(false)}>
-          <Close />
-        </CloseButton>
-        {['Accommodations', 'Experiences', 'Dining', 'Sustainability', 'Contact'].map((item, index) => (
-          <MobileNavItem key={item} href={`#${item.toLowerCase()}`} index={index} onClick={() => setIsMobileMenuOpen(false)}>
-            {item}
-          </MobileNavItem>
-        ))}
-        <BookNowButton style={{ marginTop: '2rem' }}>
-          <CalendarToday fontSize="small" />
-          Book Now
-        </BookNowButton>
-      </MobileMenu>
-      <SearchOverlay isOpen={isSearchOpen}>
-        <SearchInput placeholder="Search our resort..." />
-        <CloseButton onClick={() => setIsSearchOpen(false)} style={{ position: 'absolute', top: '2rem', right: '2rem' }}>
-          <Close />
-        </CloseButton>
-      </SearchOverlay>
     </HeaderContainer>
   );
 };

@@ -8,28 +8,61 @@ import img4 from "../../assets/rooms/2.jpg";
 import img5 from "../../assets/rooms/5.jpg";
 import img6 from "../../assets/rooms/2.jpg";
 
+
+const SectionContainer = styled.section`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f4efe1;
+
+  @media (min-width: 768px) {
+    padding: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 50px;
+  }
+`;
+
+const Title = styled.h2`
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+  }
+`;
+
 const GridContainer = styled.div`
   display: grid;
-  margin-left:40px;
-  margin-right:40px;
+    grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 50px;
+  }
 `;
 
 const RoomCard = styled.div`
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
   overflow: hidden;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.3s ease;
 
-
-  &:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
 `;
 
 const RoomImage = styled.img`
@@ -46,32 +79,46 @@ const RoomInfo = styled.div`
 `;
 
 const RoomTitle = styled.h2`
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   margin: 0 0 10px 0;
   color: #333;
+  font-weight: 400;
+
+  @media (min-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const RoomPrice = styled.p`
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: bold;
   color: #b8860b;
   margin: 0 0 15px 0;
   display: flex;
   align-items: center;
   gap: 5px;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 10px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 const Button = styled.button`
   flex: 1;
   padding: 10px;
-  background-color: #A17A0B;
-  color: white;
+  background-color: #C8A27A;
+  color: black;
   border: none;
   cursor: pointer;
   font-size: 0.9rem;
@@ -100,22 +147,34 @@ const ModalContent = styled.div`
   background-color: white;
   padding: 20px;
   border-radius: 8px;
+  width: 90%;
   max-width: 500px;
-  width: 100%;
-  max-height: 80vh;
+  max-height: 90vh;
   overflow-y: auto;
   position: relative;
+
+  @media (min-width: 768px) {
+    width: 80%;
+  }
 `;
 
 const ModalTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 15px;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const ModalDescription = styled.p`
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-bottom: 15px;
   color: #555;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const ModalFeatures = styled.ul`
@@ -130,21 +189,34 @@ const FeatureItem = styled.li`
   gap: 10px;
   margin-bottom: 5px;
   color: #444;
+  font-size: 0.9rem;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const ModalAmenities = styled.p`
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   margin-bottom: 15px;
   color: #666;
+
+  @media (min-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const ModalPrice = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 15px;
   display: flex;
   align-items: center;
   gap: 5px;
+
+  @media (min-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const ModalButton = styled(Button)`
@@ -165,7 +237,7 @@ const CloseButton = styled.button`
 const RoomSelectionGrid = () => {
   const [selectedRoom, setSelectedRoom] = useState(null);
 
-  const rooms = [
+ const rooms = [
     {
       name: "Budget Double Room",
       image: img1,
@@ -225,16 +297,15 @@ const RoomSelectionGrid = () => {
   };
 
   return (
-    <>
+    <SectionContainer>
+      <Title>Our Luxurious Rooms</Title>
       <GridContainer>
         {rooms.map((room, index) => (
           <RoomCard key={index}>
             <RoomImage src={room.image} alt={room.name} />
             <RoomInfo>
               <RoomTitle>{room.name}</RoomTitle>
-              <RoomPrice><DollarSign size={18} /> {room.price}</RoomPrice>
               <ButtonContainer>
-                <Button onClick={() => openModal(room)}>See Details</Button>
                 <Button onClick={() => openModal(room)}>Book Now</Button>
               </ButtonContainer>
             </RoomInfo>
@@ -249,19 +320,18 @@ const RoomSelectionGrid = () => {
             <ModalTitle>{selectedRoom.name}</ModalTitle>
             <ModalDescription>{selectedRoom.description}</ModalDescription>
             <ModalFeatures>
-              <FeatureItem><Maximize size={18} /> Size: {selectedRoom.features.size}</FeatureItem>
-              <FeatureItem><Users size={18} /> Capacity: {selectedRoom.features.capacity} guests</FeatureItem>
-              <FeatureItem><Eye size={18} /> View: {selectedRoom.features.view}</FeatureItem>
-              {selectedRoom.features.wifi && <FeatureItem><Wifi size={18} /> WiFi: Available</FeatureItem>}
-              {/* {selectedRoom.features.shower && <FeatureItem><Shower size={18} /> Shower: Available</FeatureItem>} */}
+              <FeatureItem><Maximize size={16} /> Size: {selectedRoom.features.size}</FeatureItem>
+              <FeatureItem><Users size={16} /> Capacity: {selectedRoom.features.capacity} guests</FeatureItem>
+              <FeatureItem><Eye size={16} /> View: {selectedRoom.features.view}</FeatureItem>
+              {selectedRoom.features.wifi && <FeatureItem><Wifi size={16} /> WiFi: Available</FeatureItem>}
             </ModalFeatures>
             <ModalAmenities>Amenities: {selectedRoom.amenities}</ModalAmenities>
-            <ModalPrice><DollarSign size={18} /> {selectedRoom.price}</ModalPrice>
+            <ModalPrice><DollarSign size={16} /> {selectedRoom.price}</ModalPrice>
             <ModalButton onClick={closeModal}>Book Now</ModalButton>
           </ModalContent>
         </ModalOverlay>
       )}
-    </>
+    </SectionContainer>
   );
 };
 

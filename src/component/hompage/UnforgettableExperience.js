@@ -15,17 +15,35 @@ const fadeIn = keyframes`
 
 const ActivitySection = styled.section`
   max-width: 1200px;
-  margin: 4rem auto;
-  padding: 0 2rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
   text-align: center;
   animation: ${fadeIn} 0.5s ease-out;
+
+  @media (min-width: 768px) {
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 4rem auto;
+    padding: 0 2rem;
+  }
 `;
 
 const Title = styled.h2`
-  font-size: 2.8rem;
+  font-size: 2rem;
   color: #333;
   margin-bottom: 0.5rem;
   font-weight: 300;
+
+  @media (min-width: 768px) {
+    font-size: 2.4rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2.8rem;
+  }
 `;
 
 const Rating = styled.div`
@@ -36,22 +54,52 @@ const Rating = styled.div`
 `;
 
 const RatingText = styled.span`
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-right: 0.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const ReviewCount = styled.p`
   color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 2rem;
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 0.85rem;
+    margin-bottom: 1.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const ActivitiesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const ActivityCard = styled.div`
@@ -59,7 +107,13 @@ const ActivityCard = styled.div`
   background: white;
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
 `;
 
 const ActivityImageWrapper = styled.div`
@@ -69,36 +123,83 @@ const ActivityImageWrapper = styled.div`
 
 const ActivityImage = styled.img`
   width: 100%;
-  height: 200px;
+  height: 120px;
   object-fit: cover;
   transition: transform 0.3s ease;
 
+  @media (min-width: 768px) {
+    height: 180px;
+  }
 
+  @media (min-width: 1024px) {
+    height: 200px;
+  }
+
+  ${ActivityCard}:hover & {
+    transform: scale(1.05);
+  }
 `;
 
 const ActivityContent = styled.div`
-  padding: 1rem;
+  padding: 0.75rem;
+
+  @media (min-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const ActivityTitle = styled.h3`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #333;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const ActivityDescription = styled.p`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #666;
-  line-height: 1.5;
-  margin-bottom: 1rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 0.9rem;
+  }
+`;
+
+const SeeMoreLink = styled.span`
+  color: #4CAF50;
+  cursor: pointer;
+  font-weight: bold;
 `;
 
 const ActivityMeta = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: #888;
+
+  @media (min-width: 768px) {
+    font-size: 0.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const MetaItem = styled.span`
@@ -114,8 +215,8 @@ const SeeMoreButton = styled.button`
   background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 12px 24px;
-  font-size: 1rem;
+  padding: 10px 20px;
+  font-size: 0.9rem;
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -133,7 +234,18 @@ const SeeMoreButton = styled.button`
   svg {
     margin-left: 8px;
   }
+
+  @media (min-width: 768px) {
+    padding: 11px 22px;
+    font-size: 0.95rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
 `;
+
 
 const activities = [
   {
@@ -182,9 +294,18 @@ const activities = [
 
 const ResortActivities = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [expandedIndex, setExpandedIndex] = useState(null);
   const rating = 4.9;
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 !== 0;
+
+  const truncateDescription = (description, limit = 50) => {
+    const words = description.split(' ');
+    if (words.length > limit) {
+      return words.slice(0, limit).join(' ') + '...';
+    }
+    return description;
+  };
 
   return (
     <ActivitySection>
@@ -192,8 +313,8 @@ const ResortActivities = () => {
       <Rating>
         <RatingText>{rating} out of 5</RatingText>
         {[...Array(5)].map((_, i) => (
-          i < fullStars ? <Star key={i} size={20} fill="#FFD700" color="#FFD700" /> :
-          (i === fullStars && hasHalfStar ? <StarHalf key={i} size={20} fill="#FFD700" color="#FFD700" /> : <Star key={i} size={20} color="#FFD700" />)
+          i < fullStars ? <Star key={i} size={18} fill="#FFD700" color="#FFD700" /> :
+          (i === fullStars && hasHalfStar ? <StarHalf key={i} size={18} fill="#FFD700" color="#FFD700" /> : <Star key={i} size={18} color="#FFD700" />)
         ))}
       </Rating>
       <ReviewCount>Based on 25000+ reviews</ReviewCount>
@@ -209,14 +330,19 @@ const ResortActivities = () => {
             </ActivityImageWrapper>
             <ActivityContent>
               <ActivityTitle>{activity.title}</ActivityTitle>
-              <ActivityDescription>{activity.description}</ActivityDescription>
+              <ActivityDescription>
+                {expandedIndex === index ? activity.description : truncateDescription(activity.description)}
+                {expandedIndex !== index && (
+                  <SeeMoreLink onClick={() => setExpandedIndex(index)}> see more</SeeMoreLink>
+                )}
+              </ActivityDescription>
               <ActivityMeta>
                 <MetaItem>
-                  <Clock size={16} />
+                  <Clock size={14} />
                   {activity.duration}
                 </MetaItem>
                 <MetaItem>
-                  <Users size={16} />
+                  <Users size={14} />
                   {activity.groupSize}
                 </MetaItem>
               </ActivityMeta>
@@ -226,7 +352,7 @@ const ResortActivities = () => {
       </ActivitiesGrid>
       <SeeMoreButton>
         See More Activities
-        <ChevronRight size={20} />
+        <ChevronRight size={18} />
       </SeeMoreButton>
     </ActivitySection>
   );
