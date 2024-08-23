@@ -1,100 +1,34 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Wifi, Maximize, Users, Mountain, Droplet } from 'lucide-react';
-
+import { Wifi, Maximize, Users, Eye, DollarSign, X } from 'lucide-react';
 import img1 from "../../assets/rooms/1.jpg";
 import img2 from "../../assets/rooms/2.jpg";
 import img3 from "../../assets/rooms/3.jpg";
 import img4 from "../../assets/rooms/2.jpg";
 import img5 from "../../assets/rooms/5.jpg";
-import img6 from "../../assets/rooms/3.jpg";
+import img6 from "../../assets/rooms/2.jpg";
 
-import agoda from '../../assets/agoda.png'
-import trip from '../../assets/trip.png'
-import expe from '../../assets/expe.png'
-import booking from '../../assets/booking.png'
-
-// ... (keep all the styled components as they are)
-
-const Section = styled.section`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 50px 20px;
-  background-color: #f8f9fa;
-
-  @media (min-width: 768px) {
-    padding: 75px 20px;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 100px 20px;
-  }
-`;
-
-const Title = styled.h2`
-  font-size: 2rem;
-  color: #2c3e50;
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: 700;
-
-  @media (min-width: 768px) {
-    font-size: 2.4rem;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 2.8rem;
-  }
-`;
-
-const Subtitle = styled.p`
-  font-size: 1rem;
-  color: #B8860B;
-  text-align: center;
-  margin-bottom: 30px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media (min-width: 768px) {
-    font-size: 1.1rem;
-    margin-bottom: 40px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 1.2rem;
-    margin-bottom: 50px;
-  }
-`;
-
-const RoomsGrid = styled.div`
+const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-  }
-
-  @media (min-width: 1024px) {
+  margin-left:40px;
+  margin-right:40px;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
+  gap: 20px;
+  padding: 50px;
 `;
 
 const RoomCard = styled.div`
-  background-color: #ffffff;
-  border-radius: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
+  transition: box-shadow 0.3s ease;
+
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
 `;
 
@@ -105,103 +39,130 @@ const RoomImage = styled.img`
 `;
 
 const RoomInfo = styled.div`
-  padding: 20px;
+  padding: 15px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 `;
 
-const RoomName = styled.h3`
-  font-size: 1.3rem;
-  color: #34495e;
-  margin-bottom: 10px;
-
-  @media (min-width: 768px) {
-    font-size: 1.4rem;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 1.5rem;
-  }
+const RoomTitle = styled.h2`
+  font-size: 1.2rem;
+  margin: 0 0 10px 0;
+  color: #333;
 `;
 
-const RoomDescription = styled.p`
-  font-size: 0.9rem;
-  color: #7f8c8d;
-  margin-bottom: 15px;
-  line-height: 1.6;
-  flex-grow: 1;
-`;
-
-const RoomFeatures = styled.div`
+const RoomPrice = styled.p`
+  font-size: 1rem;
+  font-weight: bold;
+  color: #b8860b;
+  margin: 0 0 15px 0;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
   gap: 10px;
-  margin-bottom: 15px;
 `;
 
-const Feature = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: 0.8rem;
-  color: #34495e;
-  background-color: #f0f3f5;
-  padding: 5px 10px;
-  border-radius: 20px;
-
-  svg {
-    margin-right: 5px;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 0.9rem;
-  }
-`;
-
-const RoomPrice = styled.div`
-  font-size: 1.1rem;
-  color: #B8860B;
-  font-weight: 600;
-  margin-bottom: 15px;
-
-  @media (min-width: 768px) {
-    font-size: 1.2rem;
-  }
-`;
-
-
-
-const BookingSites = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 15px;
-`;
-
-const BookingIcon = styled.a`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  text-decoration: none;
-  color: #2c3e50;
-  font-size: 0.7rem;
-  text-align: center;
-  transition: all 0.3s ease;
+const Button = styled.button`
+  flex: 1;
+  padding: 10px;
+  background-color: #A17A0B;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    transform: translateY(-3px);
-  }
-
-  img {
- width: 60px;
-    // height: 24px;
-    object-fit: contain;
-    margin-bottom: 5px;
+    background-color: #a17709;
   }
 `;
-const RoomsSection = () => {
+
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+const ModalContent = styled.div`
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+`;
+
+const ModalTitle = styled.h2`
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+`;
+
+const ModalDescription = styled.p`
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #555;
+`;
+
+const ModalFeatures = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 15px;
+`;
+
+const FeatureItem = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+  color: #444;
+`;
+
+const ModalAmenities = styled.p`
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  color: #666;
+`;
+
+const ModalPrice = styled.p`
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`;
+
+const ModalButton = styled(Button)`
+  width: 100%;
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #333;
+`;
+
+const RoomSelectionGrid = () => {
   const [selectedRoom, setSelectedRoom] = useState(null);
 
   const rooms = [
@@ -255,64 +216,53 @@ const RoomsSection = () => {
     }
   ];
 
-  
-const bookingSites = [
-  {
-    name: 'Booking.com',
-    icon: booking, // Correct
-    url: 'https://www.booking.com/hotel/np/eco-adventure-resort-chitawan.html'
-  },
-  {
-    name: 'agoda',
-    icon: agoda, // Correct
-    url: 'https://www.agoda.com/eco-adventure-resort/hotel/chitwan-np.html?cid=1844104&ds=WMroRYQzmDMDx86E'
-  },
-  {
-    name: 'TripAdvisor',
-    icon: trip, // Correct
-    url: 'https://www.tripadvisor.com/Hotel_Review-g1367591-d6433921-Reviews-Eco_Adventure_Resort-Sauraha_Chitwan_District_Narayani_Zone_Central_Region.html'
-  },
-  {
-    name: 'Expedia',
-    icon: expe, // Correct
-    url: 'https://www.expedia.com/Sauraha-Hotels-Eco-Adventure-Resort.h10989661.Hotel-Information'
-  }
-];
+  const openModal = (room) => {
+    setSelectedRoom(room);
+  };
+
+  const closeModal = () => {
+    setSelectedRoom(null);
+  };
 
   return (
-    <Section>
-      <Title>Our Accommodations</Title>
-      <Subtitle>Experience the beauty of nature with our range of comfortable rooms at Eco Adventure Resort.</Subtitle>
-      <RoomsGrid>
+    <>
+      <GridContainer>
         {rooms.map((room, index) => (
           <RoomCard key={index}>
             <RoomImage src={room.image} alt={room.name} />
             <RoomInfo>
-              <RoomName>{room.name}</RoomName>
-              <RoomDescription>{room.description}</RoomDescription>
-              <RoomFeatures>
-                <Feature><Wifi size={16} /> Wi-Fi</Feature>
-                <Feature><Maximize size={16} /> {room.features.size}</Feature>
-                <Feature><Users size={16} /> {room.features.capacity} Guests</Feature>
-                <Feature><Mountain size={16} /> {room.features.view} View</Feature>
-                {room.features.shower && <Feature><Droplet size={16} /> Shower</Feature>}
-              </RoomFeatures>
-              <RoomPrice>{room.price}</RoomPrice>
-              <BookingSites>
-  {bookingSites.map((site, index) => (
-    <BookingIcon key={index} href={site.url} target="_blank" rel="noopener noreferrer">
-      <img src={site.icon} alt={site.name} />
-      {site.name}
-    </BookingIcon>
-  ))}
-</BookingSites>
+              <RoomTitle>{room.name}</RoomTitle>
+              <RoomPrice><DollarSign size={18} /> {room.price}</RoomPrice>
+              <ButtonContainer>
+                <Button onClick={() => openModal(room)}>See Details</Button>
+                <Button onClick={() => openModal(room)}>Book Now</Button>
+              </ButtonContainer>
             </RoomInfo>
           </RoomCard>
         ))}
-      </RoomsGrid>
-      
-    </Section>
+      </GridContainer>
+
+      {selectedRoom && (
+        <ModalOverlay onClick={closeModal}>
+          <ModalContent onClick={(e) => e.stopPropagation()}>
+            <CloseButton onClick={closeModal}><X /></CloseButton>
+            <ModalTitle>{selectedRoom.name}</ModalTitle>
+            <ModalDescription>{selectedRoom.description}</ModalDescription>
+            <ModalFeatures>
+              <FeatureItem><Maximize size={18} /> Size: {selectedRoom.features.size}</FeatureItem>
+              <FeatureItem><Users size={18} /> Capacity: {selectedRoom.features.capacity} guests</FeatureItem>
+              <FeatureItem><Eye size={18} /> View: {selectedRoom.features.view}</FeatureItem>
+              {selectedRoom.features.wifi && <FeatureItem><Wifi size={18} /> WiFi: Available</FeatureItem>}
+              {/* {selectedRoom.features.shower && <FeatureItem><Shower size={18} /> Shower: Available</FeatureItem>} */}
+            </ModalFeatures>
+            <ModalAmenities>Amenities: {selectedRoom.amenities}</ModalAmenities>
+            <ModalPrice><DollarSign size={18} /> {selectedRoom.price}</ModalPrice>
+            <ModalButton onClick={closeModal}>Book Now</ModalButton>
+          </ModalContent>
+        </ModalOverlay>
+      )}
+    </>
   );
 };
 
-export default RoomsSection;
+export default RoomSelectionGrid;

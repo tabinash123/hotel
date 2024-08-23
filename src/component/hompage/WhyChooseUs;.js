@@ -1,236 +1,139 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Users, Globe, Clock, HandHeart, Phone, ShieldCheck } from 'lucide-react';
+import { Check, ChevronRight } from 'lucide-react';
 
-const Section = styled.section`
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 1.5rem;
+import img1 from '../../assets/resort/garden3.jpg';
+const SectionContainer = styled.section`
+  background-color: #f4efe1;
+  padding: 60px 20px;
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  background-color: #f8f1e3;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(101, 67, 33, 0.1);
-
-  @media (min-width: 768px) {
-    padding: 2rem;
-    margin: 3rem auto;
-  }
-
-  @media (min-width: 1024px) {
-    flex-direction: row;
-    padding: 3rem;
-    margin: 4rem auto;
-  }
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin:0 auto;
 `;
 
-const LeftColumn = styled.div`
+const ContentContainer = styled.div`
   flex: 1;
-  min-width: 100%;
-
-  @media (min-width: 1024px) {
-    min-width: 300px;
-  }
+  min-width: 300px;
+  max-width: 600px;
 `;
 
-const RightColumn = styled.div`
-  flex: 2;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+const SectionTitle = styled.h2`
+  font-size: 1rem;
+  color: #ff6b35;
+  margin-bottom: 10px;
+  text-transform: uppercase;
 `;
 
-const Title = styled.h2`
-  font-family: 'Baskerville', 'Times New Roman', serif;
-  font-size: 2rem;
-  color: #654321;
-  margin-bottom: 1rem;
-  position: relative;
-  padding-bottom: 10px;
-  letter-spacing: 1px;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 80px;
-    height: 2px;
-    background: linear-gradient(to right, #8b4513, #d2691e);
-  }
-
-  @media (min-width: 768px) {
-    font-size: 2.25rem;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-  }
+const MainTitle = styled.h3`
+  font-size: 2.5rem;
+  color: #1a3c34;
+  margin-bottom: 20px;
 `;
 
 const Description = styled.p`
-  font-family: 'Garamond', 'Georgia', serif;
-  font-size: 1.1rem;
-  color: #5d4037;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
-
-  @media (min-width: 768px) {
-    font-size: 1.2rem;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-  }
 `;
 
-const Button = styled.button`
-  background: linear-gradient(45deg, #8b4513, #d2691e);
-  color: #fff;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  font-family: 'Baskerville', 'Times New Roman', serif;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 0.5px;
-
-  &:hover {
-    background: linear-gradient(45deg, #d2691e, #8b4513);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(139, 69, 19, 0.3);
-  }
+const FeatureList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
 `;
 
-const Feature = styled.div`
+const FeatureItem = styled.li`
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  background-color: #fff;
-  padding: 1.25rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(101, 67, 33, 0.1);
-  transition: transform 0.3s ease;
+  align-items: center;
+  font-size: 1rem;
+  color: #1a3c34;
+`;
+
+const CheckIcon = styled(Check)`
+  color: #ff6b35;
+  margin-right: 10px;
+`;
+
+const ReadMoreButton = styled.button`
+  background-color: #ff6b35;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px);
-  }
-
-  @media (min-width: 768px) {
-    padding: 1.5rem;
+    background-color: #e55a2b;
   }
 `;
 
-const IconWrapper = styled.div`
-  color: #000000;
-  flex-shrink: 0;
+const ImageContainer = styled.div`
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  position: relative;
 `;
 
-const FeatureContent = styled.div``;
+const MainImage = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
 
-const FeatureTitle = styled.h3`
-  font-family: 'Baskerville', 'Times New Roman', serif;
+const ExperienceBadge = styled.div`
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background-color: #1a3c34;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
   font-size: 1.2rem;
-  color: #654321;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.5px;
-
-  @media (min-width: 768px) {
-    font-size: 1.3rem;
-  }
-`;
-
-const FeatureDescription = styled.p`
-  font-family: 'Garamond', 'Georgia', serif;
-  font-size: 1rem;
-  color: #5d4037;
-  line-height: 1.5;
-
-  @media (min-width: 768px) {
-    font-size: 1.1rem;
-  }
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 `;
 
 const WhyChooseUs = () => {
   return (
-    <Section>
-      <LeftColumn>
-        <Title>Why Choose Himalayan Haven?</Title>
-        <Description>
-          Nestled in the heart of Nepal's breathtaking landscapes, Himalayan Haven offers more than just luxury accommodation. We provide an immersive experience that blends opulent comfort with the raw beauty of the Himalayas. Our commitment to excellence ensures that every moment of your stay is as extraordinary as the views that surround us.
-        </Description>
-        <Button>Discover Your Sanctuary</Button>
-      </LeftColumn>
-      <RightColumn>
-        <Feature>
-          <IconWrapper>
-            <Users size={24} />
-          </IconWrapper>
-          <FeatureContent>
-            <FeatureTitle>Expert Hospitality Team</FeatureTitle>
-       
-          </FeatureContent>
-        </Feature>
-        <Feature>
-          <IconWrapper>
-            <ShieldCheck size={24} />
-          </IconWrapper>
-          <FeatureContent>
-            <FeatureTitle>Transparent Luxury</FeatureTitle>
-       
-          </FeatureContent>
-        </Feature>
-        <Feature>
-          <IconWrapper>
-            <Globe size={24} />
-          </IconWrapper>
-          <FeatureContent>
-            <FeatureTitle>Global Clientele</FeatureTitle>
+    <SectionContainer>
       
-          </FeatureContent>
-        </Feature>
-        <Feature>
-          <IconWrapper>
-            <Clock size={24} />
-          </IconWrapper>
-          <FeatureContent>
-            <FeatureTitle>Punctual Perfection</FeatureTitle>
-        
-          </FeatureContent>
-        </Feature>
-        <Feature>
-          <IconWrapper>
-            <HandHeart size={24} />
-          </IconWrapper>
-          <FeatureContent>
-            <FeatureTitle>All-Encompassing Care</FeatureTitle>
+      <ImageContainer>
+        <MainImage src={img1} alt="Chitwan Jungle Lodge experience" />
+        <ExperienceBadge>
+          20+ Years<br />
+          of jungle hospitality
+        </ExperienceBadge>
+      </ImageContainer>
+      <ContentContainer>
+        <SectionTitle>Why Choose Us</SectionTitle>
+        <MainTitle>Why Guests Love Chitwan Jungle Lodge?</MainTitle>
+        <Description>
+          Experience the perfect blend of adventure, comfort, and authentic Nepalese hospitality. 
+          Our prime location and exceptional services make us the ideal choice for your Chitwan getaway.
+        </Description>
+        <FeatureList>
+          <FeatureItem><CheckIcon size={20} /> Prime jungle location</FeatureItem>
+          <FeatureItem><CheckIcon size={20} /> Expert wildlife guides</FeatureItem>
+          <FeatureItem><CheckIcon size={20} /> Authentic cultural experiences</FeatureItem>
+          <FeatureItem><CheckIcon size={20} /> Eco-friendly practices</FeatureItem>
+          <FeatureItem><CheckIcon size={20} /> Comfortable accommodations</FeatureItem>
+          <FeatureItem><CheckIcon size={20} /> Delicious local cuisine</FeatureItem>
+        </FeatureList>
        
-          </FeatureContent>
-        </Feature>
-        <Feature>
-          <IconWrapper>
-            <Phone size={24} />
-          </IconWrapper>
-          <FeatureContent>
-            <FeatureTitle>Round-the-Clock Concierge</FeatureTitle>
-           
-          </FeatureContent>
-        </Feature>
-      </RightColumn>
-    </Section>
+      </ContentContainer>
+    </SectionContainer>
   );
 };
 

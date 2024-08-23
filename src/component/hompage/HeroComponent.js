@@ -1,22 +1,47 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Calendar, Users, Award, Smile, Leaf } from 'lucide-react';
-// Note: You'll need to replace this with the correct path to your image
-import backgroundImage from '../../assets/resort/hotel2.jpg';
+import React, { useState, useEffect, useRef } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { ChevronLeft, ChevronRight, Calendar, Users } from 'lucide-react';
+
+// Import your images here
+import img1 from '../../assets/resort/hotel1.jpg';
+import img2 from '../../assets/resort/hotel2.jpg';
+import img3 from '../../assets/resort/hotel3.jpg';
+
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+
+const slideUp = keyframes`
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+`;
 
 const HeroSection = styled.section`
   position: relative;
-  height: 80vh;
+  height: 90vh;
   width: 100%;
-  background-image: url(${props => props.backgroundImage});
+  overflow: hidden;
+  margin-top: 90px;
+`;
+
+const CarouselContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  position: relative;
+`;
+
+const CarouselSlide = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(${props => props.image});
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: end;
-  padding-bottom:30px;
-  color: white;
-  overflow: hidden;
-  margin-top:90px;
+  opacity: ${props => props.active ? 1 : 0};
+  transition: opacity 0.8s ease-in-out;
 `;
 
 const Overlay = styled.div`
@@ -25,179 +50,237 @@ const Overlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
 `;
 
 const Content = styled.div`
-  position: relative;
+  position: absolute;
+  bottom: 100px;
+  left: 50px;
+  color: white;
   z-index: 2;
-  max-width: 80%;
-  margin-Left: 5%;
-  
-  @media (min-width: 768px) {
-    max-width: 80%;
-  }
-  
-  @media (min-width: 1024px) {
-    max-width: 60%;
-  }
+  max-width: 600px;
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 15px;
-  line-height: 1.2;
-
-  @media (min-width: 768px) {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 4rem;
-  }
-`;
-
-const Highlight = styled.span`
-  color: #B8860B;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  animation: ${fadeIn} 0.8s ease-out;
 `;
 
 const Subtitle = styled.div`
-  width: 80%;
-  font-size: 0.9rem;
+  font-size: 1.25rem;
   margin-bottom: 20px;
-  opacity: 0.9;
-
-  @media (min-width: 768px) {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 1.25rem;
-    margin-bottom: 30px;
-  }
-`;
-
-const ButtonGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 30px;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    gap: 15px;
-    margin-bottom: 35px;
-  }
-
-  @media (min-width: 1024px) {
-    gap: 20px;
-    margin-bottom: 40px;
-  }
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  animation: ${fadeIn} 0.8s ease-out 0.2s both;
 `;
 
 const Button = styled.button`
-  padding: 10px 20px;
-  font-size: 0.9rem;
+  padding: 12px 24px;
+  font-size: 1rem;
   font-weight: bold;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 70%;
-
-  @media (min-width: 768px) {
-    width: auto;
-    padding: 12px 24px;
-    font-size: 1rem;
-  }
-
-  background-color: ${props => props.primary ? '#B8860B' : 'transparent'};
+  background-color: #B8860B;
   color: white;
-  border: ${props => props.primary ? 'none' : '2px solid white'};
+  animation: ${slideUp} 0.8s ease-out 0.4s both;
 
   &:hover {
     transform: translateY(-2px);
+    background-color: #9A7B0A;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
 `;
 
-const Stats = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+const CarouselButton = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  ${props => props.left ? 'left: 20px;' : 'right: 20px;'}
+`;
+
+const Dots = styled.div`
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+`;
+
+const Dot = styled.div`
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: ${props => props.active ? 'white' : 'rgba(255, 255, 255, 0.5)'};
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+const BookingWidget = styled.div`
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  animation: ${slideUp} 0.8s ease-out;
+`;
+
+const BookingTitle = styled.h3`
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 15px;
+`;
+
+const BookingForm = styled.form`
+  display: flex;
+  flex-direction: column;
   gap: 15px;
+`;
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+const FormGroup = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  padding: 8px 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  svg {
+    color: #B8860B;
+    margin-right: 10px;
   }
 `;
 
-const StatItem = styled.div`
-  text-align: center;
-`;
-
-const StatValue = styled.div`
+const Input = styled.input`
+  border: none;
+  outline: none;
   font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 3px;
-
-  @media (min-width: 768px) {
-    font-size: 1.2rem;
-    margin-bottom: 4px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-  }
-`;
-
-const StatLabel = styled.div`
-  font-size: 0.7rem;
-  opacity: 0.8;
-
-  @media (min-width: 768px) {
-    font-size: 0.8rem;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 0.9rem;
-  }
-`;
-
-const IconWrapper = styled.div`
-  margin-bottom: 5px;
+  flex-grow: 1;
 `;
 
 const Hero = () => {
-  const stats = [
-    { icon: Calendar, value: '11', label: 'Years of Excellence' },
-    { icon: Users, value: '10', label: 'Well-Appointed Rooms' },
-    { icon: Award, value: '1', label: 'Star Rating' },
-    { icon: Leaf, value: 'Eco', label: 'Friendly Practices' },
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const intervalRef = useRef(null);
+  const images = [img1, img2, img3];
+  const titles = [
+    "Welcome to Eco Adventure Resort",
+    "Experience Luxury in Nature",
+    "Unforgettable Stays in Chitwan"
+  ];
+  const subtitles = [
+    "Your gateway to natural wonders",
+    "Comfort meets wilderness",
+    "Create lasting memories with us"
   ];
 
+  useEffect(() => {
+    if (isPlaying) {
+      intervalRef.current = setInterval(() => {
+        setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
+      }, 5000);
+    }
+    return () => clearInterval(intervalRef.current);
+  }, [isPlaying]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
+    restartTimer();
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + images.length) % images.length);
+    restartTimer();
+  };
+
+  const restartTimer = () => {
+    clearInterval(intervalRef.current);
+    setIsPlaying(true);
+  };
+
   return (
-    <HeroSection backgroundImage={backgroundImage}>
-      <Overlay />
-      <Content>
-        <Title>Experience Nature at <Highlight>Eco Adventure Resort</Highlight></Title>
-        <Subtitle>Immerse yourself in the beauty of Chitwan, Nepal. Enjoy serene surroundings and eco-friendly practices just 1km from the city center.</Subtitle>
-       
-        <Stats>
-          {stats.map((stat, index) => (
-            <StatItem key={index}>
-              <IconWrapper>
-                <stat.icon size={24} />
-              </IconWrapper>
-              <StatValue>{stat.value}</StatValue>
-              <StatLabel>{stat.label}</StatLabel>
-            </StatItem>
+    <HeroSection>
+      <CarouselContainer>
+        {images.map((img, index) => (
+          <CarouselSlide key={index} image={img} active={index === currentSlide}>
+            {/* <Overlay /> */}
+          </CarouselSlide>
+        ))}
+        <Content>
+          <Title>{titles[currentSlide]}</Title>
+          <Subtitle>{subtitles[currentSlide]}</Subtitle>
+          <Button>Explore Our Resort</Button>
+        </Content>
+        <CarouselButton left onClick={prevSlide}>
+          <ChevronLeft size={24} />
+        </CarouselButton>
+        <CarouselButton onClick={nextSlide}>
+          <ChevronRight size={24} />
+        </CarouselButton>
+        <Dots>
+          {images.map((_, index) => (
+            <Dot 
+              key={index} 
+              active={index === currentSlide} 
+              onClick={() => {
+                setCurrentSlide(index);
+                restartTimer();
+              }}
+            />
           ))}
-        </Stats>
-      </Content>
+        </Dots>
+      </CarouselContainer>
+      {/* <BookingWidget>
+        <BookingTitle>Book Your Stay</BookingTitle>
+        <BookingForm>
+          <FormGroup>
+            <Calendar size={20} />
+            <Input type="text" placeholder="Check-in Date" />
+          </FormGroup>
+          <FormGroup>
+            <Calendar size={20} />
+            <Input type="text" placeholder="Check-out Date" />
+          </FormGroup>
+          <FormGroup>
+            <Users size={20} />
+            <Input type="number" placeholder="Number of Guests" min="1" />
+          </FormGroup>
+          <Button>Check Availability</Button>
+        </BookingForm>
+      </BookingWidget> */}
     </HeroSection>
   );
 };

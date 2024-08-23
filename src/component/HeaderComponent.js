@@ -1,243 +1,246 @@
 import React, { useState, useEffect } from 'react';
-import styled, { keyframes, css } from 'styled-components';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import styled, { keyframes } from 'styled-components';
+import { Menu, Close, Search, Phone, Language, CalendarToday, Instagram, Facebook, Twitter } from '@mui/icons-material';
 import logo from '../assets/logo.jpg'
-
-const slideIn = keyframes`
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-`;
 
 const fadeIn = keyframes`
   from { opacity: 0; }
   to { opacity: 1; }
 `;
 
+const slideDown = keyframes`
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+`;
+
 const HeaderContainer = styled.header`
-  background-color:#ffffff;;
+  background-color: ${props => props.isScrolled ? 'rgba(14, 64, 28, 0.95)' : 'rgba(14, 64, 28, 0.7)'};
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: all 0.3s ease;
-  box-shadow: ${props => props.isScrolled ? '0 2px 20px rgba(0, 0, 0, 0.1)' : 'none'};
-  backdrop-filter: blur(10px);
+  padding: 0.5rem 5%;
+  display: flex;
+  flex-direction: column;
+  animation: ${slideDown} 0.5s ease-out;
 `;
 
-const HeaderContent = styled.div`
+const TopBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 1rem;
-  max-width: 1400px;
-  margin: 0 auto;
-
-  @media (min-width: 768px) {
-    padding: 1rem 2rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 1.25rem 4rem;
-  }
-    a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(244, 240, 229, 0.2);
 `;
 
-const Logo = styled.img`
-  height: 50px; // Adjust this value as needed
-  width: auto;
-  transition: all 0.3s ease;
+const ContactInfo = styled.div`
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: #F4F0E5;
+  font-size: 0.9rem;
 
   @media (max-width: 768px) {
-    height: 70px; // Adjust as needed
-  }
-
-  @media (max-width: 1024px) {
-    height: 80px; // Adjust as needed
-  }
-`;
-
-const NavMenu = styled.nav`
-  display: none;
-
-  @media (min-width: 1024px) {
-    display: flex;
-    flex-direction: row;
-  }
-`;
-
-const NavItem = styled.a`
-  color: #B8860B;
-  text-decoration: none;
-  padding: 0.5rem 1.25rem;
-  transition: all 0.3s ease;
-  font-weight: 600;
-  font-size: 1.2rem;
-  position: relative;
-  font-family: 'Poppins', sans-serif;
-
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: #B8860B;
-    transition: all 0.3s ease;
-  }
-
-  &:hover {
-    color: #B8860B;
-    
-    &:after {
-      width: 80%;
-      left: 10%;
-    }
-  }
-`;
-
-const BookNowButton = styled.button`
-  background-color: #B8860B;
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 10px rgba(184, 134, 11, 0.3);
-  font-family: 'Poppins', sans-serif;
-
-  @media (min-width: 768px) {
-    padding: 0.7rem 1.25rem;
-    font-size: 0.95rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-  }
-
-  &:hover {
-    background-color: #FFD700;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.4);
-  }
-`;
-
-const MenuToggle = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: block;
-  color: #B8860B;
-  transition: color 0.3s ease;
-  padding: 0.5rem;
-
-  &:hover {
-    color: #FFD700;
-  }
-
-  @media (min-width: 1024px) {
     display: none;
   }
 `;
 
-const Drawer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 80%;
-  max-width: 400px;
-  background-color: #ffffff;
-  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
-  z-index: 1001;
-  overflow-y: auto;
-
-  ${props => props.isOpen && css`
-    transform: translateX(0);
-    animation: ${slideIn} 0.3s ease-in-out;
-  `}
+const SocialIcons = styled.div`
+  display: flex;
+  gap: 1rem;
 `;
 
-const DrawerOverlay = styled.div`
+const SocialIcon = styled.a`
+  color: #F4F0E5;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #FFD700;
+  }
+`;
+
+const MainBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+`;
+
+const Logo = styled.img`
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+const NavMenu = styled.nav`
+  display: flex;
+  gap: 2rem;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`;
+
+const NavItem = styled.a`
+  color: #F4F0E5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FFD700;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: #FFD700;
+    &:after {
+      width: 100%;
+    }
+  }
+`;
+
+const IconGroup = styled.div`
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+`;
+
+const IconButton = styled.button`
+  background: none;
+  border: none;
+  color: #F4F0E5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    color: #FFD700;
+    transform: translateY(-2px);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #FFD700;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+`;
+
+const MobileMenuButton = styled(IconButton)`
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: block;
+  }
+`;
+
+const MobileMenu = styled.div`
+  position: fixed;
+  top: 0;
+  right: ${props => props.isOpen ? '0' : '-100%'};
+  width: 80%;
+  height: 100vh;
+  background-color: rgba(14, 64, 28, 0.98);
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  z-index: 1001;
+  overflow-y: auto;
+  animation: ${props => props.isOpen ? fadeIn : 'none'} 0.3s ease-out;
+`;
+
+const MobileNavItem = styled(NavItem)`
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: ${fadeIn} 0.5s ease-out forwards;
+  animation-delay: ${props => props.index * 0.1}s;
+`;
+
+const CloseButton = styled(IconButton)`
+  align-self: flex-end;
+  margin-bottom: 2rem;
+`;
+
+const BookNowButton = styled.button`
+  background-color: #FFD700;
+  color: #0E401C;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background-color: #F4F0E5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+`;
+
+const SearchOverlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  z-index: 1000;
-
-  ${props => props.isOpen && css`
-    opacity: 1;
-    visibility: visible;
-    animation: ${fadeIn} 0.3s ease-in-out;
-  `}
-`;
-
-const DrawerHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
+  background-color: rgba(14, 64, 28, 0.98);
+  display: ${props => props.isOpen ? 'flex' : 'none'};
+  justify-content: center;
   align-items: center;
-  padding: 1.5rem;
-  border-bottom: 1px solid #e0e0e0;
+  z-index: 1002;
+  animation: ${fadeIn} 0.3s ease-out;
 `;
 
-const DrawerLogo = styled(Logo)`
-  height: 40px; // Adjust as needed
-`;
+const SearchInput = styled.input`
+  width: 80%;
+  max-width: 600px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  background-color: rgba(244, 240, 229, 0.1);
+  border: 2px solid #F4F0E5;
+  border-radius: 50px;
+  color: #F4F0E5;
+  outline: none;
 
-const CloseButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #B8860B;
-  cursor: pointer;
-`;
-
-const DrawerNavItem = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.5rem;
-  color: #333;
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-  font-family: 'Poppins', sans-serif;
-
-  &:hover {
-    background-color: #f0f0f0;
-    color: #B8860B;
+  &::placeholder {
+    color: rgba(244, 240, 229, 0.7);
   }
 `;
 
-const DrawerBookNowButton = styled(BookNowButton)`
-  display: block;
-  width: calc(100% - 3rem);
-  margin: 1.5rem;
-  text-align: center;
-`;
-
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -251,48 +254,64 @@ const Header = () => {
     };
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
-    <>
-      <HeaderContainer isScrolled={isScrolled}>
-        <HeaderContent>
-         <a href="/">
-    <Logo src={logo} alt="Echo Adventure Resort" />
-  </a>
-          <MenuToggle onClick={toggleMenu}>
-            <Menu size={24} />
-          </MenuToggle>
-          <NavMenu>
-            <NavItem href="/">Home</NavItem>
-            <NavItem href="/room">Rooms</NavItem>
-            <NavItem href="/tour">Tour-Packages</NavItem>
-            <NavItem href="/about">About-Us</NavItem>
-            <NavItem href="/contact">Contact</NavItem>
-          </NavMenu>
-        </HeaderContent>
-      </HeaderContainer>
-
-      <DrawerOverlay isOpen={isMenuOpen} onClick={toggleMenu} />
-      <Drawer isOpen={isMenuOpen}>
-       <DrawerHeader>
-  <a href="/">
-    <DrawerLogo src={logo} alt="Echo Adventure Resort" />
-  </a>
-  <CloseButton onClick={toggleMenu}>
-    <X size={24} />
-  </CloseButton>
-</DrawerHeader>
-        <DrawerNavItem href="/">Home <ChevronRight size={20} /></DrawerNavItem>
-        <DrawerNavItem href="/room">Rooms <ChevronRight size={20} /></DrawerNavItem>
-        <DrawerNavItem href="/tour">Tour-package <ChevronRight size={20} /></DrawerNavItem>
-        <DrawerNavItem href="/about">About-us <ChevronRight size={20} /></DrawerNavItem>
-        <DrawerNavItem href="/contact">Contact <ChevronRight size={20} /></DrawerNavItem>
-        <DrawerBookNowButton>Book Now</DrawerBookNowButton>
-      </Drawer>
-    </>
+    <HeaderContainer isScrolled={isScrolled}>
+      <TopBar>
+        <ContactInfo>
+          <Phone fontSize="small" />
+          <span>+977 123 456 789</span>
+          <Language fontSize="small" />
+          <span>EN | NP</span>
+        </ContactInfo>
+        <SocialIcons>
+          <SocialIcon href="#"><Instagram fontSize="small" /></SocialIcon>
+          <SocialIcon href="#"><Facebook fontSize="small" /></SocialIcon>
+          <SocialIcon href="#"><Twitter fontSize="small" /></SocialIcon>
+        </SocialIcons>
+      </TopBar>
+      <MainBar>
+        <Logo src={logo} alt="Chitwan Eco Resort" />
+        <NavMenu>
+          <NavItem href="#accommodations">Accommodations</NavItem>
+          <NavItem href="#experiences">Experiences</NavItem>
+          <NavItem href="#dining">Dining</NavItem>
+          <NavItem href="#sustainability">Sustainability</NavItem>
+          <NavItem href="#contact">Contact</NavItem>
+        </NavMenu>
+        <IconGroup>
+          <IconButton onClick={() => setIsSearchOpen(true)}>
+            <Search />
+          </IconButton>
+          <BookNowButton>
+            <CalendarToday fontSize="small" />
+            Book Now
+          </BookNowButton>
+          <MobileMenuButton onClick={() => setIsMobileMenuOpen(true)}>
+            <Menu />
+          </MobileMenuButton>
+        </IconGroup>
+      </MainBar>
+      <MobileMenu isOpen={isMobileMenuOpen}>
+        <CloseButton onClick={() => setIsMobileMenuOpen(false)}>
+          <Close />
+        </CloseButton>
+        {['Accommodations', 'Experiences', 'Dining', 'Sustainability', 'Contact'].map((item, index) => (
+          <MobileNavItem key={item} href={`#${item.toLowerCase()}`} index={index} onClick={() => setIsMobileMenuOpen(false)}>
+            {item}
+          </MobileNavItem>
+        ))}
+        <BookNowButton style={{ marginTop: '2rem' }}>
+          <CalendarToday fontSize="small" />
+          Book Now
+        </BookNowButton>
+      </MobileMenu>
+      <SearchOverlay isOpen={isSearchOpen}>
+        <SearchInput placeholder="Search our resort..." />
+        <CloseButton onClick={() => setIsSearchOpen(false)} style={{ position: 'absolute', top: '2rem', right: '2rem' }}>
+          <Close />
+        </CloseButton>
+      </SearchOverlay>
+    </HeaderContainer>
   );
 };
 

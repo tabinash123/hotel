@@ -1,211 +1,120 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Leaf, Hotel, Utensils, Wifi, MapPin } from 'lucide-react';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import PoolIcon from '@mui/icons-material/Pool';
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import SpaIcon from '@mui/icons-material/Spa';
+import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
+import LocalLaundryServiceIcon from '@mui/icons-material/LocalLaundryService';
 
-const Section = styled.section`
+const FacilitiesSection = styled.section`
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 50px 20px;
-  background-color: #f0f4f0;
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 768px) {
-    padding: 75px 30px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 100px 20px;
-  }
-`;
-
-const LeftColumn = styled.div`
-  flex: 1;
-  margin-bottom: 40px;
-
-  @media (min-width: 768px) {
-    flex: 1;
-    padding-right: 30px;
-    margin-bottom: 0;
-  }
-
-  @media (min-width: 1024px) {
-    padding-right: 60px;
-  }
-`;
-
-const RightColumn = styled.div`
-  flex: 1;
-  background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-
-  @media (min-width: 640px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (min-width: 768px) {
-    flex: 1;
-    padding: 40px;
-    gap: 30px;
-  }
+  margin: 4rem auto;
+  padding: 0 2rem;
 `;
 
 const Title = styled.h2`
-  font-size: 2rem;
-  color: #2c3e50;
-  margin-bottom: 20px;
-  font-weight: 700;
-
-  @media (min-width: 768px) {
-    font-size: 2.5rem;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 3rem;
-  }
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #333;
+  font-weight: normal;
 `;
 
-const Description = styled.p`
-  font-size: 1rem;
-  color: #34495e;
-  line-height: 1.6;
-  margin-bottom: 30px;
-
-  @media (min-width: 768px) {
-    font-size: 1.05rem;
-    line-height: 1.7;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
+const FacilitiesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 `;
 
-const Button = styled.button`
-  background-color: #B8860B;
-  color: #ffffff;
-  border: none;
-  padding: 12px 25px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  @media (min-width: 768px) {
-    padding: 14px 28px;
-    font-size: 1.05rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 15px 30px;
-    font-size: 1.1rem;
-  }
-
-  &:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
-  }
-`;
-
-const FacilityItem = styled.div`
+const FacilityCard = styled.div`
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
   display: flex;
   align-items: flex-start;
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
 `;
 
 const IconWrapper = styled.div`
-  background-color: #B8860B;
-  border-radius: 50%;
-  padding: 10px;
-  margin-right: 15px;
-
-  @media (min-width: 768px) {
-    padding: 12px;
-  }
+  background-color: #c19a6b;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const FacilityInfo = styled.div`
+const FacilityContent = styled.div`
   flex: 1;
 `;
 
-const FacilityName = styled.h3`
-  font-size: 1.1rem;
-  color: #2c3e50;
-  margin-bottom: 6px;
-  font-weight: 600;
-
-  @media (min-width: 768px) {
-    font-size: 1.15rem;
-    margin-bottom: 8px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 1.2rem;
-  }
+const FacilityTitle = styled.h3`
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: bold;
 `;
 
 const FacilityDescription = styled.p`
   font-size: 0.9rem;
-  color: #7f8c8d;
+  color: #666;
   line-height: 1.5;
-
-  @media (min-width: 768px) {
-    font-size: 0.92rem;
-    line-height: 1.55;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
 `;
 
-const FacilitiesSection = () => {
-  const facilities = [
-    { name: 'Eco-Friendly Resort', icon: Leaf, description: 'Sustainable practices and nature conservation' },
-    { name: 'Comfortable Rooms', icon: Hotel, description: '10 well-appointed rooms for a restful stay' },
-    { name: 'Delicious Dining', icon: Utensils, description: 'On-site restaurant with local and international cuisine' },
-    { name: 'Convenient Location', icon: MapPin, description: 'Just 1 km from Chitwan city center' },
-    { name: 'Free Wi-Fi', icon: Wifi, description: 'Stay connected in rooms and public areas' },
-  ];
+const facilities = [
+  {
+    icon: RestaurantIcon,
+    title: "Restaurant",
+    description: "Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim."
+  },
+  {
+    icon: PoolIcon,
+    title: "Swimming Pool",
+    description: "Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim."
+  },
+  {
+    icon: FitnessCenterIcon,
+    title: "Fitness Center",
+    description: "Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim."
+  },
+  {
+    icon: SpaIcon,
+    title: "Spa & Massage",
+    description: "Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim."
+  },
+  {
+    icon: MeetingRoomIcon,
+    title: "Meeting Room",
+    description: "Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim."
+  },
+  {
+    icon: LocalLaundryServiceIcon,
+    title: "Laundry Service",
+    description: "Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim."
+  }
+];
 
+const Facilities = () => {
   return (
-    <Section>
-      <LeftColumn>
-        <Title>Experience Eco Adventure Resort</Title>
-        <Description>
-          Nestled in the heart of Chitwan, Nepal, Eco Adventure Resort offers a truly immersive experience for nature enthusiasts and adventure seekers. Our 1-star hotel combines comfort with eco-friendly practices, providing a perfect escape into the beauty of the natural world. Enjoy our serene surroundings, explore Chitwan National Park, and create unforgettable memories.
-        </Description>
-        <Button>Book Your Stay Now</Button>
-      </LeftColumn>
-      <RightColumn>
+    <FacilitiesSection>
+      <Title>Our Facilities</Title>
+      <FacilitiesGrid>
         {facilities.map((facility, index) => (
-          <FacilityItem key={index}>
+          <FacilityCard key={index}>
             <IconWrapper>
-              <facility.icon size={24} color="white" />
+              <facility.icon style={{ fontSize: 24, color: 'white' }} />
             </IconWrapper>
-            <FacilityInfo>
-              <FacilityName>{facility.name}</FacilityName>
-            </FacilityInfo>
-          </FacilityItem>
+            <FacilityContent>
+              <FacilityTitle>{facility.title}</FacilityTitle>
+              <FacilityDescription>{facility.description}</FacilityDescription>
+            </FacilityContent>
+          </FacilityCard>
         ))}
-      </RightColumn>
-    </Section>
+      </FacilitiesGrid>
+    </FacilitiesSection>
   );
 };
 
-export default FacilitiesSection;
+export default Facilities;

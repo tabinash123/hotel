@@ -1,23 +1,29 @@
 import React from 'react'
 import RoomsSection from '../component/hompage/RoomsSection'
 import Services from '../component/hompage/Services '
-import TestimonialComponent from './../component/hompage/TestimonialComponent';
+// import TestimonialComponent from './../component/hompage/TestimonialComponent';
 import UnforgettableExperience from './../component/hompage/UnforgettableExperience';
-import PhotoGallery from '../component/hompage/PhotoGallery';
+// import PhotoGallery from '../component/hompage/PhotoGallery';
 import IntroductionSection from './../component/hompage/IntroductionSection';
 import HeroComponent from '../component/hompage/HeroComponent.js';
+import Faq from '../component/hompage/Faq.js';
+import WhyChooseUs from '../component/hompage/WhyChooseUs;.js';
+import HotelFeatures from '../component/hompage/HotelFeatures.js';
 
 
 const Hompage = () => {
   return (
     <div> 
       <HeroComponent />
+      <HotelFeatures />
       <IntroductionSection />
-      <RoomsSection />
       <Services />
+      <RoomsSection />
       <UnforgettableExperience />
-      <TestimonialComponent />
-      <PhotoGallery />
+      <WhyChooseUs />
+      {/* <TestimonialComponent /> */}
+      <Faq />
+      {/* <PhotoGallery /> */}
     </div>
   )
 }
