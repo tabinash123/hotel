@@ -67,10 +67,29 @@ const SaurahaHotelIntroduction = () => {
       <HotelName>Eco Adventure Resort</HotelName>
       <Tagline>Experience the Wild Heart of Nepal</Tagline>
       <Description>
-        Located in Sauraha, one mile from Tharu Cultural Museum, Eco Adventure Resort provides accommodations with a garden, free private parking, a terrace and a restaurant. This 2-star hotel offers room service and a 24-hour front desk. Guests can use a bar.
-        Rooms are complete with a private bathroom equipped with a bidet and free toiletries, while some units at the hotel also have a balcony. All guest rooms will provide guests with a desk and an electric tea pot.
-        Breakfast is available every morning, and includes buffet, à la carte and American options.
-        The nearest airport is Bharatpur Airport, 10 miles from Eco Adventure Resort.
+        Eco Adventure Resort is more than just a place to stay; it's a gateway to the incredible wildlife and natural beauty of Chitwan National Park. Located in the heart of this UNESCO World Heritage Site, the resort offers a unique opportunity to experience Nepal's diverse ecosystem up close.
+
+Wildlife Safaris:
+Elephant Back Safaris: Embark on a thrilling adventure through the jungle on the back of a gentle giant.
+Jeep Safaris: Explore the park's diverse habitats, from grasslands to forests, in comfortable jeeps.
+Bird Watching: Spot a variety of bird species, including the endangered Bengal florican and the great hornbill.
+Cultural Experiences:
+Tharu Village Visits: Immerse yourself in the rich culture of the Tharu people, learning about their traditions, customs, and way of life.
+Cultural Programs: Enjoy traditional dance performances, music, and storytelling.
+Other Activities:
+Canoeing: Paddle along the Rapti River, enjoying the scenic views and spotting wildlife along the banks.
+Jungle Walks: Explore the park on foot, guided by experienced naturalists who will share their knowledge of the flora and fauna.
+Nature Photography: Capture stunning photos of the park's wildlife and landscapes.
+Eco Adventure Resort is committed to sustainability and responsible tourism. The resort takes steps to minimize its environmental impact and supports local communities. With its focus on wildlife, culture, and adventure, it's the perfect choice for travelers seeking a truly unforgettable experience in Chitwan.
+
+
+
+
+
+
+
+
+
       </Description>
     </IntroductionContainer>
   );

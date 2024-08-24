@@ -88,8 +88,8 @@ const Nav = styled.nav`
 const NavItem = styled.a`
   color: #1a4d2e;
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 700;
   text-transform: uppercase;
   padding: 5px 0;
   transition: all 0.3s ease;
@@ -220,7 +220,7 @@ const Header = () => {
       <TopBar>
         <ContactInfo>
           <span>📞 +977 985-5057182</span>
-          <span>✉️ info@sauraharesort.com</span>
+          <span>✉️ info@echoadventureresort.com</span>
         </ContactInfo>
         <span>🐘 Discover the Wild Beauty of Chitwan</span>
       </TopBar>

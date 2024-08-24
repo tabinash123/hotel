@@ -148,7 +148,7 @@ const Video = () => {
       </VideoBackground>
       <Overlay />
       <Content>
-        <Title>Welcome to Sauraha Serenity</Title>
+        <Title>Welcome to Eco Adventure Resort</Title>
         <Subtitle>Your Gateway to Chitwan National Park</Subtitle>
         <Description>
           Experience the magic of Nepal's wildlife at our luxurious eco-lodge.

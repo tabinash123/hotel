@@ -137,24 +137,24 @@ const Image = styled.img`
 
 const FAQList = [
   {
-    question: "What activities are available near the hotel?",
-    answer: "Our hotel is located in Sauraha, gateway to Chitwan National Park. We offer jungle safaris, elephant rides, canoe trips, and bird watching tours. Our concierge can help arrange these activities for you."
+    question: "Does Eco Adventure Resort have bars on the premises?",
+    answer: "Experience your holiday the finest way with a beverage in your hand at Eco Adventure Resort's bar accessible right in front of your doorstep for when you need a sip or two."
   },
   {
-    question: "Do you provide airport transfers?",
-    answer: "Yes, we offer airport transfers from both Bharatpur Airport (25 km away) and Kathmandu International Airport (165 km away). Please contact us in advance to arrange your transfer."
+    question: "Does Eco Adventure Resort offer shuttle service for getting around?",
+    answer: "For your convenience when traveling around the city, Eco Adventure Resort offers shuttle service right where you need it making it simple for you to get to places quickly."
   },
   {
-    question: "What amenities are available in the rooms?",
-    answer: "Our rooms come equipped with air conditioning, free Wi-Fi, flat-screen TVs, mini-fridges, and en-suite bathrooms. We also provide complimentary toiletries and bottled water."
+    question: "What sort of non-water sports and outdoor activities are accessible at Eco Adventure Resort?",
+    answer: "Eco Adventure Resort offers non-water sport and outdoor activities such as bicycle rental, and horse riding for you to delight in while staying here."
   },
   {
-    question: "Is there a restaurant on-site?",
-    answer: "Yes, we have an on-site restaurant serving a mix of Nepali, Indian, and Continental . We also offer a complimentary breakfast buffet for all guests."
+    question: "Does Eco Adventure Resort offer laundry services?",
+    answer: "Yes! Eco Adventure Resort offers laundry service at your convenience for whenever you need your favorite outfits clean and fresh all throughout your holiday. Please contact the property for more information."
   },
   {
-    question: "What is your check-in and check-out policy?",
-    answer: "Check-in time is from 2:00 PM, and check-out time is by 12:00 PM. Early check-in or late check-out may be possible based on availability. Please contact our front desk for arrangements."
+    question: "What is the typical travel time to the nearest airport from Eco Adventure Resort?",
+    answer: "The average travel time to get from Eco Adventure Resort to the airport is 45 minutes, but please keep in mind that the travel time may differ based on traffic, weather conditions, and time of day."
   }
 ];
 

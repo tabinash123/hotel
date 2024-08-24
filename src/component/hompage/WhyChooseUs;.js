@@ -179,7 +179,7 @@ const WhyChooseUs = () => {
     <SectionContainer>
       <ContentContainer>
         <SectionTitle>Why Choose Us</SectionTitle>
-        <MainTitle>Why Guests Love Chitwan Jungle Lodge?</MainTitle>
+        <MainTitle>Why Guests Love Eco Adventure Resort?</MainTitle>
         <Description>
           Experience the perfect blend of adventure, comfort, and authentic Nepalese hospitality.
           Our prime location and exceptional services make us the ideal choice for your Chitwan getaway.
