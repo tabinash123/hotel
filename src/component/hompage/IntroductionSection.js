@@ -4,41 +4,39 @@ import { Binoculars, Trees, Users, Utensils } from 'lucide-react';
 
 const IntroductionContainer = styled.section`
   background-color: #f4efe1;
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
-
+  font-family: Arial, sans-serif;
   @media (max-width: 768px) {
-    padding: 40px 15px;
+    padding: 60px 15px;
   }
 `;
 
 const HotelName = styled.h1`
-  font-size: 3rem;
-  color: #2c3e50;
+  font-size: 2rem;
+  color: #0c2e1c;
   margin-bottom: 20px;
-  font-family: 'Arial', sans-serif;
-
+  font-weight: bold;
+  letter-spacing: -0.5px;
   @media (max-width: 1024px) {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
-
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 `;
 
 const Tagline = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   color: #34495e;
   margin-bottom: 30px;
   font-style: italic;
-
+  font-weight: 300;
   @media (max-width: 1024px) {
     font-size: 1.3rem;
   }
-
   @media (max-width: 768px) {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -46,116 +44,34 @@ const Description = styled.p`
   font-size: 1.1rem;
   color: #555;
   max-width: 800px;
-  margin: 0 auto 40px;
-  line-height: 1.6;
-
+  margin: 0 auto 50px;
+  line-height: 1.8;
+  text-align: justify;
+  text-justify: inter-word;
   @media (max-width: 1024px) {
     font-size: 1rem;
     max-width: 90%;
   }
-
   @media (max-width: 768px) {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: left;
   }
 `;
 
-const FeatureGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-  }
-`;
-
-const FeatureItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const FeatureIcon = styled.div`
-  background-color: #c19a6b;
-  color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 15px;
-
-  @media (max-width: 768px) {
-    width: 50px;
-    height: 50px;
-  }
-`;
-
-const FeatureTitle = styled.h3`
-  font-size: 1.2rem;
-  color: #2c3e50;
-  margin-bottom: 10px;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
-const FeatureDescription = styled.p`
-  font-size: 0.9rem;
-  color: #555;
-
-  @media (max-width: 768px) {
-    font-size: 0.8rem;
-  }
-`;
+// Other styled components remain unchanged
 
 const SaurahaHotelIntroduction = () => {
   return (
     <IntroductionContainer>
-      <HotelName>Chitwan Jungle Lodge</HotelName>
+      <HotelName>Eco Adventure Resort</HotelName>
       <Tagline>Experience the Wild Heart of Nepal</Tagline>
       <Description>
-        Welcome to Chitwan Jungle Lodge, your gateway to the natural wonders of Sauraha and Chitwan National Park.
-        Nestled on the edge of the lush jungle, our hotel offers a perfect blend of comfort, adventure, and
-        authentic Nepalese hospitality. Immerse yourself in the rich biodiversity, vibrant Tharu culture, and
-        unforgettable wildlife experiences that make Sauraha a truly unique destination.
+        Located in Sauraha, one mile from Tharu Cultural Museum, Eco Adventure Resort provides accommodations with a garden, free private parking, a terrace and a restaurant. This 2-star hotel offers room service and a 24-hour front desk. Guests can use a bar.
+        Rooms are complete with a private bathroom equipped with a bidet and free toiletries, while some units at the hotel also have a balcony. All guest rooms will provide guests with a desk and an electric tea pot.
+        Breakfast is available every morning, and includes buffet, à la carte and American options.
+        The nearest airport is Bharatpur Airport, 10 miles from Eco Adventure Resort.
       </Description>
-      <FeatureGrid>
-        <FeatureItem>
-          <FeatureIcon>
-            <Binoculars size={30} />
-          </FeatureIcon>
-          <FeatureTitle>Wildlife Safari</FeatureTitle>
-          <FeatureDescription>Guided tours to spot rhinos, tigers, and exotic birds</FeatureDescription>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureIcon>
-            <Trees size={30} />
-          </FeatureIcon>
-          <FeatureTitle>Jungle Proximity</FeatureTitle>
-          <FeatureDescription>Located at the doorstep of Chitwan National Park</FeatureDescription>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureIcon>
-            <Users size={30} />
-          </FeatureIcon>
-          <FeatureTitle>Cultural Experiences</FeatureTitle>
-          <FeatureDescription>Tharu village visits and traditional dance performances</FeatureDescription>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureIcon>
-            <Utensils size={30} />
-          </FeatureIcon>
-          <FeatureTitle>Local Cuisine</FeatureTitle>
-          <FeatureDescription>Authentic Nepalese and Tharu dishes at our restaurant</FeatureDescription>
-        </FeatureItem>
-      </FeatureGrid>
     </IntroductionContainer>
   );
 };

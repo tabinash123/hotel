@@ -11,6 +11,9 @@ const SectionContainer = styled.section`
   align-items: center;
   gap: 40px;
   margin: 0 auto;
+    font-family: Arial, sans-serif;
+
+
 
   @media (min-width: 768px) {
     padding: 50px 30px;
@@ -39,6 +42,7 @@ const SectionTitle = styled.h2`
   color: #ff6b35;
   margin-bottom: 10px;
   text-transform: uppercase;
+  font-weight: 500;
 
   @media (min-width: 768px) {
     font-size: 1rem;
@@ -47,8 +51,10 @@ const SectionTitle = styled.h2`
 
 const MainTitle = styled.h3`
   font-size: 2rem;
-  color: #1a3c34;
+  color: #000000;
   margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 
   @media (min-width: 768px) {
     font-size: 2.25rem;
@@ -61,9 +67,10 @@ const MainTitle = styled.h3`
 
 const Description = styled.p`
   font-size: 0.9rem;
-  color: #555;
+  color: #000000;
   margin-bottom: 30px;
   line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
 
   @media (min-width: 768px) {
     font-size: 1rem;
@@ -87,6 +94,7 @@ const FeatureItem = styled.li`
   align-items: center;
   font-size: 0.9rem;
   color: #1a3c34;
+  font-family: 'Roboto', sans-serif;
 
   @media (min-width: 768px) {
     font-size: 1rem;
@@ -110,6 +118,8 @@ const ReadMoreButton = styled.button`
   align-items: center;
   margin-top: 30px;
   transition: background-color 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
 
   &:hover {
     background-color: #e55a2b;
@@ -152,6 +162,7 @@ const ExperienceBadge = styled.div`
   font-size: 1rem;
   font-weight: bold;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: 'Playfair Display', serif;
 
   @media (min-width: 768px) {
     padding: 15px;
@@ -181,9 +192,7 @@ const WhyChooseUs = () => {
           <FeatureItem><CheckIcon size={20} /> Comfortable accommodations</FeatureItem>
           <FeatureItem><CheckIcon size={20} /> Delicious local cuisine</FeatureItem>
         </FeatureList>
-        <ReadMoreButton>
-          Learn More <ChevronRight size={20} style={{ marginLeft: '5px' }} />
-        </ReadMoreButton>
+       
       </ContentContainer>
       <ImageContainer>
         <MainImage src={img1} alt="Chitwan Jungle Lodge experience" />

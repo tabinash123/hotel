@@ -120,14 +120,13 @@ const IconWrapper = styled.div`
 const Image = styled.img`
   width: 100%;
   height: auto;
-  max-height: 300px;
+  max-height: 500px;
   object-fit: cover;
-  border-radius: 8px;
 
   @media (max-width: 768px) {
     display: none;
 
-    max-height: 400px;
+    max-height: 500px;
   }
 
   @media (min-width: 1024px) {
@@ -151,7 +150,7 @@ const FAQList = [
   },
   {
     question: "Is there a restaurant on-site?",
-    answer: "Yes, we have an on-site restaurant serving a mix of Nepali, Indian, and Continental cuisine. We also offer a complimentary breakfast buffet for all guests."
+    answer: "Yes, we have an on-site restaurant serving a mix of Nepali, Indian, and Continental . We also offer a complimentary breakfast buffet for all guests."
   },
   {
     question: "What is your check-in and check-out policy?",

@@ -84,18 +84,10 @@ const RoomsGrid = styled.div`
 `;
 
 const RoomCard = styled.div`
-  background-color: #ffffff;
-  border-radius: 15px;
+  // background-color: #ffffff;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  }
 `;
 
 const RoomImage = styled.img`
@@ -297,7 +289,6 @@ const bookingSites = [
                 <Feature><Mountain size={16} /> {room.features.view} View</Feature>
                 {room.features.shower && <Feature><Droplet size={16} /> Shower</Feature>}
               </RoomFeatures>
-              <RoomPrice>{room.price}</RoomPrice>
               <BookingSites>
   {bookingSites.map((site, index) => (
     <BookingIcon key={index} href={site.url} target="_blank" rel="noopener noreferrer">

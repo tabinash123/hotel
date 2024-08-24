@@ -305,7 +305,7 @@ const Hero = () => {
       <CarouselContainer>
         {images.map((img, index) => (
           <CarouselSlide key={index} image={img} active={index === currentSlide}>
-            <Overlay />
+            {/* <Overlay /> */}
           </CarouselSlide>
         ))}
         <Content>
@@ -332,24 +332,7 @@ const Hero = () => {
           ))}
         </Dots>
       </CarouselContainer>
-      <BookingWidget>
-        <BookingTitle>Book Your Stay</BookingTitle>
-        <BookingForm>
-          <FormGroup>
-            <Calendar size={20} />
-            <Input type="text" placeholder="Check-in Date" />
-          </FormGroup>
-          <FormGroup>
-            <Calendar size={20} />
-            <Input type="text" placeholder="Check-out Date" />
-          </FormGroup>
-          <FormGroup>
-            <Users size={20} />
-            <Input type="number" placeholder="Number of Guests" min="1" />
-          </FormGroup>
-          <Button>Check Availability</Button>
-        </BookingForm>
-      </BookingWidget>
+     
     </HeroSection>
   );
 };

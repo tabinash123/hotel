@@ -16,7 +16,7 @@ const Hompage = () => {
   return (
     <div> 
       <HeroComponent />
-      <HotelFeatures />
+      {/* <HotelFeatures /> */}
       <IntroductionSection />
       <Services />
       <RoomsSection />

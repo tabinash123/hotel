@@ -8,113 +8,105 @@ import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import LocalLaundryServiceIcon from '@mui/icons-material/LocalLaundryService';
 
 const FacilitiesSection = styled.section`
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  // background-color: #f4efe1;
+  padding: 80px 20px;
+  text-align: center;
+    font-family: Arial, sans-serif;
 
-  @media (min-width: 768px) {
-    margin: 3rem auto;
-    padding: 0 1.5rem;
-  }
-
-  @media (min-width: 1024px) {
-    margin: 4rem auto;
-    padding: 0 2rem;
+  @media (max-width: 768px) {
+    padding: 60px 15px;
   }
 `;
 
 const Title = styled.h2`
   font-size: 2rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #333;
-  font-weight: normal;
-
-  @media (min-width: 768px) {
-    font-size: 2.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  @media (min-width: 1024px) {
+  color: #0c2e1c;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  @media (max-width: 1024px) {
     font-size: 3rem;
-    margin-bottom: 3rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+`;
+
+const Subtitle = styled.p`
+  font-size: 1.2rem;
+  color: #34495e;
+  margin-bottom: 50px;
+  font-style: italic;
+  font-weight: 300;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  @media (max-width: 1024px) {
+    font-size: 1.3rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
   }
 `;
 
 const FacilitiesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.75rem;
-  }
-
-  @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
 `;
 
 const FacilityCard = styled.div`
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-
-  @media (min-width: 768px) {
-    padding: 1.5rem;
-    flex-direction: row;
-    align-items: flex-start;
-    text-align: left;
-  }
 `;
 
 const IconWrapper = styled.div`
-  background-color: #c19a6b;
-  border-radius: 4px;
-  padding: 0.6rem;
-  margin-bottom: 0.75rem;
+  background-color: #B8860B;
+  color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @media (min-width: 768px) {
-    padding: 0.75rem;
-    margin-right: 1rem;
-    margin-bottom: 0;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
   }
 `;
 
-const FacilityContent = styled.div`
-  flex: 1;
-`;
-
 const FacilityTitle = styled.h3`
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
-  color: #333;
-  font-weight: bold;
-
-  @media (min-width: 768px) {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 12px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
   }
 `;
 
 const FacilityDescription = styled.p`
-  font-size: 0.8rem;
-  color: #666;
-  line-height: 1.4;
-
-  @media (min-width: 768px) {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+  @media (max-width: 768px) {
     font-size: 0.9rem;
-    line-height: 1.5;
   }
 `;
 
@@ -122,61 +114,44 @@ const facilities = [
   {
     icon: RestaurantIcon,
     title: "Restaurant",
-    description: "Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim."
+    description: "Savor exquisite local and international cuisine in our elegant dining room."
   },
   {
     icon: PoolIcon,
     title: "Swimming Pool",
-    description: "Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim."
+    description: "Relax and unwind in our refreshing pool surrounded by lush gardens."
   },
+
   {
-    icon: FitnessCenterIcon,
-    title: "Fitness Center",
-    description: "Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim."
-  },
-  {
-    icon: SpaIcon,
+    icon:   SpaIcon,
     title: "Spa & Massage",
-    description: "Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim."
+    description: "Indulge in rejuvenating treatments and massages for ultimate relaxation."
   },
   {
-    icon: MeetingRoomIcon,
+    icon:   MeetingRoomIcon,
     title: "Meeting Room",
-    description: "Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim."
+    description: "Host successful events in our modern, fully-equipped meeting spaces."
   },
   {
-    icon: LocalLaundryServiceIcon,
+    icon:   LocalLaundryServiceIcon,
     title: "Laundry Service",
-    description: "Do dolore laboris commodo amet cillum qui voluptate velit occaecat adipisicing laboris est minim."
+    description: "Enjoy the convenience of our prompt and efficient laundry service."
   }
 ];
 
 const Facilities = () => {
-  const truncateDescription = (description, wordCount = 3) => {
-    const words = description.split(' ');
-    if (words.length > wordCount) {
-      return words.slice(0, wordCount).join(' ') + '...';
-    }
-    return description;
-  };
-
   return (
     <FacilitiesSection>
       <Title>Our Facilities</Title>
+      <Subtitle>Discover comfort and luxury in every corner of our resort</Subtitle>
       <FacilitiesGrid>
         {facilities.map((facility, index) => (
           <FacilityCard key={index}>
             <IconWrapper>
-              <facility.icon style={{ fontSize: 20, color: 'white' }} />
+              <facility.icon size={35} />
             </IconWrapper>
-            <FacilityContent>
-              <FacilityTitle>{facility.title}</FacilityTitle>
-              <FacilityDescription>
-                {window.innerWidth <= 767
-                  ? truncateDescription(facility.description)
-                  : facility.description}
-              </FacilityDescription>
-            </FacilityContent>
+            <FacilityTitle>{facility.title}</FacilityTitle>
+            <FacilityDescription>{facility.description}</FacilityDescription>
           </FacilityCard>
         ))}
       </FacilitiesGrid>
