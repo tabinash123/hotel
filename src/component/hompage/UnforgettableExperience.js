@@ -3,10 +3,17 @@ import styled, { keyframes } from 'styled-components';
 import { Star, StarHalf, ChevronRight, Clock, Users } from 'lucide-react';
 import {Link} from 'react-router-dom';
 // Import the specific images
-import jungleSafari from '../../assets/activities/jungleSafari.jpg';
+import jeepSafari from '../../assets/activities/jeepsafari3.jpg';
 import bishajariLake from '../../assets/activities/bishajariLake.jpg';
 import elephantBath from '../../assets/activities/elephantBath.jpg';
 import culturalProgram from '../../assets/activities/culturalProgram.jpg';
+import elephantRide from '../../assets/activities/elephantride.jpg';
+import elephantBreeding from '../../assets/activities/elephantBreeding.jpg';
+import towerNightStay from '../../assets/activities/towerNightStay.jpg';
+// import lakeVisit from '../../assets/activities/lakeVisit.jpg';
+import adventureActivities from '../../assets/activities/adventureActivities.jpg';
+import birdWatching from '../../assets/activities/birdWatching.jpg';
+import bbqCamping from '../../assets/activities/bbqCamping.jpg';
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -222,52 +229,107 @@ const SeeMoreButton = styled.button`
   }
 `;
 
-
 const activities = [
+  // {
+  //   image: packageProgram,
+  //   title: "Package Programme",
+  //   description: "Experience the best of Echo Adventure Resort with our comprehensive package programme.",
+  //   duration: "Varies",
+  //   groupSize: "Any"
+  // },
   {
-    image: jungleSafari,
-    title: "Jungle Safari",
-    description: "Explore the wild heart of Chitwan National Park on our thrilling jungle safari.",
-    duration: "3 hours",
-    groupSize: "4-6"
-  },
-  {
-    image: bishajariLake,
-    title: "Bishajari Lake",
-    description: "Experience tranquility at Bishajari Lake, a serene wetland teeming with birdlife.",
-    duration: "2 hours",
-    groupSize: "Any"
+    image: elephantRide,
+    title: "Elephant Ride",
+    description: "Enjoy a majestic ride through the jungle atop a gentle giant, observing wildlife from a unique vantage point.",
+    duration: "1-2 hours",
+    groupSize: "1-4 per elephant"
   },
   {
     image: elephantBath,
     title: "Elephant Bath",
-    description: "Join our gentle giants for a unique and refreshing elephant bathing experience.",
+    description: "Join our elephants for a refreshing and playful bathing experience in the river, creating unforgettable memories.",
     duration: "1 hour",
-    groupSize: "2-4"
+    groupSize: "2-6"
   },
   {
-    image: culturalProgram,
-    title: "Cultural Program",
-    description: "Immerse yourself in local Tharu culture with our evening cultural programs.",
-    duration: "2 hours",
+    image: jeepSafari,
+    title: "Jeep Safari",
+    description: "Explore the depths of Chitwan National Park on an exciting jeep safari, covering more ground and increasing wildlife sighting chances.",
+    duration: "3-4 hours",
+    groupSize: "4-8"
+  },
+  // {
+  //   image: jungleWalk,
+  //   title: "Jungle Walk (1-7 Days)",
+  //   description: "Embark on an immersive jungle walk, ranging from day trips to week-long adventures, guided by experienced naturalists.",
+  //   duration: "1-7 days",
+  //   groupSize: "4-10"
+  // },
+  {
+    image: birdWatching,
+    title: "Bird Watching",
+    description: "Discover the diverse avian life of Chitwan with guided bird watching tours, perfect for both novice and experienced birders.",
+    duration: "2-3 hours",
+    groupSize: "2-8"
+  },
+  {
+    image: elephantBreeding,
+    title: "Elephant Breeding Centre",
+    description: "Visit the elephant breeding center to learn about conservation efforts and see baby elephants in their natural habitat.",
+    duration: "1-2 hours",
     groupSize: "Any"
   },
   {
-    image: jungleSafari,
-    title: "Nature Walk",
-    description: "Take a guided nature walk to discover the rich flora and fauna of Chitwan.",
-    duration: "1.5 hours",
-    groupSize: "4-8"
+    image: adventureActivities,
+    title: "Rafting/Trekking/Paragliding",
+    description: "Choose from a variety of adventure activities in and around Chitwan, including thrilling water sports and aerial experiences.",
+    duration: "Varies",
+    groupSize: "Varies"
   },
+  // {
+  //   image: canoeRide,
+  //   title: "Canoe Ride Short/Long",
+  //   description: "Enjoy a peaceful canoe ride on the Rapti River, with options for short or long trips, spotting aquatic wildlife along the way.",
+  //   duration: "1-3 hours",
+  //   groupSize: "2-6"
+  // },
   {
-    image: bishajariLake,
-    title: "Canoe Ride",
-    description: "Enjoy a peaceful canoe ride on the Rapti River and spot aquatic wildlife.",
-    duration: "1 hour",
-    groupSize: "2-6"
-  }
-];
+    image: culturalProgram,
+    title: "Cultural Programme",
+    description: "Immerse yourself in local Tharu culture with our evening cultural programs, featuring traditional dances and music.",
+    duration: "2 hours",
+    groupSize: "Any"
+  },
+  // {
+  //   image: lakeVisit,
+  //   title: "20,000 Lake Visit",
+  //   description: "Explore the beautiful 20,000 Lake, a haven for diverse wildlife and picturesque views, perfect for nature photography.",
+  //   duration: "Half day",
+  //   groupSize: "4-12"
+  // },
+  // {
+  //   image: towerNightStay,
+  //   title: "Tower Night Stay",
+  //   description: "Experience the jungle at night with a stay in our observation tower, listening to the sounds of nocturnal wildlife.",
+  //   duration: "Overnight",
+  //   groupSize: "2-4"
+  // },
+  // {
+  //   image: homeStay,
+  //   title: "Home Stay Programme",
+  //   description: "Immerse yourself in local life with a stay in a traditional Tharu home, experiencing authentic customs and cuisine.",
+  //   duration: "1-3 days",
+  //   groupSize: "1-4"
+  // },
+  // {
+  //   image: bbqCamping,
+  //   title: "BBQ/Camping",
+  //   description: "Enjoy a night under the stars with our BBQ and camping experience, surrounded by the sounds of the jungle.",
+  //   duration: "Overnight",
+  //   groupSize: "4-12"
+  // },
 
+];
 const ResortActivities = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [expandedIndex, setExpandedIndex] = useState(null);
@@ -307,7 +369,7 @@ const ResortActivities = () => {
             <ActivityContent>
               <ActivityTitle>{activity.title}</ActivityTitle>
               <ActivityDescription>
-                {expandedIndex === index ? activity.description : truncateDescription(activity.description)}
+                {/* {expandedIndex === index ? activity.description : truncateDescription(activity.description)} */}
                 {/* {expandedIndex !== index && (
                   <SeeMoreLink onClick={() => setExpandedIndex(index)}> see more</SeeMoreLink>
                 )} */}

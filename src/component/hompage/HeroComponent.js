@@ -4,8 +4,10 @@ import { ChevronLeft, ChevronRight, Calendar, Users } from 'lucide-react';
 
 // Import your images here
 import img1 from '../../assets/resort/hotel1.jpg';
-import img2 from '../../assets/resort/hotel2.jpg';
-import img3 from '../../assets/resort/hotel3.jpg';
+import img2 from '../../assets/resort/intro.jpg';
+import img3 from '../../assets/resort/resort3.jpg';
+import img4 from '../../assets/resort/intro1.jpg';
+import img5 from '../../assets/resort/resort1.jpg';
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -264,16 +266,20 @@ const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const intervalRef = useRef(null);
-  const images = [img1, img2, img3];
+  const images = [ img4, img3,img2,img5];
   const titles = [
     "Welcome to Eco Adventure Resort",
-    "Experience Luxury in Nature",
-    "Unforgettable Stays in Chitwan"
+    // "Experience Luxury in Nature",
+    "Unforgettable Stays in Chitwan",
+    "Experience Luxury in Natures",
+    "Experience Luxury in Natures",
+    "Experience Luxury in Natures",
   ];
   const subtitles = [
     "Your gateway to natural wonders",
     "Comfort meets wilderness",
-    "Create lasting memories with us"
+    "Create lasting memories with us",
+    "Comfort meets wilderness",
   ];
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Check, ChevronRight } from 'lucide-react';
-import img1 from '../../assets/resort/garden3.jpg';
+import img1 from '../../assets/resort/family2.jpg';
 
 const SectionContainer = styled.section`
   background-color: #f4efe1;
@@ -196,10 +196,7 @@ const WhyChooseUs = () => {
       </ContentContainer>
       <ImageContainer>
         <MainImage src={img1} alt="Chitwan Jungle Lodge experience" />
-        <ExperienceBadge>
-          20+ Years<br />
-          of jungle hospitality
-        </ExperienceBadge>
+       
       </ImageContainer>
     </SectionContainer>
   );

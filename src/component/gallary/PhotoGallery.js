@@ -17,7 +17,17 @@ import img12 from "../../assets/wildlife/1.jpg";
 import img13 from "../../assets/wildlife/13.jpg";
 import img14 from "../../assets/wildlife/14.jpg";
 import img15 from "../../assets/wildlife/15.jpg";
-import img16 from "../../assets/wildlife/16.jpg";
+import img16 from "../../assets/gallary/b.jpg";
+import img17 from "../../assets/gallary/elephantride.jpg";
+import img18 from "../../assets/gallary/expe.png";
+import img19 from "../../assets/gallary/family1.jpg";
+import img20 from "../../assets/gallary/family3.jpg";
+import img21 from "../../assets/gallary/family4.jpg";
+import img22 from "../../assets/gallary/garden2.jpg";
+import img23 from "../../assets/gallary/jeepsafari2.jpg";
+import img24 from "../../assets/gallary/resturant.jpg";
+import img25 from "../../assets/gallary/tourist1.jpg";
+import img26 from "../../assets/gallary/trip.png";
 
 const GallerySection = styled.section`
   padding: 4rem 2rem;
@@ -184,6 +194,17 @@ const galleryImages = [
   { src: img13, alt: 'Hotel building at night' },
   { src: img14, alt: 'Hotel building at night' },
   { src: img15, alt: 'Hotel building at night' },
+  { src: img16, alt: 'Hotel building at night' },
+  { src: img17, alt: 'Hotel building at night' },
+  { src: img18, alt: 'Hotel building at night' },
+  { src: img19, alt: 'Hotel building at night' },
+  { src: img20, alt: 'Hotel building at night' },
+  { src: img21, alt: 'Hotel building at night' },
+  { src: img22, alt: 'Hotel building at night' },
+  { src: img23, alt: 'Hotel building at night' },
+  { src: img24, alt: 'Hotel building at night' },
+  { src: img25, alt: 'Hotel building at night' },
+  { src: img26, alt: 'Hotel building at night' },
 ];
 
 const Gallery = () => {

@@ -211,11 +211,11 @@ const Contactpage = () => {
           <SectionTitle>How to Reach Us</SectionTitle>
           <ContactDetail>
             <Phone size={20} />
-            Contact number not provided (please check with the resort)
+            +977-9855057182/9845068777
           </ContactDetail>
           <ContactDetail>
             <Mail size={20} />
-            Email not provided (please check with the resort)
+            ecoadventureresortchitwan@gmail.com
           </ContactDetail>
           <ContactDetail>
             <MapPin size={20} />

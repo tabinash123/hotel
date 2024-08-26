@@ -228,9 +228,8 @@ const Footer = () => {
             </ContactItem>
           </ContactInfo>
           <SocialLinks>
-            <SocialLink href="#" aria-label="Facebook"><Facebook size={20} /></SocialLink>
-            <SocialLink href="#" aria-label="Instagram"><Instagram size={20} /></SocialLink>
-            <SocialLink href="#" aria-label="LinkedIn"><Linkedin size={20} /></SocialLink>
+            <SocialLink href="https://www.facebook.com/ecoadventureresort" aria-label="Facebook"><Facebook size={20} /></SocialLink>
+            <SocialLink href="https://www.instagram.com/ecoadventureresort?igsh=dnh1eng0bGpnaHQ5&utm_source=qr" aria-label="Instagram"><Instagram size={20} /></SocialLink>
           </SocialLinks>
         </Column>
         <Column>

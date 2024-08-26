@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Minus, Plus } from 'lucide-react';
-import img1 from '../../assets/resort/hotel2.jpg'
+import img1 from '../../assets/resort/garden1.jpg'
 
 const FAQSection = styled.section`
   // max-width: 1200px;

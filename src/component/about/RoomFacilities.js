@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Wifi, Fan, Droplet, Armchair, Utensils, Home } from 'lucide-react';
-import img1 from "../../assets/rooms/delux.jpg";
-import img2 from "../../assets/rooms/family.jpg";
-import img3 from "../../assets/rooms/single.jpg";
+import img1 from "../../assets/rooms/1.jpg";
+import img2 from "../../assets/rooms/3.jpg";
+import img3 from "../../assets/rooms/5.jpg";
 
 const Container = styled.div`
   display: flex;

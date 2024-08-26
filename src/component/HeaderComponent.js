@@ -219,8 +219,8 @@ const Header = () => {
     <HeaderContainer isScrolled={isScrolled}>
       <TopBar>
         <ContactInfo>
-          <span>📞 +977 985-5057182</span>
-          <span>✉️ info@echoadventureresort.com</span>
+          <span>📞 +977-9855057182/9845068777</span>
+          <span>✉️ ecoadventureresortchitwan@gmail.com</span>
         </ContactInfo>
         <span>🐘 Discover the Wild Beauty of Chitwan</span>
       </TopBar>
@@ -234,7 +234,7 @@ const Header = () => {
           <NavItem href="/about">About</NavItem>
           <NavItem href="/room">Rooms</NavItem>
           <NavItem href="/tour">Tour & Activities</NavItem>
-          <NavItem href="/gallery">Gallery</NavItem>
+          <NavItem href="/gallary">Gallery</NavItem>
           <NavItem href="/contact">Contact</NavItem>
         </Nav>
         <MobileMenuIcon onClick={toggleMobileMenu}>
@@ -251,7 +251,7 @@ const Header = () => {
         <MobileNavItem href="/about" onClick={toggleMobileMenu}>About</MobileNavItem>
         <MobileNavItem href="/room" onClick={toggleMobileMenu}>Rooms</MobileNavItem>
         <MobileNavItem href="/tour" onClick={toggleMobileMenu}>Tour & Activities</MobileNavItem>
-        <MobileNavItem href="/gallery" onClick={toggleMobileMenu}>Gallery</MobileNavItem>
+        <MobileNavItem href="/gallary" onClick={toggleMobileMenu}>Gallery</MobileNavItem>
         <MobileNavItem href="/contact" onClick={toggleMobileMenu}>Contact</MobileNavItem>
       </MobileMenu>
     </HeaderContainer>

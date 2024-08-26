@@ -2,10 +2,17 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
-import jungleSafari from '../../assets/activities/jungleSafari.jpg';
+import jeepSafari from '../../assets/activities/jeepsafari3.jpg';
 import bishajariLake from '../../assets/activities/bishajariLake.jpg';
 import elephantBath from '../../assets/activities/elephantBath.jpg';
 import culturalProgram from '../../assets/activities/culturalProgram.jpg';
+import elephantRide from '../../assets/activities/elephantride.jpg';
+import elephantBreeding from '../../assets/activities/elephantBreeding.jpg';
+import towerNightStay from '../../assets/activities/towerNightStay.jpg';
+// import lakeVisit from '../../assets/activities/lakeVisit.jpg';
+import adventureActivities from '../../assets/activities/adventureActivities.jpg';
+import birdWatching from '../../assets/activities/birdWatching.jpg';
+import bbqCamping from '../../assets/activities/bbqCamping.jpg';
 
 const Section = styled.section`
   max-width: 1200px;
@@ -52,7 +59,7 @@ const ActivityImage = styled.img`
 const ActivityContent = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  // justify-content: space-between;
   
   @media (min-width: 768px) {
     width: 50%;
@@ -73,20 +80,7 @@ const ActivityDescription = styled.div`
   position: relative;
 `;
 
-const ReadMoreButton = styled.button`
-  background: none;
-  border: none;
-  color: #e67e22;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
 
-  svg {
-    margin-left: 5px;
-  }
-`;
 
 const TourActivitiesSection = () => {
   const [expandedActivities, setExpandedActivities] = useState({});
@@ -94,47 +88,74 @@ const TourActivitiesSection = () => {
   const imageRefs = useRef([]);
   const contentRefs = useRef([]);
 
- 
+  const activities = [
+    // {
+    //   name: "Jungle Safari",
+    //   image: jungleSafari,
+    //   description: "Embark on a thrilling adventure through Chitwan National Park. Choose between a rugged jeep expedition or a traditional elephant-back journey to observe diverse wildlife in their natural habitat."
+    // },
+    {
+      name: "Bishajari Tal Visit",
+      image: bishajariLake,
+      description: "Discover the serene beauty of Bishajari Tal, a network of lakes and marshes teeming with birdlife and aquatic fauna. Enjoy a scenic boat ride and prime birdwatching opportunities."
+    },
+    {
+      name: "Elephant Bath Experience",
+      image: elephantBath,
+      description: "Participate in a unique and ethical elephant experience at our Elephant Care Center. Help prepare meals for the elephants and assist in bathing them in the river (seasonal activity)."
+    },
+    {
+      name: "Tharu Cultural Program",
+      image: culturalProgram,
+      description: "Immerse yourself in the rich cultural heritage of the Tharu people. Enjoy traditional dance performances, live music, and authentic Tharu cuisine in this vibrant evening program."
+    },
+    {
+      name: "Elephant Ride",
+      image: elephantRide,
+      description: "Experience a majestic ride through the jungle atop a gentle giant. Observe wildlife from a unique vantage point while learning about elephant conservation efforts."
+    },
+    {
+      name: "Jeep Safari",
+      image: jeepSafari,
+      description: "Explore the depths of Chitwan National Park on an exciting jeep safari. Cover more ground and increase your chances of wildlife sightings with our experienced guides."
+    },
+    {
+      name: "Bird Watching",
+      image: birdWatching,
+      description: "Discover the diverse avian life of Chitwan with guided bird watching tours. Perfect for both novice and experienced birders, with over 500 species to observe."
+    },
+    {
+      name: "Elephant Breeding Centre",
+      image: elephantBreeding,
+      description: "Visit the elephant breeding center to learn about conservation efforts. See baby elephants in their natural habitat and understand the challenges of elephant preservation."
+    },
+    {
+      name: "Rafting/Trekking/Paragliding",
+      image: adventureActivities,
+      description: "Choose from a variety of adventure activities in and around Chitwan. Experience thrilling water sports, scenic treks, or soar above the landscape with paragliding."
+    },
+    // {
+    //   name: "Canoe Ride",
+    //   image: canoeRide,
+    //   description: "Enjoy a peaceful canoe ride on the Rapti River. Choose between short or long trips, spotting aquatic wildlife and enjoying the serene river landscape."
+    // },
 
-const activities = [
-  {
-    name: "Jungle Safari",
-    image: jungleSafari,
-    description: "Embark on an thrilling adventure through Chitwan National Park with our Jungle Safari. Choose between a rugged jeep expedition or a traditional elephant-back journey. Our safaris offer unparalleled opportunities to observe Chitwan's diverse wildlife in their natural habitat.\n\nWhat to expect:\n- Potential sightings of one-horned rhinos, Bengal tigers,, and various deer species\n- Over 500 bird species, including critically endangered Bengal floricans and sarus cranes\n- Expert naturalist guides providing insights on flora, fauna, and conservation efforts\n\nDuration: 3-4 hours\nBest time: Early morning (6:00 AM) or late afternoon (3:00 PM) for optimal wildlife viewing\nIncludes: Transportation, guide, park fees, and refreshments\nWhat to bring: Comfortable clothing, walking shoes, hat, sunscreen, insect repellent, and camera\n\nNote: Wildlife sightings are not guaranteed but are common. Safari routes may vary based on recent animal activity and park conditions."
-  },
-  {
-    name: "Bishajari Tal Visit",
-    image: bishajariLake,
-    description: "Discover the serene beauty of Bishajari Tal, a network of lakes and marshes teeming with birdlife and aquatic fauna. This oxbow lake system, separated from the Rapti River, offers a peaceful retreat and excellent opportunities for nature observation.\n\nHighlights:\n- Scenic boat ride through tranquil waters and wetlands\n- Prime birdwatching: Spot cormorants, kingfishers, herons, and migratory waterfowl\n- Possible sightings of marsh mugger crocodiles and various fish species\n- Guided nature walk along the lakeshore, learning about local ecosystems\n\nDuration: 2-3 hours\nBest time: Early morning or late afternoon for best lighting and animal activity\nIncludes: Transportation, boat ride, expert guide, binoculars, and bird checklist\nDifficulty: Easy, suitable for all ages and fitness levels\n\nTip: Bring a good camera with zoom lens for capturing wildlife. Early booking recommended during peak season (October-March) when migratory birds are present."
-  },
-  {
-    name: "Elephant Bath Experience",
-    image: elephantBath,
-    description: "Participate in a unique and ethical elephant experience at our Elephant Care Center. This activity offers an up-close encounter with these gentle giants while promoting responsible tourism and elephant welfare.\n\nYour experience includes:\n- Introduction to elephant biology, behavior, and conservation status\n- Helping prepare a healthy meal for the elephants\n- Assisting in bathing the elephants in the river (seasonal activity)\n- Learning about our elephant care practices and conservation efforts\n\nDuration: Approximately 2 hours\nSchedule: Daily at 8:30 AM and 3:30 PM\nGroup size: Limited to 8 participants per session for a more personal experience\nSuitable for: All ages; children must be accompanied by an adult\n\nWhat to bring: Change of clothes, towel, waterproof camera (optional)\nNote: This is a hands-on activity. You may get wet and muddy. We prioritize the elephants' wellbeing; their participation is always voluntary."
-  },
-  {
-    name: "Tharu Cultural Program",
-    image: culturalProgram,
-    description: "Immerse yourself in the rich cultural heritage of the Tharu people, the indigenous inhabitants of the Terai region. Our evening cultural program offers a vibrant showcase of traditional Tharu arts, music, and cuisine.\n\nProgram highlights:\n- Welcome drink made from local herbs\n- Traditional Tharu stick dance performance\n- Live demonstration of Tharu musical instruments\n- Short presentation on Tharu history and customs\n- Authentic Tharu dinner buffet featuring local specialties\n\nSchedule:\n- 6:30 PM: Welcome and introduction\n- 7:00 PM: Cultural performances begin\n- 8:00 PM: Dinner service\n- 9:00 PM: Program concludes\n\nVenue: Resort's outdoor theater (weather permitting) or indoor hall\nDress code: Casual; traditional attire welcome\nLanguage: Performances in Tharu with English narration\n\nNote: Advance booking recommended, especially during peak tourist season. Vegetarian and vegan options available upon request. Please inform us of any dietary restrictions when booking."
-  }
-];
-
-
-  // useEffect(() => {
-  //   const updateHeights = () => {
-  //     const newHeights = {};
-  //     imageRefs.current.forEach((ref, index) => {
-  //       if (ref && contentRefs.current[index]) {
-  //         newHeights[index] = ref.offsetHeight;
-  //       }
-  //     });
-  //     setDescriptionHeights(newHeights);
-  //   };
-
-  //   updateHeights();
-  //   window.addEventListener('resize', updateHeights);
-  //   return () => window.removeEventListener('resize', updateHeights);
-  // }, []);
+    {
+      name: "Tower Night Stay",
+      image: towerNightStay,
+      description: "Experience the jungle at night with a stay in our observation tower. Listen to the sounds of nocturnal wildlife and enjoy a unique perspective of the forest."
+    },
+    // {
+    //   name: "Home Stay Programme",
+    //   image: homeStay,
+    //   description: "Immerse yourself in local life with a stay in a traditional Tharu home. Experience authentic customs, cuisine, and daily life of the indigenous Tharu community."
+    // },
+    {
+      name: "BBQ/Camping",
+      image: bbqCamping,
+      description: "Enjoy a night under the stars with our BBQ and camping experience. Savor delicious grilled food while surrounded by the sounds of the jungle in this unique outdoor adventure."
+    }
+  ];
 
   const toggleDescription = (index) => {
     setExpandedActivities(prev => ({
@@ -156,13 +177,10 @@ const activities = [
             />
             <ActivityContent ref={el => contentRefs.current[index] = el}>
               <ActivityTitle>{activity.name}</ActivityTitle>
-              <ActivityDescription style={{ height: `${descriptionHeights[index]}px` }}>
+              <ActivityDescription>
                 {activity.description}
               </ActivityDescription>
-              <ReadMoreButton onClick={() => toggleDescription(index)}>
-                {expandedActivities[index] ? 'Read Less' : 'Read More'}
-                {expandedActivities[index] ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-              </ReadMoreButton>
+             
             </ActivityContent>
           </ActivityItem>
         ))}
