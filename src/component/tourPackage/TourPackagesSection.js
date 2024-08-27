@@ -6,7 +6,7 @@ import jeepSafari from '../../assets/activities/jeepsafari3.jpg';
 import bishajariLake from '../../assets/activities/bishajariLake.jpg';
 import elephantBath from '../../assets/activities/elephantBath.jpg';
 import culturalProgram from '../../assets/activities/culturalProgram.jpg';
-import elephantRide from '../../assets/activities/elephantride.jpg';
+import elephantRide from '../../assets/activities/elephantRide.jpg';
 import elephantBreeding from '../../assets/activities/elephantBreeding.jpg';
 import towerNightStay from '../../assets/activities/towerNightStay.jpg';
 // import lakeVisit from '../../assets/activities/lakeVisit.jpg';
