@@ -200,11 +200,11 @@ const Footer = () => {
         <Column>
           <Title>Quick Links</Title>
          <LinkList>
-            <LinkItem><Link href="#">ABOUT</Link></LinkItem>
-            <LinkItem><Link href="#">RESTAURANT</Link></LinkItem>
-            <LinkItem><Link href="#">TOUR PACKAGES</Link></LinkItem>
-            <LinkItem><Link href="#">GALLERY</Link></LinkItem>
-            <LinkItem><Link href="#">CONTACT</Link></LinkItem>
+            <LinkItem><Link href="/about">ABOUT</Link></LinkItem>
+            {/* <LinkItem><Link href="#">RESTAURANT</Link></LinkItem> */}
+            <LinkItem><Link href="/tour">TOUR PACKAGES</Link></LinkItem>
+            <LinkItem><Link href="/gallary">GALLERY</Link></LinkItem>
+            <LinkItem><Link href="/contact">CONTACT</Link></LinkItem>
           </LinkList>
         </Column>
         <Column>
@@ -216,11 +216,11 @@ const Footer = () => {
             </ContactItem>
             <ContactItem>
               <Phone size={14} />
-              Contact number not available (please inquire)
+              +977-9855057182/9845068777
             </ContactItem>
             <ContactItem>
               <Mail size={14} />
-              Email not available (please inquire)
+✉️ ecoadventureresortchitwan@gmail.com
             </ContactItem>
             <ContactItem>
               <MapPin size={14} />
@@ -250,7 +250,7 @@ const Footer = () => {
         </Column>
       </Content>
       <Copyright>
-        Copyright © {new Date().getFullYear()}. All rights reserved. Eco Adventure Resort.
+        Copyright ©2024. All rights reserved. Eco Adventure Resort.
       </Copyright>
       <ScrollToTop onClick={scrollToTop}>
         <ChevronUp size={20} />

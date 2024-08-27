@@ -222,7 +222,7 @@ const Header = () => {
           <span>📞 +977-9855057182/9845068777</span>
           <span>✉️ ecoadventureresortchitwan@gmail.com</span>
         </ContactInfo>
-        <span>🐘 Discover the Wild Beauty of Chitwan</span>
+        <span>Luxury comfort and adventure beyound your wildest dream </span>
       </TopBar>
       <HeaderContent>
         <Logo href="/">

@@ -116,17 +116,17 @@ const facilities = [
     title: "Restaurant",
     description: "Savor exquisite local and international cuisine in our elegant dining room."
   },
-  {
-    icon: PoolIcon,
-    title: "Swimming Pool",
-    description: "Relax and unwind in our refreshing pool surrounded by lush gardens."
-  },
+  // {
+  //   icon: PoolIcon,
+  //   title: "Swimming Pool",
+  //   description: "Relax and unwind in our refreshing pool surrounded by lush gardens."
+  // },
 
-  {
-    icon:   SpaIcon,
-    title: "Spa & Massage",
-    description: "Indulge in rejuvenating treatments and massages for ultimate relaxation."
-  },
+  // {
+  //   icon:   SpaIcon,
+  //   title: "Spa & Massage",
+  //   description: "Indulge in rejuvenating treatments and massages for ultimate relaxation."
+  // },
   {
     icon:   MeetingRoomIcon,
     title: "Meeting Room",

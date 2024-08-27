@@ -6,8 +6,12 @@ import video from '../../assets/wildlife-of-nepal_nkD8m7wU.mp4';
 const VideoSection = styled.section`
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   overflow: hidden;
+   @media (max-width: 768px) {
+  height: 60vh;
+
+  }
 `;
 
 const VideoBackground = styled.video`
@@ -146,15 +150,11 @@ const Video = () => {
         <source src={video} type="video/mp4" />
         Your browser does not support the video tag.
       </VideoBackground>
-      <Overlay />
+      {/* <Overlay /> */}
       <Content>
-        <Title>Welcome to Eco Adventure Resort</Title>
-        <Subtitle>Your Gateway to Chitwan National Park</Subtitle>
-        <Description>
-          Experience the magic of Nepal's wildlife at our luxurious eco-lodge.
-          Nestled on the edge of Chitwan National Park, we offer unforgettable
-          safaris, cultural experiences, and world-class comfort.
-        </Description>
+       {isPlaying ? <></> : (<> <Title>Welcome to Eco Adventure Resort</Title>
+        <Subtitle>Your Gateway to Chitwan National Park</Subtitle></>)}
+   
         <PlayButton onClick={togglePlay}>
           {isPlaying ? <Pause size={24} color="white" /> : <Play size={24} color="white" />}
         </PlayButton>
