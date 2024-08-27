@@ -7,7 +7,7 @@ import jeepSafari from '../../assets/activities/jeepsafari3.jpg';
 import bishajariLake from '../../assets/activities/bishajariLake.jpg';
 import elephantBath from '../../assets/activities/elephantBath.jpg';
 import culturalProgram from '../../assets/activities/culturalProgram.jpg';
-import elephantRide from '../../assets/activities/elephantride.jpg';
+// import elephantRide from '../../assets/activities/elephantride.jpg';
 import elephantBreeding from '../../assets/activities/elephantBreeding.jpg';
 // import towerNightStay from '../../assets/activities/towerNightStay.jpg';
 // import lakeVisit from '../../assets/activities/lakeVisit.jpg';
@@ -231,13 +231,13 @@ const SeeMoreButton = styled.button`
 
 const activities = [
 
-  {
-    image: elephantRide,
-    title: "Elephant Ride",
-    description: "Enjoy a majestic ride through the jungle atop a gentle giant, observing wildlife from a unique vantage point.",
-    duration: "1-2 hours",
-    groupSize: "1-4 per elephant"
-  },
+  // {
+  //   image: elephantRide,
+  //   title: "Elephant Ride",
+  //   description: "Enjoy a majestic ride through the jungle atop a gentle giant, observing wildlife from a unique vantage point.",
+  //   duration: "1-2 hours",
+  //   groupSize: "1-4 per elephant"
+  // },
   {
     image: elephantBath,
     title: "Elephant Bath",
