@@ -9,11 +9,11 @@ import elephantBath from '../../assets/activities/elephantBath.jpg';
 import culturalProgram from '../../assets/activities/culturalProgram.jpg';
 import elephantRide from '../../assets/activities/elephantride.jpg';
 import elephantBreeding from '../../assets/activities/elephantBreeding.jpg';
-import towerNightStay from '../../assets/activities/towerNightStay.jpg';
+// import towerNightStay from '../../assets/activities/towerNightStay.jpg';
 // import lakeVisit from '../../assets/activities/lakeVisit.jpg';
 import adventureActivities from '../../assets/activities/adventureActivities.jpg';
 import birdWatching from '../../assets/activities/birdWatching.jpg';
-import bbqCamping from '../../assets/activities/bbqCamping.jpg';
+// import bbqCamping from '../../assets/activities/bbqCamping.jpg';
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -230,13 +230,7 @@ const SeeMoreButton = styled.button`
 `;
 
 const activities = [
-  // {
-  //   image: packageProgram,
-  //   title: "Package Programme",
-  //   description: "Experience the best of Echo Adventure Resort with our comprehensive package programme.",
-  //   duration: "Varies",
-  //   groupSize: "Any"
-  // },
+
   {
     image: elephantRide,
     title: "Elephant Ride",
@@ -258,13 +252,7 @@ const activities = [
     duration: "3-4 hours",
     groupSize: "4-8"
   },
-  // {
-  //   image: jungleWalk,
-  //   title: "Jungle Walk (1-7 Days)",
-  //   description: "Embark on an immersive jungle walk, ranging from day trips to week-long adventures, guided by experienced naturalists.",
-  //   duration: "1-7 days",
-  //   groupSize: "4-10"
-  // },
+
   {
     image: birdWatching,
     title: "Bird Watching",
@@ -286,13 +274,7 @@ const activities = [
     duration: "Varies",
     groupSize: "Varies"
   },
-  // {
-  //   image: canoeRide,
-  //   title: "Canoe Ride Short/Long",
-  //   description: "Enjoy a peaceful canoe ride on the Rapti River, with options for short or long trips, spotting aquatic wildlife along the way.",
-  //   duration: "1-3 hours",
-  //   groupSize: "2-6"
-  // },
+ 
   {
     image: culturalProgram,
     title: "Cultural Programme",
@@ -300,34 +282,6 @@ const activities = [
     duration: "2 hours",
     groupSize: "Any"
   },
-  // {
-  //   image: lakeVisit,
-  //   title: "20,000 Lake Visit",
-  //   description: "Explore the beautiful 20,000 Lake, a haven for diverse wildlife and picturesque views, perfect for nature photography.",
-  //   duration: "Half day",
-  //   groupSize: "4-12"
-  // },
-  // {
-  //   image: towerNightStay,
-  //   title: "Tower Night Stay",
-  //   description: "Experience the jungle at night with a stay in our observation tower, listening to the sounds of nocturnal wildlife.",
-  //   duration: "Overnight",
-  //   groupSize: "2-4"
-  // },
-  // {
-  //   image: homeStay,
-  //   title: "Home Stay Programme",
-  //   description: "Immerse yourself in local life with a stay in a traditional Tharu home, experiencing authentic customs and cuisine.",
-  //   duration: "1-3 days",
-  //   groupSize: "1-4"
-  // },
-  // {
-  //   image: bbqCamping,
-  //   title: "BBQ/Camping",
-  //   description: "Enjoy a night under the stars with our BBQ and camping experience, surrounded by the sounds of the jungle.",
-  //   duration: "Overnight",
-  //   groupSize: "4-12"
-  // },
 
 ];
 const ResortActivities = () => {
