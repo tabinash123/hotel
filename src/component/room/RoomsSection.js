@@ -205,14 +205,14 @@ const RoomsSection = () => {
       price: "Contact for price",
       amenities: "Garden view, Basic amenities"
     },
-    {
-      name: "Deluxe Double or Twin Room with Garden View",
-      image: img2,
-      description: "Spacious room offering a beautiful garden view and modern comforts.",
-      features: { wifi: true, size: "Spacious", capacity: 2, view: "Garden", shower: true },
-      price: "Contact for price",
-      amenities: "Garden view, Shower, Deluxe amenities"
-    },
+    // {
+    //   name: "Deluxe Double or Twin Room with Garden View",
+    //   image: img2,
+    //   description: "Spacious room offering a beautiful garden view and modern comforts.",
+    //   features: { wifi: true, size: "Spacious", capacity: 2, view: "Garden", shower: true },
+    //   price: "Contact for price",
+    //   amenities: "Garden view, Shower, Deluxe amenities"
+    // },
     {
       name: "Deluxe Double Room with Balcony",
       image: img3,
@@ -221,30 +221,30 @@ const RoomsSection = () => {
       price: "Contact for price",
       amenities: "Private balcony, Garden view, Deluxe amenities"
     },
-    {
-      name: "Basic Room",
-      image: img4,
-      description: "Simple and comfortable room with a nature view, ideal for solo travelers or couples.",
-      features: { wifi: true, size: "20 m²/215 ft²", capacity: 3, view: "Nature" },
-      price: "Contact for price",
-      amenities: "1 double bed and 1 single bed, Nature view"
-    },
-    {
-      name: "Standard Double or Twin Room with Garden View",
-      image: img5,
-      description: "Comfortable room with a refreshing garden view and essential amenities.",
-      features: { wifi: true, size: "Standard", capacity: 2, view: "Garden", shower: true },
-      price: "Contact for price",
-      amenities: "Garden view, Shower, Standard amenities"
-    },
-    {
-      name: "Basic Double or Twin Room, Private Bathroom, Garden View",
-      image: img6,
-      description: "Cozy room with private facilities and a pleasant garden view.",
-      features: { wifi: true, size: "Standard", capacity: 2, view: "Garden" },
-      price: "Contact for price",
-      amenities: "Garden view, Private bathroom, 2 single beds, Non-smoking"
-    }
+    // {
+    //   name: "Basic Room",
+    //   image: img4,
+    //   description: "Simple and comfortable room with a nature view, ideal for solo travelers or couples.",
+    //   features: { wifi: true, size: "20 m²/215 ft²", capacity: 3, view: "Nature" },
+    //   price: "Contact for price",
+    //   amenities: "1 double bed and 1 single bed, Nature view"
+    // },
+    // {
+    //   name: "Standard Double or Twin Room with Garden View",
+    //   image: img5,
+    //   description: "Comfortable room with a refreshing garden view and essential amenities.",
+    //   features: { wifi: true, size: "Standard", capacity: 2, view: "Garden", shower: true },
+    //   price: "Contact for price",
+    //   amenities: "Garden view, Shower, Standard amenities"
+    // },
+    // {
+    //   name: "Basic Double or Twin Room, Private Bathroom, Garden View",
+    //   image: img6,
+    //   description: "Cozy room with private facilities and a pleasant garden view.",
+    //   features: { wifi: true, size: "Standard", capacity: 2, view: "Garden" },
+    //   price: "Contact for price",
+    //   amenities: "Garden view, Private bathroom, 2 single beds, Non-smoking"
+    // }
   ];
 
   
@@ -264,11 +264,11 @@ const bookingSites = [
     icon: trip, // Correct
     url: 'https://www.tripadvisor.com/Hotel_Review-g1367591-d6433921-Reviews-Eco_Adventure_Resort-Sauraha_Chitwan_District_Narayani_Zone_Central_Region.html'
   },
-  {
-    name: 'Expedia',
-    icon: expe, // Correct
-    url: 'https://www.expedia.com/Sauraha-Hotels-Eco-Adventure-Resort.h10989661.Hotel-Information'
-  }
+  // {
+  //   name: 'Expedia',
+  //   icon: expe, // Correct
+  //   url: 'https://www.expedia.com/Sauraha-Hotels-Eco-Adventure-Resort.h10989661.Hotel-Information'
+  // }
 ];
 
   return (
