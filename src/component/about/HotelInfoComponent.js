@@ -178,16 +178,16 @@ const HotelInfoComponent = () => {
         <StatsContainer>
           <StatItem>
             <StatIcon><Bed size={24} /></StatIcon>
-            <StatContent>
+            {/* <StatContent>
               <StatNumber>10</StatNumber>
               <StatText>Well-Appointed Rooms</StatText>
-            </StatContent>
+            </StatContent> */}
           </StatItem>
           <StatItem>
             <StatIcon><Users size={24} /></StatIcon>
             <StatContent>
-              <StatNumber>1km</StatNumber>
-              <StatText>From City Center</StatText>
+              <StatNumber>200m</StatNumber>
+              <StatText>From rapti beach</StatText>
             </StatContent>
           </StatItem>
           <StatItem>
@@ -198,7 +198,6 @@ const HotelInfoComponent = () => {
             </StatContent>
           </StatItem>
         </StatsContainer>
-        <ExploreButton>Book Your Stay</ExploreButton>
       </ContentContainer>
       <ImageContainer>
         <LargeImage src={img1} alt="Eco Adventure Resort Room" />

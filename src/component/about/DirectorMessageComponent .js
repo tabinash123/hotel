@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Quote } from 'lucide-react';
-
+import img1 from '../../assets/rishiTiwari.jpg'; // Ensure this path is correct
 const MessageSection = styled.section`
   max-width: 1200px;
   margin: 4rem auto;
@@ -213,7 +213,7 @@ const DirectorMessageComponent = () => {
         </MessageContent>
         <DirectorInfo>
           <DirectorImageWrapper>
-            <DirectorImage src="/api/placeholder/250/250" alt="Emily Thompson, Hotel Director" />
+            <DirectorImage src={img1} alt="Emily Thompson, Hotel Director" />
           </DirectorImageWrapper>
           <DirectorDetails>
             <DirectorName>Mr.Rishi Tiwari</DirectorName>
