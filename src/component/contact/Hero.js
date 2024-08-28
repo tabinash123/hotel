@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import ima from '../../assets/resort/garden1.jpg'
+import ima from '../../assets/resort/contact.jpg';
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }

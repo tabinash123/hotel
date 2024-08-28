@@ -219,7 +219,7 @@ const Header = () => {
     <HeaderContainer isScrolled={isScrolled}>
       <TopBar>
         <ContactInfo>
-          <span>📞 +977-9855057182/9845068777</span>
+          <span>📞 +977-9855057182/ 9845023893 </span>
           <span>✉️ ecoadventureresortchitwan@gmail.com</span>
         </ContactInfo>
         <span>Luxury comfort and adventure beyound your wildest dream </span>

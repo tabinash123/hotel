@@ -94,7 +94,7 @@ const Hero = () => {
     <HeroSection>
       <Content>
         <Title>Tour Packages</Title>
-        <Subtitle>Experience luxury and comfort in the heart of nature. Discover the perfect blend of modern amenities and serene surroundings.</Subtitle>
+        {/* <Subtitle>Experience luxury and comfort in the heart of nature. Discover the perfect blend of modern amenities and serene surroundings.</Subtitle> */}
       </Content>
     </HeroSection>
   );

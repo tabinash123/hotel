@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, ChevronUp, Send } from 'lucide-react';
-
+import { MapPin, Phone, Mail, Facebook, Instagram,  ChevronUp, Send } from 'lucide-react';
 // ... (keep all the styled components as they are)
 
 const fadeIn = keyframes`
@@ -180,6 +179,22 @@ const ScrollToTop = styled.button`
     background-color: #FF8C00;
   }
 `;
+// Custom TikTok icon component
+const TikTok = ({ size = 24, color = 'currentColor', ...props }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"
+      fill={color}
+    />
+  </svg>
+);
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -216,11 +231,11 @@ const Footer = () => {
             </ContactItem>
             <ContactItem>
               <Phone size={14} />
-              +977-9855057182/9845068777
+              +977-9855057182/ 9845023893 
             </ContactItem>
             <ContactItem>
               <Mail size={14} />
-✉️ ecoadventureresortchitwan@gmail.com
+ecoadventureresortchitwan@gmail.com
             </ContactItem>
             <ContactItem>
               <MapPin size={14} />
@@ -230,6 +245,7 @@ const Footer = () => {
           <SocialLinks>
             <SocialLink href="https://www.facebook.com/ecoadventureresort" aria-label="Facebook"><Facebook size={20} /></SocialLink>
             <SocialLink href="https://www.instagram.com/ecoadventureresort?igsh=dnh1eng0bGpnaHQ5&utm_source=qr" aria-label="Instagram"><Instagram size={20} /></SocialLink>
+                        <SocialLink href="https://www.tiktok.com/@ecoadventureresort" aria-label="TikTok"><TikTok size={20} /></SocialLink>
           </SocialLinks>
         </Column>
         <Column>

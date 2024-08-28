@@ -211,7 +211,7 @@ const Contactpage = () => {
           <SectionTitle>How to Reach Us</SectionTitle>
           <ContactDetail>
             <Phone size={20} />
-            +977-9855057182/9845068777
+             056-580477 
           </ContactDetail>
           <ContactDetail>
             <Mail size={20} />
@@ -221,13 +221,13 @@ const Contactpage = () => {
             <MapPin size={20} />
             Eco Adventure Resort, Sauraha, Chitwan, Nepal
           </ContactDetail>
-          <ContactDetail>
+          {/* <ContactDetail>
             <Clock size={20} />
             Check-in: 2:00 PM, Check-out: 12:00 PM
-          </ContactDetail>
+          </ContactDetail> */}
           <ContactDetail>
             <Globe size={20} />
-            1 km from Sauraha city center
+            200 m away from Rapati Beach
           </ContactDetail>
           <ContactDetail>
             <Globe size={20} />
@@ -297,12 +297,11 @@ const Contactpage = () => {
         <SectionTitle>Essential Information for Guests</SectionTitle>
         <InfoList>
           <li>Eco-Friendly: We are committed to sustainable practices and preserving the natural beauty of Chitwan.</li>
-          <li>Family-Friendly: Children aged 4-10 can stay free of charge.</li>
           <li>Location: Just 1 km from Sauraha city center, offering easy access to local attractions.</li>
           <li>Transportation: 45 minutes drive from the airport. Contact us for transfer arrangements.</li>
-          <li>Nearby Attraction: Chitwan National Park is easily accessible from our resort.</li>
+          <li>Nearby Attraction:   200 m away from Rapati Beach,Wildlife Museum and Elephant Post.</li>
           <li>Amenities: We offer various facilities including a bar, garden area, and eco-friendly rooms.</li>
-          <li>Activities: Enjoy jungle safaris, bird watching, and cultural experiences during your stay.</li>
+          <li>Activities: Enjoy jungle safaris, bird watching,jungle watch, and cultural experiences during your stay.</li>
         </InfoList>
       </InfoBox>
     </PageContainer>

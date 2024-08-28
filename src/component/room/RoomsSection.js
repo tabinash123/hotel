@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Wifi, Maximize, Users, Mountain, Droplet } from 'lucide-react';
 
-import img1 from "../../assets/rooms/1.jpg";
+import img1 from "../../assets/rooms/2.jpg";
 import img2 from "../../assets/rooms/2.jpg";
-import img3 from "../../assets/rooms/3.jpg";
+import img3 from "../../assets/rooms/1.jpg";
 import img4 from "../../assets/rooms/2.jpg";
 import img5 from "../../assets/rooms/5.jpg";
 import img6 from "../../assets/rooms/3.jpg";
