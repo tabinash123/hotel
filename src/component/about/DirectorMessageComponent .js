@@ -8,7 +8,6 @@ const MessageSection = styled.section`
   padding: 2rem;
   background-color: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
 
@@ -217,7 +216,7 @@ const DirectorMessageComponent = () => {
           </DirectorImageWrapper>
           <DirectorDetails>
             <DirectorName>Mr.Rishi Tiwari</DirectorName>
-            <DirectorTitle>Managing Hotel Director</DirectorTitle>
+            <DirectorTitle>Managing  Director</DirectorTitle>
           </DirectorDetails>
         </DirectorInfo>
       </ContentWrapper>

@@ -145,11 +145,7 @@ const galleryImages = [
   { src: img5, alt: 'Hotel pathway' },
   { src: img6, alt: 'Hotel building at night' },
   { src: img7, alt: 'Hotel building at night' },
-  { src: img8, alt: 'Hotel building at night' },
-  { src: img9, alt: 'Hotel building at night' },
-  { src: img10, alt: 'Hotel building at night' },
-  { src: img11, alt: 'Hotel building at night' },
-  { src: img12, alt: 'Hotel building at night' },
+ { src: img12, alt: 'Hotel building at night' },
   { src: img13, alt: 'Hotel building at night' },
 ];
 

@@ -220,7 +220,6 @@ const Header = () => {
       <TopBar>
         <ContactInfo>
           <span>📞 +977-9855057182/ 9845023893 </span>
-          <span>✉️ ecoadventureresortchitwan@gmail.com</span>
         </ContactInfo>
         <span>LUXURY COMFORT AND ADVENTURE BEYOND YOUR WILDEST DREAM. </span>
       </TopBar>

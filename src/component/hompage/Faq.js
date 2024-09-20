@@ -4,23 +4,16 @@ import { Minus, Plus } from 'lucide-react';
 import img1 from '../../assets/resort/garden1.jpg'
 
 const FAQSection = styled.section`
-  // max-width: 1200px;
-  // margin: 30px auto;
-  padding:50px 20px;
+  padding: 50px 20px;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  background: #f4efe1;
+  background: #f9f9f9;
 
   @media (min-width: 768px) {
-    margin: 40px auto;
     flex-direction: row;
     gap: 40px;
-  }
-
-  @media (min-width: 1024px) {
-    margin: 50px auto;
   }
 `;
 
@@ -36,19 +29,17 @@ const RightColumn = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 0.9rem;
-  color: #ff4500;
+  font-size: 1rem;
+  color: #A17A0B;
   margin-bottom: 10px;
   font-weight: normal;
-
-  @media (min-width: 768px) {
-    font-size: 1rem;
-  }
+  text-transform: uppercase;
+  letter-spacing: 2px;
 `;
 
 const Subtitle = styled.h3`
   font-size: 2rem;
-  color: #0c2e1c;
+  color: #000;
   margin-bottom: 20px;
   font-weight: bold;
 
@@ -78,7 +69,7 @@ const Question = styled.div`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  color: #0c2e1c;
+  color: #000;
   font-weight: bold;
   font-size: 0.9rem;
 
@@ -106,12 +97,11 @@ const IconWrapper = styled.div`
   justify-content: center;
   width: 20px;
   height: 20px;
-  background-color: ${props => props.isOpen ? '#ff4500' : '#f0f0f0'};
+  background-color: ${props => props.isOpen ? '#A17A0B' : '#f0f0f0'};
   border-radius: 4px;
-  color: ${props => props.isOpen ? 'white' : '#0c2e1c'};
+  color: ${props => props.isOpen ? 'white' : '#000'};
 
   @media (min-width: 768px) {
-
     width: 24px;
     height: 24px;
   }
@@ -122,11 +112,11 @@ const Image = styled.img`
   height: auto;
   max-height: 500px;
   object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
     display: none;
-
-    max-height: 500px;
   }
 
   @media (min-width: 1024px) {

@@ -6,11 +6,11 @@ import UnforgettableExperience from './../component/hompage/UnforgettableExperie
 import PhotoGallery from '../component/hompage/PhotoGallery';
 import IntroductionSection from './../component/hompage/IntroductionSection';
 import HeroComponent from '../component/hompage/HeroComponent.js';
-import Faq from '../component/hompage/Faq.js';
 import WhyChooseUs from '../component/hompage/WhyChooseUs;.js';
 import HotelFeatures from '../component/hompage/HotelFeatures.js';
 import Video from '../component/hompage/Video.js';
 import Review from '../component/hompage/Review.js';
+import FoodMenu from '../component/hompage/FoodMenu.js';
 
 
 const Hompage = () => {
@@ -21,12 +21,13 @@ const Hompage = () => {
       <IntroductionSection />
       <Services />
       <RoomsSection />
+      <FoodMenu />
       <UnforgettableExperience />
       <Review />
       <WhyChooseUs />
-      <Video />
+      {/* <Video /> */}
       {/* <TestimonialComponent /> */}
-      <Faq />
+      {/* <Faq /> */}
       <PhotoGallery />
     </div>
   )

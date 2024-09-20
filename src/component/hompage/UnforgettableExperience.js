@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { Star, StarHalf, ChevronRight, Clock, Users } from 'lucide-react';
-import {Link} from 'react-router-dom';
-// Import the specific images
+import styled, { keyframes, css } from 'styled-components';
+import { Star, StarHalf, ChevronRight, Clock, Users, Info } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+// Assume images are imported as before
 import jeepSafari from '../../assets/activities/jeepsafari3.jpg';
 import bishajariLake from '../../assets/activities/bishajariLake.jpg';
 import elephantBath from '../../assets/activities/elephantBath.jpg';
 import culturalProgram from '../../assets/activities/culturalProgram.jpg';
-// import elephantRide from '../../assets/activities/elephantride.jpg';
 import elephantBreeding from '../../assets/activities/elephantBreeding.jpg';
-// import towerNightStay from '../../assets/activities/towerNightStay.jpg';
-// import lakeVisit from '../../assets/activities/lakeVisit.jpg';
 import adventureActivities from '../../assets/activities/adventureActivities.jpg';
 import birdWatching from '../../assets/activities/birdWatching.jpg';
-// import bbqCamping from '../../assets/activities/bbqCamping.jpg';
 
 const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 `;
 
 const ActivitySection = styled.section`
@@ -26,32 +23,27 @@ const ActivitySection = styled.section`
   padding: 0 2rem;
   text-align: center;
   animation: ${fadeIn} 0.5s ease-out;
-
-  @media (max-width: 1024px) {
-    margin: 3rem auto;
-    padding: 0 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
 `;
 
 const Title = styled.h2`
-    font-size: 2rem;
+  font-size: 2.5rem;
   color: #0c2e1c;
   margin-bottom: 20px;
   font-weight: bold;
   font-family: 'Playfair Display', serif;
   letter-spacing: -0.5px;
+  position: relative;
+  display: inline-block;
 
-  @media (max-width: 1024px) {
-    font-size: 3rem;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1.8rem;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #B8860B;
   }
 `;
 
@@ -68,10 +60,6 @@ const RatingText = styled.span`
   margin-right: 0.5rem;
   font-family: 'Roboto', sans-serif;
   color: #2c3e50;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
 `;
 
 const ReviewCount = styled.p`
@@ -79,28 +67,21 @@ const ReviewCount = styled.p`
   font-size: 1rem;
   margin-bottom: 2rem;
   font-family: 'Roboto', sans-serif;
-
-  @media (max-width: 768px) {
-    font-size: 0.9rem;
-    margin-bottom: 1.75rem;
-  }
 `;
 
 const ActivitiesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
   margin-bottom: 2rem;
 
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.75rem;
+  @media (min-width: 768px) {
+    gap: 1.25rem;
   }
 
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
 `;
 
@@ -108,62 +89,77 @@ const ActivityCard = styled.div`
   text-align: left;
   background: white;
   overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
 `;
 
 const ActivityImageWrapper = styled.div`
   position: relative;
   overflow: hidden;
+  height: 120px;
+
+  @media (min-width: 768px) {
+    height: 175px;
+  }
+
+  @media (min-width: 1024px) {
+    height: 150px;
+  }
 `;
 
 const ActivityImage = styled.img`
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 
-  @media (max-width: 1024px) {
-    height: 180px;
+  ${ActivityCard}:hover & {
+    transform: scale(1.05);
   }
-
-  @media (max-width: 768px) {
-    height: 150px;
-  }
-
 `;
 
 const ActivityContent = styled.div`
-  padding: 1rem;
+  padding: 0.75rem;
 
-  @media (max-width: 768px) {
-    padding: 0.75rem;
+  @media (min-width: 768px) {
+    padding: 1.25rem;
   }
 `;
 
 const ActivityTitle = styled.h3`
-  font-size: 1.3rem;
+  font-size: 0.9rem;
   color: #2c3e50;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   font-family: 'Playfair Display', serif;
   font-weight: 600;
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 1.1rem;
+    margin-bottom: 0.5rem;
   }
 `;
 
 const ActivityDescription = styled.p`
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #555;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
   font-family: 'Roboto', sans-serif;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+  ${props => props.expanded ? css`max-height: 1000px;` : css`max-height: 2.6em;`}
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 0.9rem;
-    line-height: 1.5;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    ${props => props.expanded ? css`max-height: 1000px;` : css`max-height: 2.8em;`}
   }
 `;
 
@@ -172,19 +168,40 @@ const SeeMoreLink = styled.span`
   cursor: pointer;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
-`;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease;
+  font-size: 0.7rem;
 
+  &:hover {
+    color: #9A7B0A;
+  }
+
+  svg {
+    margin-left: 2px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover svg {
+    transform: translateX(3px);
+  }
+
+  @media (min-width: 768px) {
+    font-size: 0.8rem;
+
+    svg {
+      margin-left: 4px;
+    }
+  }
+`;
 const ActivityMeta = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #666;
   font-family: 'Roboto', sans-serif;
-
-  @media (max-width: 768px) {
-    font-size: 0.8rem;
-  }
+  margin-top: 0.5rem;
 `;
 
 const MetaItem = styled.span`
@@ -196,9 +213,9 @@ const MetaItem = styled.span`
   }
 `;
 
-const SeeMoreButton = styled.button`
-  padding: 12px 24px;
-  font-size: 1rem;
+const SeeMoreButton = styled(Link)`
+  padding: 10px 20px;
+  font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -208,10 +225,11 @@ const SeeMoreButton = styled.button`
   transition: all 0.3s ease;
   background-color: #B8860B;
   color: white;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  text-decoration: none;
+  margin: 25px 0;
 
   &:hover {
     background-color: #9A7B0A;
@@ -221,23 +239,15 @@ const SeeMoreButton = styled.button`
 
   svg {
     margin-left: 8px;
+    transition: transform 0.3s ease;
   }
 
-  @media (max-width: 768px) {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+  &:hover svg {
+    transform: translateX(3px);
   }
 `;
 
 const activities = [
-
-  // {
-  //   image: elephantRide,
-  //   title: "Elephant Ride",
-  //   description: "Enjoy a majestic ride through the jungle atop a gentle giant, observing wildlife from a unique vantage point.",
-  //   duration: "1-2 hours",
-  //   groupSize: "1-4 per elephant"
-  // },
   {
     image: elephantBath,
     title: "Elephant Bath",
@@ -252,7 +262,6 @@ const activities = [
     duration: "3-4 hours",
     groupSize: "4-8"
   },
-
   {
     image: birdWatching,
     title: "Bird Watching",
@@ -274,7 +283,6 @@ const activities = [
     duration: "Varies",
     groupSize: "Varies"
   },
- 
   {
     image: culturalProgram,
     title: "Cultural Programme",
@@ -282,63 +290,62 @@ const activities = [
     duration: "2 hours",
     groupSize: "Any"
   },
-
 ];
+
 const ResortActivities = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
   const [expandedIndex, setExpandedIndex] = useState(null);
   const rating = 4.9;
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 !== 0;
 
-  const truncateDescription = (description, limit = 50) => {
-    const words = description.split(' ');
-    if (words.length > limit) {
-      return words.slice(0, limit).join(' ') + '...';
-    }
-    return description;
+  const toggleExpand = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
   };
 
   return (
     <ActivitySection>
-      <Title>In the Heart of the Jungle</Title>
+      <Title>Discover Our Jungle Adventures</Title>
       <Rating>
         <RatingText>{rating} out of 5</RatingText>
         {[...Array(5)].map((_, i) => (
-          i < fullStars ? <Star key={i} size={18} fill="#FFD700" color="#FFD700" /> :
-          (i === fullStars && hasHalfStar ? <StarHalf key={i} size={18} fill="#FFD700" color="#FFD700" /> : <Star key={i} size={18} color="#FFD700" />)
+          i < fullStars ? <Star key={i} size={16} fill="#FFD700" color="#FFD700" /> :
+          (i === fullStars && hasHalfStar ? <StarHalf key={i} size={16} fill="#FFD700" color="#FFD700" /> : <Star key={i} size={16} color="#FFD700" />)
         ))}
       </Rating>
-      <ReviewCount>Based on 25000+ reviews</ReviewCount>
+      <ReviewCount>Based on 25,000+ thrilling experiences</ReviewCount>
       <ActivitiesGrid>
         {activities.map((activity, index) => (
-          <ActivityCard 
-            key={index}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
+          <ActivityCard key={index}>
             <ActivityImageWrapper>
               <ActivityImage src={activity.image} alt={activity.title} />
             </ActivityImageWrapper>
             <ActivityContent>
               <ActivityTitle>{activity.title}</ActivityTitle>
-              <ActivityDescription>
-                {/* {expandedIndex === index ? activity.description : truncateDescription(activity.description)} */}
-                {/* {expandedIndex !== index && (
-                  <SeeMoreLink onClick={() => setExpandedIndex(index)}> see more</SeeMoreLink>
-                )} */}
+              <ActivityDescription expanded={expandedIndex === index}>
+                {activity.description}
               </ActivityDescription>
-           
+              <SeeMoreLink onClick={() => toggleExpand(index)}>
+                {expandedIndex === index ? 'See less' : 'See more'}
+                <Info size={14} />
+              </SeeMoreLink>
+              <ActivityMeta>
+                <MetaItem>
+                  <Clock size={14} />
+                  {activity.duration}
+                </MetaItem>
+                <MetaItem>
+                  <Users size={14} />
+                  {activity.groupSize}
+                </MetaItem>
+              </ActivityMeta>
             </ActivityContent>
           </ActivityCard>
         ))}
       </ActivitiesGrid>
-        <Link to="/tour" style={{ color: 'white', textDecoration: 'none' }}>
-      <SeeMoreButton>
-          See More Activities
+      <SeeMoreButton to="/tour">
+        Explore All Activities
         <ChevronRight size={18} />
       </SeeMoreButton>
-        </Link>
     </ActivitySection>
   );
 };

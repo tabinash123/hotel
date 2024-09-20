@@ -196,15 +196,15 @@ const galleryImages = [
   { src: img15, alt: 'Hotel building at night' },
   { src: img16, alt: 'Hotel building at night' },
   { src: img17, alt: 'Hotel building at night' },
-  { src: img18, alt: 'Hotel building at night' },
+  // { src: img18, alt: 'Hotel building at night' },
   { src: img19, alt: 'Hotel building at night' },
   { src: img20, alt: 'Hotel building at night' },
   { src: img21, alt: 'Hotel building at night' },
   { src: img22, alt: 'Hotel building at night' },
   { src: img23, alt: 'Hotel building at night' },
-  { src: img24, alt: 'Hotel building at night' },
-  { src: img25, alt: 'Hotel building at night' },
-  { src: img26, alt: 'Hotel building at night' },
+  // { src: img24, alt: 'Hotel building at night' },
+  // { src: img25, alt: 'Hotel building at night' },
+  // { src: img26, alt: 'Hotel building at night' },
 ];
 
 const Gallery = () => {

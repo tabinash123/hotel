@@ -1,204 +1,245 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Check, ChevronRight } from 'lucide-react';
+import styled, { keyframes } from 'styled-components';
+import { CheckCircle, Leaf } from 'lucide-react';
 import img1 from '../../assets/resort/family2.jpg';
 
-const SectionContainer = styled.section`
-  background-color: #f4efe1;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
+const Section = styled.section`
+  background-color: #f8f5f0;
+  padding: 60px 0;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 1024px) {
+    padding: 40px 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 30px 0;
+  }
+`;
+
+const LeafDecoration = styled(Leaf)`
+  position: absolute;
+  color: rgba(74, 124, 89, 0.1);
+  z-index: 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const Container = styled.div`
+  max-width: 1200px;
   margin: 0 auto;
-    font-family: Arial, sans-serif;
-
-
-
-  @media (min-width: 768px) {
-    padding: 50px 30px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 60px 40px;
-  }
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
 `;
 
-const ContentContainer = styled.div`
-  width: 100%;
-  max-width: 600px;
-
-  @media (min-width: 768px) {
-    flex: 1;
-    min-width: 300px;
-  }
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 0.9rem;
-  color: #ff6b35;
-  margin-bottom: 10px;
+const SectionTitle = styled.h3`
+  color: #e74c3c;
+  font-size: 16px;
   text-transform: uppercase;
-  font-weight: 500;
-
-  @media (min-width: 768px) {
-    font-size: 1rem;
-  }
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 12px;
+  animation: ${fadeIn} 1s ease-out;
 `;
 
-const MainTitle = styled.h3`
-  font-size: 2rem;
-  color: #000000;
-  margin-bottom: 20px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+const MainTitle = styled.h2`
+  color: #2c3e50;
+  font-size: 42px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  animation: ${fadeIn} 1s ease-out 0.2s backwards;
 
-  @media (min-width: 768px) {
-    font-size: 2.25rem;
+  @media (max-width: 1024px) {
+    font-size: 36px;
   }
 
-  @media (min-width: 1024px) {
-    font-size: 2.5rem;
+  @media (max-width: 768px) {
+    font-size: 30px;
   }
 `;
 
 const Description = styled.p`
-  font-size: 0.9rem;
-  color: #000000;
-  margin-bottom: 30px;
+  color: #34495e;
+  font-size: 16px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
   line-height: 1.6;
-  font-family: 'Roboto', sans-serif;
+  animation: ${fadeIn} 1s ease-out 0.4s backwards;
 
-  @media (min-width: 768px) {
-    font-size: 1rem;
+  @media (max-width: 1024px) {
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  animation: ${fadeIn} 1s ease-out 0.6s backwards;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 30px;
+  }
+`;
+
+const ImageWrapper = styled.div`
+  flex: 0 0 500px;
+  height: 400px;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: -15px;
+    bottom: -15px;
+    border: 2px solid #e74c3c;
+    z-index: -1;
+  }
+
+  @media (max-width: 1024px) {
+    flex: 0 0 400px;
+    height: 320px;
+  }
+
+  @media (max-width: 768px) {
+    flex: 0 0 300px;
+    height: 240px;
+    &::after {
+      top: 10px;
+      left: 10px;
+      right: -10px;
+      bottom: -10px;
+    }
+  }
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.02);
+  }
+`;
+
+const FeaturesWrapper = styled.div`
+  flex: 1;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+`;
+
+const FeatureText = styled.p`
+  color: #2c3e50;
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 25px;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.5;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    margin-bottom: 20px;
   }
 `;
 
 const FeatureList = styled.ul`
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 `;
 
 const FeatureItem = styled.li`
   display: flex;
   align-items: center;
-  font-size: 0.9rem;
-  color: #1a3c34;
-  font-family: 'Roboto', sans-serif;
-
-  @media (min-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
-const CheckIcon = styled(Check)`
-  color: #ff6b35;
-  margin-right: 10px;
-`;
-
-const ReadMoreButton = styled.button`
-  background-color: #ff6b35;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 0.9rem;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  margin-top: 30px;
-  transition: background-color 0.3s ease;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 600;
-
+  color: #34495e;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  transition: transform 0.2s ease;
   &:hover {
-    background-color: #e55a2b;
+    transform: translateX(5px);
   }
 
-  @media (min-width: 768px) {
-    padding: 12px 24px;
-    font-size: 1rem;
-  }
-`;
-
-const ImageContainer = styled.div`
-  width: 100%;
-  max-width: 500px;
-  position: relative;
-  margin-top: 30px;
-
-  @media (min-width: 768px) {
-    flex: 1;
-    min-width: 300px;
-    margin-top: 0;
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
 `;
 
-const MainImage = styled.img`
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const ExperienceBadge = styled.div`
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  background-color: #1a3c34;
-  color: white;
-  padding: 12px;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  font-family: 'Playfair Display', serif;
-
-  @media (min-width: 768px) {
-    padding: 15px;
-    font-size: 1.1rem;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 1.2rem;
-  }
+const StyledCheckCircle = styled(CheckCircle)`
+  color: #27ae60;
+  margin-right: 10px;
+  flex-shrink: 0;
 `;
 
 const WhyChooseUs = () => {
   return (
-    <SectionContainer>
-      <ContentContainer>
-        <SectionTitle>Why Choose Us</SectionTitle>
-        <MainTitle>Why Guests Love Eco Adventure Resort?</MainTitle>
+    <Section>
+      <LeafDecoration size={250} style={{ top: -40, right: -40, transform: 'rotate(45deg)' }} />
+      <LeafDecoration size={180} style={{ bottom: -25, left: -25, transform: 'rotate(-45deg)' }} />
+      <Container>
+        <SectionTitle>OUR FEATURES</SectionTitle>
+        <MainTitle>Why Choose Chitwan Retreat</MainTitle>
         <Description>
-          Experience the perfect blend of adventure, comfort, and authentic Nepalese hospitality.
-          Our prime location and exceptional services make us the ideal choice for your Chitwan getaway.
+          Immerse yourself in the untamed beauty of Chitwan National Park. Our retreat offers a perfect blend of 
+          adventure, luxury, and conservation, creating unforgettable experiences that connect you with Nepal's 
+          wild heart.
         </Description>
-        <FeatureList>
-          <FeatureItem><CheckIcon size={20} /> Prime jungle location</FeatureItem>
-          <FeatureItem><CheckIcon size={20} /> Expert wildlife guides</FeatureItem>
-          <FeatureItem><CheckIcon size={20} /> Authentic cultural experiences</FeatureItem>
-          <FeatureItem><CheckIcon size={20} /> Eco-friendly practices</FeatureItem>
-          <FeatureItem><CheckIcon size={20} /> Comfortable accommodations</FeatureItem>
-          <FeatureItem><CheckIcon size={20} /> Delicious local cuisine</FeatureItem>
-        </FeatureList>
-       
-      </ContentContainer>
-      <ImageContainer>
-        <MainImage src={img1} alt="Chitwan Jungle Lodge experience" />
-       
-      </ImageContainer>
-    </SectionContainer>
+        <ContentWrapper>
+          <ImageWrapper>
+            <Image src={img1} alt="Chitwan Resort Experience" />
+          </ImageWrapper>
+          <FeaturesWrapper>
+            <FeatureText>
+              At Chitwan Retreat, we cater to the diverse expectations of our esteemed guests. 
+              Our joy knows no bounds when you choose to return for another extraordinary adventure!
+            </FeatureText>
+            <FeatureList>
+              <FeatureItem><StyledCheckCircle size={20} /> Guided Jungle Safaris</FeatureItem>
+              <FeatureItem><StyledCheckCircle size={20} /> Sunrise Meditation Sessions</FeatureItem>
+              <FeatureItem><StyledCheckCircle size={20} /> Expert-led Nature Walks</FeatureItem>
+              <FeatureItem><StyledCheckCircle size={20} /> Exotic Bird Watching Tours</FeatureItem>
+              <FeatureItem><StyledCheckCircle size={20} /> Scenic Canoe Adventures</FeatureItem>
+              <FeatureItem><StyledCheckCircle size={20} /> Ethical Elephant Encounters</FeatureItem>
+              <FeatureItem><StyledCheckCircle size={20} /> Vibrant Cultural Performances</FeatureItem>
+              <FeatureItem><StyledCheckCircle size={20} /> Eco-Luxury Accommodations</FeatureItem>
+              <FeatureItem><StyledCheckCircle size={20} /> Rejuvenating Wilderness Spa</FeatureItem>
+              <FeatureItem><StyledCheckCircle size={20} /> Gourmet Riverside Dining</FeatureItem>
+            </FeatureList>
+          </FeaturesWrapper>
+        </ContentWrapper>
+      </Container>
+    </Section>
   );
 };
 

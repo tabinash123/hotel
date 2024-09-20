@@ -1,98 +1,214 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Binoculars, Trees, Users, Utensils } from 'lucide-react';
+import img1 from '../../assets/resort/hotel1.jpg';
+import agoda from '../../assets/agoda.png';
+import trip from '../../assets/trip.png';
+import expe from '../../assets/expe.png';
+import booking from '../../assets/booking.png';
 
-const IntroductionContainer = styled.section`
-  background-color: #f4efe1;
-  padding: 80px 20px;
-  text-align: center;
-  font-family: Arial, sans-serif;
+const Section = styled.section`
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: 'Playfair Display', serif;
+  background-color: #f8f5f0;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
   @media (max-width: 768px) {
-    padding: 60px 15px;
+    padding: 30px 15px;
   }
 `;
 
-const HotelName = styled.h1`
-  font-size: 2rem;
-  color: #0c2e1c;
-  margin-bottom: 20px;
+const ContentArea = styled.div`
+  flex: 1;
+  padding-right: 60px;
+
+  @media (max-width: 1024px) {
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+`;
+
+const WelcomeText = styled.h4`
+  color: #e67e22;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
+const Title = styled.h1`
+  color: #2c3e50;
+  font-size: 52px;
   font-weight: bold;
-  letter-spacing: -0.5px;
-  @media (max-width: 1024px) {
-    font-size: 3rem;
-  }
-  @media (max-width: 768px) {
-    font-size: 2.5rem;
-  }
-`;
-
-const Tagline = styled.p`
-  font-size: 1.1rem;
-  color: #34495e;
+  line-height: 1.2;
   margin-bottom: 30px;
-  font-style: italic;
-  font-weight: 300;
+
   @media (max-width: 1024px) {
-    font-size: 1.3rem;
+    font-size: 44px;
   }
+
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 36px;
   }
 `;
 
 const Description = styled.p`
-  font-size: 1.1rem;
-  color: #555;
-  max-width: 800px;
-  margin: 0 auto 50px;
+  color: #34495e;
+  font-size: 18px;
   line-height: 1.8;
-  text-align: justify;
-  text-justify: inter-word;
-  @media (max-width: 1024px) {
-    font-size: 1rem;
-    max-width: 90%;
-  }
+  margin-bottom: 40px;
+  font-family: 'Lato', sans-serif;
+
   @media (max-width: 768px) {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    text-align: left;
+    font-size: 16px;
   }
 `;
 
-// Other styled components remain unchanged
+const Quote = styled.blockquote`
+  border-left: 4px solid #27ae60;
+  padding-left: 25px;
+  margin-bottom: 30px;
+`;
 
-const SaurahaHotelIntroduction = () => {
+const QuoteText = styled.p`
+  color: #2c3e50;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+`;
+
+const Author = styled.p`
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+`;
+
+const Role = styled.span`
+  color: #27ae60;
+  font-weight: normal;
+`;
+
+const ImageArea = styled.div`
+  flex: 0 0 500px;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 1024px) {
+    flex: 0 0 400px;
+    height: 480px;
+  }
+
+  @media (max-width: 768px) {
+    flex: 0 0 300px;
+    height: 360px;
+  }
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+`;
+
+const BookingPlatforms = styled.div`
+  margin-top: 40px;
+
+  @media (max-width: 768px) {
+    margin-top: 30px;
+  }
+`;
+
+const PlatformText = styled.p`
+  font-size: 18px;
+  color: #34495e;
+  margin-bottom: 15px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+`;
+
+const PlatformLogos = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+`;
+
+const PlatformLogo = styled.img`
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    height: 40px;
+  }
+`;
+
+const IntroductionSection = () => {
   return (
-    <IntroductionContainer>
-      <HotelName>Eco Adventure Resort</HotelName>
-      <Tagline>Experience the Wild Heart of Nepal</Tagline>
-      <Description>
-        Eco Adventure Resort is more than just a place to stay; it's a gateway to the incredible wildlife and natural beauty of Chitwan National Park. Located in the heart of this UNESCO World Heritage Site, the resort offers a unique opportunity to experience Nepal's diverse ecosystem up close.
-
-Wildlife Safaris:
-Elephant Back Safaris: Embark on a thrilling adventure through the jungle on the back of a gentle giant.
-Jeep Safaris: Explore the park's diverse habitats, from grasslands to forests, in comfortable jeeps.
-Bird Watching: Spot a variety of bird species, including the endangered Bengal florican and the great hornbill.
-Cultural Experiences:
-Tharu Village Visits: Immerse yourself in the rich culture of the Tharu people, learning about their traditions, customs, and way of life.
-Cultural Programs: Enjoy traditional dance performances, music, and storytelling.
-Other Activities:
-Canoeing: Paddle along the Rapti River, enjoying the scenic views and spotting wildlife along the banks.
-Jungle Walks: Explore the park on foot, guided by experienced naturalists who will share their knowledge of the flora and fauna.
-Nature Photography: Capture stunning photos of the park's wildlife and landscapes.
-Eco Adventure Resort is committed to sustainability and responsible tourism. The resort takes steps to minimize its environmental impact and supports local communities. With its focus on wildlife, culture, and adventure, it's the perfect choice for travelers seeking a truly unforgettable experience in Chitwan.
-
-
-
-
-
-
-
-
-
-      </Description>
-    </IntroductionContainer>
+    <Section>
+      <ContentArea>
+        <WelcomeText>Experience the Wild Heart of Nepal</WelcomeText>
+        <Title>Welcome to Eco Adventure Resort</Title>
+        <Description>
+          Nestled on the edge of Chitwan National Park, our resort invites you to immerse yourself in the untamed beauty of Nepal's wilderness. Here, the spirit of adventure meets luxurious comfort, offering a unique blend of thrilling safari experiences and serene relaxation.
+        </Description>
+        <Quote>
+          <QuoteText>
+            "Our mission is to connect our guests with the raw beauty of Chitwan, creating unforgettable memories while preserving the delicate balance of this incredible ecosystem."
+          </QuoteText>
+          <Author>
+            Mr.Rishi Tiwari<Role> (Eco Adventure Resort Manager)</Role>
+          </Author>
+        </Quote>
+        <BookingPlatforms>
+          <PlatformText>Book your stay through our partners:</PlatformText>
+          <PlatformLogos>
+            <PlatformLogo src={agoda} alt="Agoda" />
+            <PlatformLogo src={trip} alt="TripAdvisor" />
+            <PlatformLogo src={expe} alt="Expedia" />
+            <PlatformLogo src={booking} alt="Booking.com" />
+          </PlatformLogos>
+        </BookingPlatforms>
+      </ContentArea>
+      <ImageArea>
+        <Image src={img1} alt="Chitwan National Park view" />
+      </ImageArea>
+    </Section>
   );
 };
 
-export default SaurahaHotelIntroduction;
+export default IntroductionSection;

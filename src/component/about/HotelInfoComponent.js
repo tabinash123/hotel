@@ -178,10 +178,10 @@ const HotelInfoComponent = () => {
         <StatsContainer>
           <StatItem>
             <StatIcon><Bed size={24} /></StatIcon>
-            {/* <StatContent>
+            <StatContent>
               <StatNumber>10</StatNumber>
               <StatText>Well-Appointed Rooms</StatText>
-            </StatContent> */}
+            </StatContent>
           </StatItem>
           <StatItem>
             <StatIcon><Users size={24} /></StatIcon>

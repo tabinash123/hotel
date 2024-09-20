@@ -1,166 +1,134 @@
-import React, { useState, useRef } from 'react';
-import styled from 'styled-components';
-import { Play, Pause } from 'lucide-react';
-import video from '../../assets/wildlife-of-nepal_nkD8m7wU.mp4';
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
 
-const VideoSection = styled.section`
-  position: relative;
-  width: 100%;
-  height: 70vh;
+// Import partner logos
+import agoda from '../../assets/agoda.png';
+import trip from '../../assets/trip.png';
+import expe from '../../assets/expe.png';
+import booking from '../../assets/booking.png';
+
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
+const PartnersSection = styled.section`
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 60px 40px;
+  background-color: #f8f9fa;
+  border-radius: 20px;
   overflow: hidden;
-   @media (max-width: 768px) {
-  height: 60vh;
+  position: relative;
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    animation: rotate 20s linear infinite;
+  }
+
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 `;
 
-const VideoBackground = styled.video`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translateX(-50%) translateY(-50%);
-  object-fit: cover;
-`;
-
-const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-`;
-
-const Content = styled.div`
+const ContentWrapper = styled.div`
   position: relative;
   z-index: 1;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+`;
+
+const SectionHeader = styled.div`
   text-align: center;
-  padding: 0 20px;
+  margin-bottom: 50px;
+  animation: ${fadeIn} 0.8s ease-out forwards;
 `;
 
-const Title = styled.h1`
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+const SubTitle = styled.h3`
+  font-size: 18px;
+  color: #e74c3c;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0 10px;
+  letter-spacing: 3px;
+`;
+
+const Title = styled.h2`
+  font-size: 42px;
+  color: #2c3e50;
+  margin: 0;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-
-  @media (min-width: 768px) {
-    font-size: 2.75rem;
-    margin-bottom: 0.75rem;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-  }
-`;
-
-const Subtitle = styled.h2`
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  font-weight: 300;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-
-  @media (min-width: 768px) {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+  position: relative;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #e74c3c;
+    margin: 20px auto 0;
+    border-radius: 2px;
   }
 `;
 
-const Description = styled.p`
-  font-size: 1rem;
-  max-width: 90%;
-  margin-bottom: 1.5rem;
-  line-height: 1.4;
-
-  @media (min-width: 768px) {
-    font-size: 1.1rem;
-    max-width: 80%;
-    line-height: 1.5;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-`;
-
-const PlayButton = styled.button`
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 2px solid white;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: flex;
+const PartnersGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  justify-items: center;
+`;
+
+const PartnerLogo = styled.img`
+  max-width: 180px;
+  max-height: 90px;
+  object-fit: contain;
   transition: all 0.3s ease;
+  opacity: 0.7;
+  animation: ${fadeIn} 0.8s ease-out forwards;
+  animation-delay: ${props => props.index * 0.2}s;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-
-  @media (min-width: 768px) {
-    width: 70px;
-    height: 70px;
-  }
-
-  @media (min-width: 1024px) {
-    width: 80px;
-    height: 80px;
+    transform: scale(1.1) translateY(-5px);
+    filter: grayscale(0%);
+    opacity: 1;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   }
 `;
 
-const Video = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef(null);
+const partners = [
+  { name: "Agoda", logo: agoda },
+  { name: "TripAdvisor", logo: trip },
+  { name: "Expedia", logo: expe },
+  { name: "Booking.com", logo: booking },
+];
 
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
+const OurPartners = () => {
   return (
-    <VideoSection>
-      <VideoBackground ref={videoRef} loop muted playsInline>
-        <source src={video} type="video/mp4" />
-        Your browser does not support the video tag.
-      </VideoBackground>
-      {/* <Overlay /> */}
-      <Content>
-       {isPlaying ? <></> : (<> <Title>Welcome to Eco Adventure Resort</Title>
-        <Subtitle>Your Gateway to Chitwan National Park</Subtitle></>)}
-   
-        <PlayButton onClick={togglePlay}>
-          {isPlaying ? <Pause size={24} color="white" /> : <Play size={24} color="white" />}
-        </PlayButton>
-      </Content>
-    </VideoSection>
+    <PartnersSection>
+      <ContentWrapper>
+        <SectionHeader>
+          <SubTitle>OUR NETWORK</SubTitle>
+          <Title>Trusted Partners</Title>
+        </SectionHeader>
+        <PartnersGrid>
+          {partners.map((partner, index) => (
+            <PartnerLogo 
+              key={index} 
+              src={partner.logo} 
+              alt={partner.name} 
+              index={index}
+            />
+          ))}
+        </PartnersGrid>
+      </ContentWrapper>
+    </PartnersSection>
   );
 };
 
-export default Video;
+export default OurPartners;

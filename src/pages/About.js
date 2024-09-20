@@ -8,18 +8,20 @@ import TestimonialCarousel from './../component/hompage/TestimonialComponent';
 import MissionVisionSection from './../component/about/MissionVision';
 import Gallery from '../component/about/Gallery'
 import DirectorMessageComponent from '../component/about/DirectorMessageComponent '
+import Faq from '../component/hompage/Faq.js';
 
 const About = () => {
   return (
     <div> 
       <Hero />
       <HotelInfoComponent />
-       <DirectorMessageComponent />
       <MissionVisionSection />
       <HotelFeaturesComponent />
       <RoomFacilities />
       {/* <TeamSection /> */}
       {/* <TestimonialCarousel /> */}
+       <DirectorMessageComponent />
+      <Faq />
       <Gallery />
     </div>
   )
